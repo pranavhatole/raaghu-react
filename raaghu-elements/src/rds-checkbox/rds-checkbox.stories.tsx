@@ -40,5 +40,3 @@ export const checkBox: Story = {
 } satisfies Story;
 
 checkBox.parameters = { controls: { include: ["type", "state", "label", "checked", "isDisabled", "isSwitch", "withlabel", "id", "isInputGroup"] } };
-
-
