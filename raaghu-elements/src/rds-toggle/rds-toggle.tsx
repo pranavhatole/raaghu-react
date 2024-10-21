@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./rds-toggle.css";
 
 export interface RdsToggleProps {
@@ -12,11 +12,18 @@ export interface RdsToggleProps {
 
 const RdsToggle = (props: RdsToggleProps) => {
     const [checked, setChecked] = useState(props.checked);
-
+    const [styleClass, setStyleClass] = useState(props.style);
     // useEffect(() => {
 
     //     setChecked(props.checked);
     // }, [props.checked]);
+
+
+
+    useEffect(() => {
+        setStyleClass(props.style);
+    }, [props.style]);
+
     const onChangeHandler = () => {
 
         setChecked((prev) => !prev);
@@ -29,51 +36,56 @@ const RdsToggle = (props: RdsToggleProps) => {
         } 
         return classes;
     };
-
+    const rootClasses = () => {
+        let classList = "form-check form-switch";
+        classList += ` ${styleClass.toLowerCase().replace(/\s+/g, "-")}`;
+        if (props.isDisabled) {
+            classList += " disabled";
+        }
+        return classList;
+    };
     return (
         <>
-            {props.layout === "Switch + label" ? (
-                <> 
-                    <div className="form-check form-switch">                        
+            {props.layout === "Switch + label" && (
+                <>
+                    <div className={rootClasses()}>
                         <input className={classes()} type="checkbox" role="switch" id="flexSwitchCheckDefault" checked={props.isChecked}></input>
                         <label className="form-check-label">{props.style === "Style 3" ? "style 3" : "Label"}</label>
                     </div>
-                </>) 
-                : (props.layout === "label + Switch" ? ( 
-                    <> 
-                        <div className="d-flex align-items-center">
-                            <label className="form-check-label me-2" htmlFor="flexSwitchCheckDefault">Label</label>
-                            <div className="form-check form-switch">
-                                <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked={props.isChecked}></input>
-                            </div>
+                </>)}
+
+            {props.layout === "label + Switch" && (
+                <>
+                    <div className="d-flex align-items-center">
+                        <label className="form-check-label me-2" htmlFor="flexSwitchCheckDefault">Label</label>
+                        <div className={rootClasses()}>
+                            <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked={props.isChecked}></input>
                         </div>
-                    </>)
-                    : (props.layout === "Top label + Switch" ? ( 
-                        <>
-                            <div>
-                                <label className="d-flex align-items-center form-check-label me-2" htmlFor="flexSwitchCheckDefault">Label</label>
-                                <div className="form-check form-switch">
-                                    <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"  checked={props.isChecked}></input>
-                                </div>
-                            </div>
-                        </>)
-                        : (props.layout === "Bottom label + Switch" ? (
-                            <> 
-                                <div>
-                                    <div className="d-flex form-check form-switch">
-                                        <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked={props.isChecked}></input>
-                                    </div>
-                                    <label className="d-flex align-items-center form-check-label me-2" htmlFor="flexSwitchCheckDefault">Label</label>
-                            
-                                </div>
-                            </>
-                        )
-                            :(<> 
-                                <div className="form-check form-switch">                        
-                                    <input className={classes()} type="checkbox" role="switch" id="flexSwitchCheckDefault" checked={props.isChecked}></input>
-                                    <label className="form-check-label">Label</label>
-                                </div>
-                            </>))))} 
+                    </div>
+            </>)}
+
+            {props.layout === "Top label + Switch" && (
+                <>
+                    <div>
+                        <label className="d-flex align-items-center form-check-label me-2" htmlFor="flexSwitchCheckDefault">Label</label>
+                        <div className={rootClasses()}>
+                            <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked={props.isChecked}></input>
+                        </div>
+                    </div>
+                </>)}
+
+            {props.layout === "Bottom label + Switch" && (
+                <>
+                    <div>
+                        <div className={rootClasses()}>
+                            <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked={props.isChecked}></input>
+                        </div>
+                        <label className="d-flex align-items-center form-check-label me-2" htmlFor="flexSwitchCheckDefault">Label</label>
+
+                    </div>
+                </>
+            )}
+
         </> 
     );
 

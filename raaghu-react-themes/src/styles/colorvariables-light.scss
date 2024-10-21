@@ -608,6 +608,31 @@ $accordion-border-color: $neutral-40 !default;
 $progress-bar-bg-primary:$bg-primary-dark-default;
 $progress-bar-bg-error:$bg-error-dark-default;
 
+$form-switch-style-bg3-disabled: $btn-neutral-transparent-hover;
+$form-switch-style-bg4-disabled: $btn-primary-transparent-disabled;
+
+$form-switch-style-bg3: $btn-neutral-transparent-hover;
+$form-switch-style-bg4: $btn-primary-solid-default;
+
+.form-switch.style-1 {
+    .form-check-input {
+        background-color: $form-switch-style-bg3;
+    }
+
+    .form-check-input:checked {
+        background-color: $form-switch-style-bg4;
+    }
+}
+.form-switch.style-1.disabled {
+    .form-check-input {
+        background-color: $form-switch-style-bg3-disabled;
+    }
+
+    .form-check-input:checked {
+        background-color: $form-switch-style-bg4-disabled;
+    }
+}
+
 .progress-bar-bg-error{
     background-color: $progress-bar-bg-error;
 }
