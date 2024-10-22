@@ -31,7 +31,7 @@ const RdsToggle = (props: RdsToggleProps) => {
 
     const classes = () => {
         let classes: string = "form-check-input";
-        if (props.style === "Style 3") {
+        if (props.style === "") {
             classes = "form-check-input form-check-input-style3";
         } 
         return classes;

@@ -223,9 +223,14 @@ $accordion-body-padding-x:0.5rem;
 $accordion-body-padding-y:0.5rem;
 
 $form-switch-style-bg1: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
-$form-switch-style-bg2: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='646464'/%3e%3c/svg%3e");
+$form-switch-style-bg2: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23646464'/%3e%3c/svg%3e");
 $form-switch-style-bg1-disabled: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23EBDCFF'/%3e%3c/svg%3e");
 $form-switch-style-bg2-disabled: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23CDCDCD'/%3e%3c/svg%3e");
+
+$form-switch-style3-bg1: url("data:image/svg+xml,%3csvg width='13' height='13' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='13' height='13' rx='2' ry='2' fill='%23fff'/%3e%3c/svg%3e");
+$form-switch-style3-bg2: url("data:image/svg+xml,%3csvg width='13' height='13' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='13' height='12' rx='2' ry='2' fill='%23646464'/%3e%3c/svg%3e");
+$form-switch-style3-bg1-disabled: url("data:image/svg+xml,%3csvg width='13' height='13' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='13' height='13' rx='2' ry='2' fill='%23EBDCFF'/%3e%3c/svg%3e");
+$form-switch-style3-bg2-disabled: url("data:image/svg+xml,%3csvg width='13' height='13' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='13' height='13' rx='2' ry='2' fill='%23CDCDCD'/%3e%3c/svg%3e");
 
 $progresss-percentage: $text-xsmall;
 
@@ -249,6 +254,40 @@ $progresss-percentage: $text-xsmall;
         background-image: $form-switch-style-bg1-disabled;
     }
 }
+
+.form-switch.style-3 {
+    .form-check-input {
+        background-image: $form-switch-style3-bg2;
+        background-size: auto;
+        border: 0px;
+        border-radius: $border-radius-xxs;
+        background-position: 0.15rem;
+    }
+
+    .form-check-input:checked {
+        background-image: $form-switch-style3-bg1;
+        background-size: auto;
+        border: 0px;
+        border-radius: $border-radius-xxs;
+        background-position: 0.78rem;
+    }
+}
+
+.form-switch.style-3.disabled {
+    .form-check-input {
+        background-image: $form-switch-style3-bg2-disabled;
+        background-size: auto;
+        background-position: 0.15rem;
+    }
+
+    .form-check-input:checked {
+        background-image: $form-switch-style3-bg1-disabled;
+        background-size: auto;
+        background-position: 0.78rem;
+    }
+}
+
+
 .progresss-percentage{
   font-size:  $progresss-percentage;
   }
