@@ -76,6 +76,7 @@ export { default as RdsPlandiscount } from "./rds-plan-discount";
 export { default as RdsWidgetPortal } from "./rds-widget-portal";
 export { default as RdsTabGroup } from "./rds-tab-group";
 // export { default as RdsAnimation } from "./rds-animation";
+
 // //Charts
 export { default as RdsAreaChart } from "./rds-chart-area";
 export { default as RdsLineChart } from "./rds-chart-line";
@@ -95,3 +96,4 @@ export { default as RdsCardDetail } from "./rds-card-detail";
 export { default as RdsMap } from "./rds-map";
 export { default as RdsLoader } from "./rds-loader";
 export { default as RdsDivider } from "./rds-divider";
+export { default as TimePicker } from "./time-picker";
