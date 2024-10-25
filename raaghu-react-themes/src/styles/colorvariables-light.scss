@@ -612,7 +612,7 @@ $form-switch-style-bg4-disabled: $btn-primary-solid-disabled;
 $form-switch-style-bg3: $btn-neutral-transparent-default;
 $form-switch-style-bg4: $btn-primary-solid-default;
 
-.form-switch.style-1 {
+.form-switch.style-1, .form-switch.style-5 {
     .form-check-input {
         background-color: $form-switch-style-bg3;
     }
@@ -621,7 +621,7 @@ $form-switch-style-bg4: $btn-primary-solid-default;
         background-color: $form-switch-style-bg4;
     }
 }
-.form-switch.style-1.disabled {
+.form-switch.style-1.disabled, .form-switch.style-5.disabled {
     .form-check-input {
         background-color: $form-switch-style-bg3-disabled;
     }
@@ -631,7 +631,7 @@ $form-switch-style-bg4: $btn-primary-solid-default;
     }
 }
 
-.form-switch.style-3 {
+.form-switch.style-3, .form-switch.style-6 {
     .form-check-input {
         background-color: $form-switch-style-bg3;
     }
@@ -641,7 +641,7 @@ $form-switch-style-bg4: $btn-primary-solid-default;
     }
 }
 
-.form-switch.style-3.disabled {
+.form-switch.style-3.disabled, .form-switch.style-6.disabled {
     .form-check-input {
         background-color: $form-switch-style-bg3-disabled;
     }
@@ -650,7 +650,13 @@ $form-switch-style-bg4: $btn-primary-solid-default;
         background-color: $form-switch-style-bg4-disabled;
     }
 }
+.style-5 .off, .style-6 .off {
+   color:$txt-neutral-dark-default;
+}
 
+.style-5 .on, .style-6 .on {
+    color: $txt-primary-lighter-default;
+}
 
 .progress-bar-bg-error{
     background-color: $progress-bar-bg-error;

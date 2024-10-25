@@ -260,6 +260,17 @@ $form-switch-style3-bg2: url("data:image/svg+xml,%3csvg width='13' height='13' v
 $form-switch-style3-bg1-disabled: url("data:image/svg+xml,%3csvg width='13' height='13' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='13' height='13' rx='2' ry='2' fill='%23EBDCFF'/%3e%3c/svg%3e");
 $form-switch-style3-bg2-disabled: url("data:image/svg+xml,%3csvg width='13' height='13' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='13' height='13' rx='2' ry='2' fill='%23CDCDCD'/%3e%3c/svg%3e");
 
+$form-switch-style-bg5: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+$form-switch-style-bg6: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23646464'/%3e%3c/svg%3e");
+$form-switch-style-bg5-disabled: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23EBDCFF'/%3e%3c/svg%3e");
+$form-switch-style-bg6-disabled: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23CDCDCD'/%3e%3c/svg%3e");
+
+$form-switch-style3-bg5: url("data:image/svg+xml,%3csvg width='13' height='13' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='13' height='13' rx='2' ry='2' fill='%23fff'/%3e%3c/svg%3e");
+$form-switch-style3-bg6: url("data:image/svg+xml,%3csvg width='13' height='13' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='13' height='12' rx='2' ry='2' fill='%23646464'/%3e%3c/svg%3e");
+$form-switch-style3-bg5-disabled: url("data:image/svg+xml,%3csvg width='13' height='13' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='13' height='13' rx='2' ry='2' fill='%23EBDCFF'/%3e%3c/svg%3e");
+$form-switch-style3-bg6-disabled: url("data:image/svg+xml,%3csvg width='13' height='13' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='13' height='13' rx='2' ry='2' fill='%23CDCDCD'/%3e%3c/svg%3e");
+
+
 $progresss-percentage: $text-xsmall;
 $toast-border-width:0px;
 $toast-border-radius: $border-radius-xs;
@@ -267,7 +278,15 @@ $toast-box-shadow:0px 3px 6px 0px rgba(62, 62, 62, 0.08);
 $toast-padding-x: $spacing-xs;
 $toast-padding-y: $spacing-s;
 
-.form-switch.style-1 {
+.style-5 .off, .style-6 .off {
+    font-size: $text-xsmall;
+}
+
+.style-5 .on, .style-6 .on {
+    font-size: $text-xsmall;
+}
+
+.form-switch.style-1, .form-switch.style-5 {
     .form-check-input {
         background-image: $form-switch-style-bg2;
         border: 0px;
@@ -278,7 +297,7 @@ $toast-padding-y: $spacing-s;
         border: 0px;
     }
 }
-.form-switch.style-1.disabled {
+.form-switch.style-1.disabled, .form-switch.style-5.disabled {
     .form-check-input {
         background-image: $form-switch-style-bg2-disabled;
     }
@@ -305,7 +324,23 @@ $toast-padding-y: $spacing-s;
         background-position: 0.78rem;
     }
 }
+.form-switch.style-6{
+    .form-check-input {
+        background-image: $form-switch-style3-bg2;
+        background-size: auto;
+        border: 0px;
+        border-radius: $border-radius-xxs;
+        background-position: 0.15rem;
+    }
 
+    .form-check-input:checked {
+        background-image: $form-switch-style3-bg1;
+        background-size: auto;
+        border: 0px;
+        border-radius: $border-radius-xxs;
+        background-position: 1.35rem;
+    }
+}
 .form-switch.style-3.disabled {
     .form-check-input {
         background-image: $form-switch-style3-bg2-disabled;
@@ -319,7 +354,19 @@ $toast-padding-y: $spacing-s;
         background-position: 0.78rem;
     }
 }
+.form-switch.style-6.disabled {
+    .form-check-input {
+        background-image: $form-switch-style3-bg2-disabled;
+        background-size: auto;
+        background-position: 0.15rem;
+    }
 
+    .form-check-input:checked {
+        background-image: $form-switch-style3-bg1-disabled;
+        background-size: auto;
+        background-position: 1.35rem;
+    }
+}
 
 $btn-border-radius: $border-radius-xs !default;
 
