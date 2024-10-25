@@ -110,10 +110,6 @@ const RdsCompAdminDashboard = (props: RdsCompAdminDashboardProps) => {
 
                                 id="linechart"
 
-                                height={250}
-
-                                width={650}
-
                                 labels={["12am", "4am", "8am", "12pm", "4pm", "8pm"]}
 
                                 options={{
@@ -288,10 +284,6 @@ const RdsCompAdminDashboard = (props: RdsCompAdminDashboardProps) => {
 
                                 id="linechart"
 
-                                height={250}
-
-                                width={650}
-
                                 labels={["Mon", "Tues", "Wed", "Thrus", "Fri", "Sat", "Sun"]}
 
                                 options={{
@@ -461,10 +453,6 @@ const RdsCompAdminDashboard = (props: RdsCompAdminDashboardProps) => {
                             <RdsLineChart
 
                                 id="linechart"
-
-                                height={250}
-
-                                width={650}
 
                                 labels={["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]}
 
@@ -816,8 +804,6 @@ const RdsCompAdminDashboard = (props: RdsCompAdminDashboardProps) => {
                                                 <RdsBooleanChart
                                                     centerIconName="headset"
                                                     id="Boolean1"
-                                                    height={100}
-                                                    width={100}
                                                     labels={[
                                                         "Total Calls Connected",
                                                         "Total Clients Called",
@@ -896,8 +882,6 @@ const RdsCompAdminDashboard = (props: RdsCompAdminDashboardProps) => {
                                                 <RdsBooleanChart
                                                     centerIconName="users"
                                                     id="Boolean2"
-                                                    height={100}
-                                                    width={100}
                                                     labels={[
                                                         "Total Client calls connected",
                                                         "Total Client calls disconnected",
@@ -986,10 +970,6 @@ const RdsCompAdminDashboard = (props: RdsCompAdminDashboardProps) => {
                                     <RdsLineChart
 
                                         id="linechart1"
-
-                                        height={50}
-
-                                        width={250}
 
                                         labels={["12am", "4am", "8am", "12pm", "4pm", "8pm"]}
 
@@ -1366,8 +1346,6 @@ const RdsCompAdminDashboard = (props: RdsCompAdminDashboardProps) => {
                                     </div>
                                     <RdsBarChart
                                         id="barchart"
-                                        height={300}
-                                        width={300}
                                         labels={[
                                             "Day4",
                                             "Day8",

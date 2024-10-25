@@ -22,8 +22,6 @@ const RdsCompTenantDashboard = () => {
                     >
                         <RdsLineChart
                             id="linechart"
-                            height={250}
-                            width={458}
                             labels={[
                                 "Jan",
                                 "Feb",
@@ -371,8 +369,6 @@ const RdsCompTenantDashboard = () => {
                                 <RdsDoughnutChart
                                     id="doughnutchart"
 
-                                    height={200}
-                                    width={120}
                                     labels={['Total Sales - 85%', 'Revenue - 25%', 'Expenses - 15%']}
 
 
@@ -494,8 +490,7 @@ const RdsCompTenantDashboard = () => {
                                                 <RdsBooleanChart
                                                     centerIconName="headset"
                                                     id="Boolean1"
-                                                    height={100}
-                                                    width={100}
+                                                    
                                                     labels={[
                                                         "Total Calls Connected",
                                                         "Total Clients Called",
@@ -574,8 +569,6 @@ const RdsCompTenantDashboard = () => {
                                                 <RdsBooleanChart
                                                     centerIconName="users"
                                                     id="Boolean2"
-                                                    height={100}
-                                                    width={100}
                                                     labels={[
                                                         "Total Client calls connected",
                                                         "Total Client calls disconnected",
@@ -664,10 +657,6 @@ const RdsCompTenantDashboard = () => {
                                     <RdsLineChart
 
                                         id="linechart1"
-
-                                        height={50}
-
-                                        width={250}
 
                                         labels={["12am", "4am", "8am", "12pm", "4pm", "8pm"]}
 
@@ -1032,8 +1021,6 @@ const RdsCompTenantDashboard = () => {
                                 <div>
                                     <RdsBarChart
                                         id="barchart"
-                                        height={400}
-                                        width={300}
                                         labels={[
                                             "10k",
                                             "20k",

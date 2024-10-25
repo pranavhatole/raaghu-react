@@ -5,8 +5,7 @@ export interface RdsPolarAreaChartProps {
     labels: any[],
     options: any,
     dataSets: any[],
-    width?: number,
-    height?: number,
+    radius?: number,
     chartStyle?: string,
     id: string
 }
@@ -36,8 +35,7 @@ const RdsPolarAreaChart = (props: RdsPolarAreaChartProps) => {
             options: props.options,
         });
         if (PolarCanvas != null) {
-        PolarCanvas.canvas.style.height = props.height + "px";
-        PolarCanvas.canvas.style.width = props.width + "px";
+        PolarCanvas.canvas.style.height = props.radius + "px";
         chartInstanceRef.current = PolarCanvas; // Store the chart instance
         }
     });

@@ -20,7 +20,6 @@ type Story = StoryObj<typeof RdsScatterChart>;
 export const ScatterChart: Story = {
     args: {
         id: "Scatter Chart",
-        width: 300,
         height: 300,
         dataSets: [
             {
@@ -69,7 +68,6 @@ export const ScatterChart: Story = {
 export const ScatterChartWithMultiAxis: Story = {
     args: {
         id: "Radar Chart",
-        width: 300,
         height: 300,
         dataSets: [
             {
