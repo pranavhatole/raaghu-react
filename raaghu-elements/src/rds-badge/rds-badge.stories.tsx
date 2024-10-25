@@ -15,29 +15,39 @@ const meta: Meta = {
   tags: ['autodocs'],
   argTypes: {
     size: {
-      options: ["small", "smaller", "smallest", "medium","large"],
+      options: ["small", "smaller", "smallest", "medium", "large"],
       control: { type: "select" },
     },
     badgeType: {
-      options: ["rectangle", "pill","box"],
+      options: ["rectangle", "pill", "box"],
       control: { type: "select" },
     },
     colorVariant: {
       options: badge_colors,
       control: { type: "select" },
     },
-    layout :{
-      options:  ["Icon only", "Icon+Text","Text only","Text+Icon"],
+    layout: {
+      options: ["Icon only", "Icon+Text", "Text only", "Text+Icon"],
       control: { type: "select" },
     },
-    style :{
-      options:  ["Primary", "Outline","disabled","transparent"],
+    style: {
+      options: ["Primary", "Outline", "disabled", "transparent"],
       control: { type: "select" },
     },
-    state :{
-      options:  ["Primary", "Secondary","Tertiary","Error","Neutral"],
+    state: {
+      options: ["Primary", "Secondary", "Tertiary", "Error", "Neutral"],
       control: { type: "select" },
-    }  
+    },
+    iconPosition: {
+      options: ["left", "right"],
+      control: { type: "select" },
+    },
+    isIconshow: {
+      control: { type: "boolean" },
+    },
+    iconName: {
+      control: { type: "text" },
+    },
   },
 } satisfies Meta<typeof RdsBadge>;
 
@@ -79,12 +89,12 @@ export const TextBadge: Story = {
     label: "Badge",
     colorVariant: "primary",
     badgeType: "rectangle",
-    layout :"Text Only",
-    style : "Primary",
-    state : "Primary"
+    layout: "Text Only",
+    style: "Primary",
+    state: "Primary"
   }
 } satisfies Story;
-TextBadge.parameters = { controls: { include: ['size', 'label', 'colorVariant', 'badgeType','layout','style','state'] } };
+TextBadge.parameters = { controls: { include: ['size', 'label', 'colorVariant', 'badgeType', 'layout', 'style', 'state'] } };
 
 export const WithLabel: Story = {
   args: {
@@ -109,37 +119,6 @@ export const WithIcon: Story = {
   render: PositionedIcon
 } satisfies Story;
 WithIcon.parameters = { controls: { include: ['size', 'label', 'colorVariant', 'badgeType', 'positioned'] } };
-
-export const IconBadge: Story = {
-  args: {
-    iconName: "circle",
-    size: "smallest",
-    colorVariant: "danger",
-    badgeType: "pill",
-    iconFill: true,
-    iconStroke: true,
-    isIconshow: true,
-    isIconBorder: true,
-    isOutline: true,
-  },
-} satisfies Story;
-IconBadge.parameters = { controls: { include: ['iconName', 'size', 'colorVariant', 'badgeType', 'iconFill', 'iconStroke', 'isOutline'] } };
-
-export const textWithIcon: Story = {
-  args: {
-    iconName: "circle",
-    size: "smallest",
-    label: "Badge",
-    colorVariant: "danger",
-    badgeType: "pill",
-    iconFill: true,
-    iconStroke: true,
-    iconPosition: "left",
-    isTextWithIcon: true,
-    isOutline: true,
-  },
-} satisfies Story;
-textWithIcon.parameters = { controls: { include: ['iconName','size', 'label', 'colorVariant', 'badgeType', 'iconFill', 'iconStroke', 'iconPosition', 'isOutline'] } };
 export const TextWithLabel: Story = {
   args: {
     size: "smallest",
@@ -147,17 +126,44 @@ export const TextWithLabel: Story = {
     colorVariant: "danger",
     badgeType: "pill",
   },
- // render: PositionedIcon
+  // render: PositionedIcon
 } satisfies Story;
-TextWithLabel.parameters = { controls: { include: ['size', 'label', 'colorVariant', 'badgeType', 'positioned','borderColor'] } };
-
-export const IconOnly: Story = {
+TextWithLabel.parameters = { controls: { include: ['size', 'label', 'colorVariant', 'badgeType', 'positioned', 'borderColor'] } };
+export const BadgeWithIcon: Story = {
   args: {
-    size: "smallest",
-    //label: "9",
-    colorVariant: "danger",
+    size: "small",
+    colorVariant: "primary",
     badgeType: "pill",
+    isIconshow: true,
+    iconName: "notification", // Name of the icon
   },
-  render: PositionedIcon
-} satisfies Story;
-IconOnly.parameters = { controls: { include: ['size', 'label', 'colorVariant', 'badgeType', 'positioned','borderColor'] } };
+  render: (args) => (
+    <RdsBadge {...args}>
+      <RdsIcon name={args.iconName} width="16px" height="16px" />
+    </RdsBadge>
+  ),
+};
+BadgeWithIcon.parameters = { controls: { include: ['size', 'colorVariant', 'badgeType', 'iconName', 'isIconshow'] } };
+
+export const BadgeWithIconAndText: Story = {
+  args: {
+    size: "small",
+    label: "Badge",
+    colorVariant: "primary",
+    badgeType: "pill",
+    iconName: "notification", // Adjust based on your available icons
+    iconPosition: "left", // Control whether the icon is on the left or right
+  },
+  render: (args) => (
+    <RdsBadge {...args}>
+      {args.iconPosition === "left" && (
+        <RdsIcon name={args.iconName} width="16px" height="16px" classes="me-1" />
+      )}
+      {args.label}
+      {args.iconPosition === "right" && (
+        <RdsIcon name={args.iconName} width="16px" height="16px" classes="ms-1" />
+      )}
+    </RdsBadge>
+  ),
+};
+BadgeWithIconAndText.parameters = { controls: { include: ['size', 'label', 'colorVariant', 'badgeType', 'iconName', 'iconPosition'] } };
