@@ -200,7 +200,7 @@ const RdsCheckbox: ForwardRefRenderFunction<HTMLInputElement, RdsCheckboxProps> 
                                             ref={ref}
                                         />
 
-                                        {props.labelPosition === "right" && renderLabel()}
+{(props.labelPosition || "right") === "right" && renderLabel()}
 
                                     </div>
                                 </div>
