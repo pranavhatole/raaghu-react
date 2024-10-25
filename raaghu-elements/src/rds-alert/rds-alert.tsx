@@ -86,12 +86,12 @@ const RdsAlert = (props: RdsAlertProps) => {
             <div
                 className={
                     "alert alert-" + colorType +
-                  " d-flex justify-content-between align-items-center z-0 " + classes()}
+                  " justify-content-between align-items-center z-0 position-relative d-lg-flex d-md-flex d-sm-block " + classes()}
                 role="alert"
             >
                 {props.displayType == "singleline" && (
                     <>
-                        <span className="wordbreak d-flex">
+                        <span className="custom-alert-message wordbreak d-flex mb-sm-2">
                             {props.icon && (
                                 <RdsIcon
                                     name={props.icon || " "}
@@ -115,7 +115,7 @@ const RdsAlert = (props: RdsAlertProps) => {
                             </div>
                         </span>
                   
-                        <span>
+                        <span className="d-flex me-4">
                             <div className="d-flex gap-2 alertBtns">
                                 {props.cancelbutton === true && (
                                     <button type="button" className="text-primary border-0 bg-transparent"> Cancel </button>
@@ -128,17 +128,19 @@ const RdsAlert = (props: RdsAlertProps) => {
                                         size="small"
                                     />
                                 )}
-                                {props.dismisable === true && (
-                                    <RdsIcon
-                                        colorVariant="primary"
-                                        name="close"
-                                        stroke={true}
-                                        height="12px"
-                                        width="12px"
-                                        onClick={(e: any) => closeHandler(e)}
-                                        isCursorPointer={true}
-                                    />
-                                )}
+                                <div className="d-flex align-items-top justify-content-end gap-2 mt-1 alert-close">
+                                    {props.dismisable === true && (
+                                        <RdsIcon
+                                            colorVariant="primary"
+                                            name="close"
+                                            stroke={true}
+                                            height="12px"
+                                            width="12px"
+                                            onClick={(e: any) => closeHandler(e)}
+                                            isCursorPointer={true}
+                                        />
+                                    )}
+                                </div>
                             </div>
                         </span>
                     </>
@@ -146,32 +148,34 @@ const RdsAlert = (props: RdsAlertProps) => {
       
                 {props.displayType == "multiline" && (
                     <>
-                        <span className="wordbreak d-flex">
-                            {props.icon && (
-                                <RdsIcon
-                                    name={props.icon || " "}
-                                    fill={props.iconFill}
-                                    stroke={props.iconStroke}
-                                    height={props.iconHeight}
-                                    width={props.iconWidth}
-                                    colorVariant= {colorType}
-                                    classes="me-2"
-                                />
-                            )}
+                            <span className="custom-alert-message wordbreak d-flex">
+                                {props.icon && (
+                                    <div>
+                                        <RdsIcon
+                                            name={props.icon || " "}
+                                            fill={props.iconFill}
+                                            stroke={props.iconStroke}
+                                            height={props.iconHeight}
+                                            width={props.iconWidth}
+                                            colorVariant={colorType}
+                                            classes="me-2"
+                                        />
+                                        {props.linkbutton === true && (
+                                            <a className="text-decoration-underline d-block mt-4" href="#">
+                                                Link
+                                            </a>
+                                        )}
+                                    </div>
+                                )}
       
                             <div>
                                 {props.alertheading && <strong>{props.alertheading}</strong>}
                                 {props.alertmessage}
                                 <p>{props.description}</p>
-                                {props.linkbutton === true && (
-                                    <a className="text-decoration-underline" href="#">
-                                      Link
-                                    </a>
-                                )}
                             </div>
                         </span>
                         <span>
-                            <div className="d-flex align-items-top justify-content-end gap-2">
+                            <div className="d-flex align-items-top justify-content-end gap-2 alert-close">
                                 {props.dismisable === true && (
                                     <RdsIcon
                                         colorVariant="primary"
