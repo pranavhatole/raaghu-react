@@ -38,7 +38,7 @@ export const checkBox: Story = {
         isSwitch: false,
         withlabel: true,
         id: "id1",
-        labelPosition: "left",
+        labelPosition: "right",
         //errorMessage:"error Message",
         isInputGroup: false
     }
