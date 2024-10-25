@@ -20,7 +20,9 @@ export interface BreadcrumbProps {
   breadcrumbItems: any[];
   type?: "Simple" | "Background";
   shape?: "Pill Background" | "Square Background";
-  separator?: ">" | "/" | "→" | "»" | "|" | "-";
+  separator?: ">" | "/" | "→" | "»" | "|" | "-" | "+";
+  onBreadcrumbClick?: (id: number) => void;
+  topnavPlusIcon?: boolean;
 }
 
 const RdsBreadcrumb = (props: BreadcrumbProps) => {
@@ -31,6 +33,9 @@ const RdsBreadcrumb = (props: BreadcrumbProps) => {
   }, [props.breadcrumbItems]);
 
   const onClickHandler = (key: number) => {
+    if (props.onBreadcrumbClick) {
+      props.onBreadcrumbClick(key);
+    }
     setData(
       data.map((item) => ({
         ...item,
@@ -53,7 +58,7 @@ const RdsBreadcrumb = (props: BreadcrumbProps) => {
       <ol
         className={`breadcrumb m-0 ${
           props.type === "Background" ? "breadcrumb-background" : ""
-        }`}
+        }  ${props.topnavPlusIcon ? "m-2": ""}`}
       >
         {data.map((breadItem, index) => {
           const isLastItem = index === data.length - 1;
@@ -95,6 +100,17 @@ const RdsBreadcrumb = (props: BreadcrumbProps) => {
                 >
                   {breadItem.label}
                 </a>
+                {(props.topnavPlusIcon && <span className="ps-2">
+                <RdsIcon
+                      name="plus"
+                      fill={breadItem.iconFill}
+                      stroke={breadItem.iconstroke}
+                      width={breadItem.iconWidth}
+                      height={breadItem.iconHeight}
+                      colorVariant={breadItem.active ? breadItem.iconColor : ""}
+                      isCursorPointer={true}
+                    />
+                </span>)}
               </li>
               {!isLastItem && (
                 <li className="breadcrumb-separator">{props.separator}</li>
