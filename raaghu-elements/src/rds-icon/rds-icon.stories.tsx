@@ -53,3 +53,25 @@ export const Tooltip: Story = {
     },
 } satisfies Story;
 Tooltip.parameters = { controls: { include: ['name', 'width', 'height', 'databstoggle', 'tooltip', 'tooltipPlacement', 'tooltipTitle', 'colorVariant', 'isCursorPointer'] } };
+
+export const WithImage: Story = {
+    args: {
+        colorVariant: "primary",
+        imageurl: "",
+        width: "20px",
+        height: "20px",
+        databstoggle: "tooltip",
+        tooltip: true,
+        tooltipPlacement: "right",
+        tooltipTitle: "This is tooltip",
+        isCursorPointer: true,
+
+    },
+    argTypes: {
+        tooltipPlacement: {
+            options: ["top", "bottom", "right", "left"],
+            control: { type: "radio" },
+        },
+    },
+} satisfies Story;
+Tooltip.parameters = { controls: { include: ['name', 'width', 'height', 'databstoggle', 'tooltip', 'tooltipPlacement', 'tooltipTitle', 'colorVariant', 'isCursorPointer'] } };
