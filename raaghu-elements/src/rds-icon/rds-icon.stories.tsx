@@ -56,8 +56,7 @@ Tooltip.parameters = { controls: { include: ['name', 'width', 'height', 'databst
 
 export const WithImage: Story = {
     args: {
-        colorVariant: "primary",
-        imageurl: "",
+        imageUrl: "https://picsum.photos/seed/picsum/1200/600",
         width: "20px",
         height: "20px",
         databstoggle: "tooltip",
@@ -72,6 +71,15 @@ export const WithImage: Story = {
             options: ["top", "bottom", "right", "left"],
             control: { type: "radio" },
         },
+        isContinueAnimate: { table: { disable: true } },
+        colorVariant:{ table: { disable: true } },
+        name:{ table: { disable: true } },
+        opacity:{ table: { disable: true } },
+        type:{ table: { disable: true } },
+        isAnimate:{ table: { disable: true } },
+        iconPath:{ table: { disable: true } },
+        hovered:{ table: { disable: true } },
+        isHovered:{ table: { disable: true } },
     },
 } satisfies Story;
-Tooltip.parameters = { controls: { include: ['name', 'width', 'height', 'databstoggle', 'tooltip', 'tooltipPlacement', 'tooltipTitle', 'colorVariant', 'isCursorPointer'] } };
+Tooltip.parameters = { controls: { include: ['imageUrl', 'width', 'height', 'databstoggle', 'tooltip', 'tooltipPlacement', 'tooltipTitle', 'isCursorPointer'] } };

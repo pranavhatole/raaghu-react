@@ -264,10 +264,6 @@ const RdsIcon = (props: RdsIconProps) => {
                   role="img"
                   id={props.id}
                   data-testid={props.dataTestId}
-                  data-bs-dismiss={props.databsdismiss}
-                  data-bs-target={props.databstarget}
-                  data-bs-toggle={props.databstoggle}
-                  aria-controls={props.ariacontrols}
                   style={style}
                 />
               ) : (
@@ -278,10 +274,6 @@ const RdsIcon = (props: RdsIconProps) => {
                   role="img"
                   id={props.id}
                   data-testid={props.dataTestId}
-                  data-bs-dismiss={props.databsdismiss}
-                  data-bs-target={props.databstarget}
-                  data-bs-toggle={props.databstoggle}
-                  aria-controls={props.ariacontrols}
                 ></span>
               )}
             </Tooltip>
@@ -295,10 +287,6 @@ const RdsIcon = (props: RdsIconProps) => {
                   role="img"
                   id={props.id}
                   data-testid={props.dataTestId}
-                  data-bs-dismiss={props.databsdismiss}
-                  data-bs-target={props.databstarget}
-                  data-bs-toggle={props.databstoggle}
-                  aria-controls={props.ariacontrols}
                   style={style}
                 />
               ) : (
