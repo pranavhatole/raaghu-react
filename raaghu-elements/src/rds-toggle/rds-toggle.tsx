@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import React, { useState, useEffect } from "react";
 import "./rds-toggle.css";
 
@@ -52,9 +53,10 @@ const RdsToggle = (props: RdsToggleProps) => {
                         
                     {(props.style === "Style 5" || props.style === "Style 6") && <span className={props.isChecked ? "on" : "off"}>
                                     {props.isChecked ? "on" : "off"}
-                                </span>}
+                        </span>}
+                        {(props.style === "Style 2" || props.style === "Style 4") && <span className={props.isChecked ? "input-custom  checked" : "input-custom"}></span>}
                         <input className={classes()} type="checkbox" role="switch" id="flexSwitchCheckDefault" checked={props.isChecked}></input>
-                        <label className="form-check-label">{props.style === "Style 3" ? "style 3" : "Label"}</label>
+                        <label className="form-check-label ms-2">{props.style === "Style 3" ? "style 3" : "Label"}</label>
                     </div>
                 </>)}
 
@@ -67,6 +69,8 @@ const RdsToggle = (props: RdsToggleProps) => {
                         {(props.style === "Style 5" || props.style === "Style 6") && <span className={props.isChecked ? "on left" : "off left"}>
                                     {props.isChecked ? "on" : "off"}
                                 </span>}
+                                {(props.style === "Style 2" || props.style === "Style 4") && <span className={props.isChecked ? "input-custom  checked" : "input-custom"}></span>}
+
                             <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked={props.isChecked}></input>
                         </span>
                         </div>
@@ -81,6 +85,8 @@ const RdsToggle = (props: RdsToggleProps) => {
                         {(props.style === "Style 5" || props.style === "Style 6") && <span className={props.isChecked ? "on" : "off"}>
                                     {props.isChecked ? "on" : "off"}
                                 </span>}
+                                {(props.style === "Style 2" || props.style === "Style 4") && <span className={props.isChecked ? "input-custom  checked" : "input-custom"}></span>}
+
                             <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked={props.isChecked}></input>
                         </div>
                     </div>
@@ -93,6 +99,8 @@ const RdsToggle = (props: RdsToggleProps) => {
                         {(props.style === "Style 5" || props.style === "Style 6") && <span className={props.isChecked ? "on" : "off"}>
                                     {props.isChecked ? "on" : "off"}
                                 </span>}
+                                {(props.style === "Style 2" || props.style === "Style 4") && <span className={props.isChecked ? "input-custom  checked" : "input-custom"}></span>}
+
                             <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked={props.isChecked}></input>
                         </div>
                         <label className="d-flex align-items-center form-check-label me-2" htmlFor="flexSwitchCheckDefault">Label</label>
