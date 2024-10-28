@@ -80,6 +80,9 @@ export const WithImage: Story = {
         iconPath:{ table: { disable: true } },
         hovered:{ table: { disable: true } },
         isHovered:{ table: { disable: true } },
+        stroke:{ table: { disable: true } },
+        strokeWidth:{ table: { disable: true } },
+        borderRadius:{ table: { disable: true } },
     },
 } satisfies Story;
 Tooltip.parameters = { controls: { include: ['imageUrl', 'width', 'height', 'databstoggle', 'tooltip', 'tooltipPlacement', 'tooltipTitle', 'isCursorPointer'] } };
