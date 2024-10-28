@@ -2,20 +2,20 @@ import React from "react";
 import RdsIcon from "../rds-icon";
 
 export interface RdsHeaderProps {
-  colorVariant: string;
+  colorVariant?: string;
   icon?: string;
   iconFill?: boolean;
   iconStroke?: boolean;
   iconHeight?: string;
   iconWidth?: string;
-  iconPosition?: "left" | "right" | "top" | "bottom";
+  iconPosition?: string;
   headerText?: string;
-  size?: string; // Restrict to valid header tags
-  iconShow: boolean;
+  size?: string;
+  iconShow?: boolean;
 }
 
 const RdsHeader = (props: RdsHeaderProps) => {
-  const HeaderTag = props.size || "h1"; // Default to "h1" if size is not provided
+  const HeaderTag = props.size || "h1"; 
 
   const getIconSize = () => {
     switch (HeaderTag) {
