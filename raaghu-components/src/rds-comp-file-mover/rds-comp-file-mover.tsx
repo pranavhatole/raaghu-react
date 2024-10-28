@@ -1,5 +1,3 @@
-
-
 import { RdsIcon } from "../rds-elements";
 import React, { useState } from "react";
 
@@ -84,5 +82,4 @@ export const RdsCompFileMover = ({
 
     return <>{renderFileItems(items)}</>;
 };
-
 export default RdsCompFileMover;
