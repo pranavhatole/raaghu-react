@@ -636,7 +636,7 @@ $form-switch-style-bg4: $btn-primary-solid-default;
 
 .form-switch.style-3, .form-switch.style-6 {
     .form-check-input {
-        background-color: $form-switch-style-bg3;
+        background-color: $form-switch-style2-bg1-disabled;
     }
 
     .form-check-input:checked {
@@ -646,11 +646,11 @@ $form-switch-style-bg4: $btn-primary-solid-default;
 
 .form-switch.style-3.disabled, .form-switch.style-6.disabled {
     .form-check-input {
-        background-color: $form-switch-style-bg3-disabled;
+        background-color: $form-switch-style2-bg1-disabled;
     }
 
     .form-check-input:checked {
-        background-color: $form-switch-style-bg4-disabled;
+        background-color: $form-switch-style2-bg2-disabled;
     }
 }
 .form-switch.style-2, .form-switch.style-4 {
@@ -684,10 +684,6 @@ $form-switch-style-bg4: $btn-primary-solid-default;
         color: $txt-primary-lighter-default;
     }
 
-    .form-switch.style-3 .form-check-input {
-        background-color: transparent;
-        border-color: transparent;
-    }
 
     .progress-bar-bg-error {
         background-color: $progress-bar-bg-error;
