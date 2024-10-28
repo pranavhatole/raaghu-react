@@ -35,7 +35,7 @@ const buttonInputs: ButtonInput[] = [
     },
     {
         id: "2",
-        text: "12345",
+        text: "16",
     },
     {
         id: "3",

@@ -81,7 +81,7 @@ const sampleItems: FileItem[] = [
     children: [
       {
         id: "1.1",
-        iconName:"folder",
+        iconName:"home",
         iconFill: true,
         name: "Subfolder 1.1",
         hasChildren: true,
@@ -89,6 +89,8 @@ const sampleItems: FileItem[] = [
           {
             id: "1.1.1",
             name: "Sub-subfolder 1.1.1",
+            iconName:"dashboard",
+            iconFill: true,
           },
         ],
       },
