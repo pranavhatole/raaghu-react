@@ -39,7 +39,7 @@ type Story = StoryObj<typeof RdsHeader>;
 export const OnlyHeader: Story = {
   args: {
     headerText: "Header",
-    colorVariant: "primary",
+    colorVariant: "",
     size: "h1",
   },
 } satisfies Story;
@@ -50,7 +50,7 @@ OnlyHeader.parameters = {
 export const WithIcon: Story = {
   args: {
     headerText: "Header",
-    colorVariant: "primary",
+    colorVariant: "",
     size: "h1",
     icon: "information",
     iconFill: false,
