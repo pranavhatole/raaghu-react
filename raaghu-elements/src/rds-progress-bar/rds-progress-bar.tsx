@@ -13,7 +13,6 @@ export interface RdsProgressBarProps {
     displayPercentage?: boolean;
     width?: string;
     State?: string;
-    state?: string;
 }
 
 const RdsProgressBar = (props: RdsProgressBarProps) => {
