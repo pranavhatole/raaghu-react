@@ -161,10 +161,10 @@ const RdsInput = React.forwardRef<HTMLInputElement, RdsInputProps>(
     return (
       <>
         {/* test  */}
-        <div className={labelClass()}>
-          <label
+        <div className={`${labelClass()} mt-2`}>
+           <label
             htmlFor={props.id}
-            className={`text-capitalize form-label ${fontWeight}`}
+            className={`text-capitalize mt-2 form-label ${fontWeight}`}
           >
             {props.label}
             {(props.required || props.validatonPattern) && (
@@ -264,7 +264,7 @@ const RdsInput = React.forwardRef<HTMLInputElement, RdsInputProps>(
                       <>
                         <label
                           htmlFor={props.id}
-                          className={`form-label text-capitalize ${fontWeight}`}
+                          className={`form-label mt-2 text-capitalize ${fontWeight}`}
                         >
                           {" "}
                           {props.label}
@@ -323,12 +323,12 @@ const RdsInput = React.forwardRef<HTMLInputElement, RdsInputProps>(
 
           {props.validatonPattern && (
             <div className="form-control-feedback">
-              {/* {props.value === "" && isTouch && props.required && (
+              {props.value === "" && isTouch && props.required && (
                 <span className="text-danger">
                   {" "}
                   {props.label} {t("is required") || ""}{" "}
                 </span>
-              )} */}
+              )}
               {props.validatonPattern &&
                 props.validationMsg &&
                 isTouch &&
