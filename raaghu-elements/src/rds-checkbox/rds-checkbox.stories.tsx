@@ -8,11 +8,11 @@ const meta: Meta = {
         layout: "padded",
     },
     tags: ["autodocs"],
-    labelPosition: {
-        options: ["right", "left"],
-        control: { type: "select" },
-    },
     argTypes: {
+        labelPosition: {
+            options: ["right", "left"],
+            control: { type: "select" },
+        },
         state: {
             options: ["Checkbox", "Indeterminate", "ErrorCheckbox"],
             control: { type: "select" },
