@@ -1,10 +1,16 @@
 import React, { useState } from "react";
 import "./rds-stepper.css";
+import RdsCheckbox from "../rds-checkbox/rds-checkbox";
 
+
+interface StepperDetail {
+    label: string;
+    subtitle: string;
+  }
 export interface RdsStepperProps {
-    stepperType: string;
+    stepperType?: string;
+  stepperDetails?: StepperDetail[];
 }
-
 const RdsStepper = (props: RdsStepperProps) => {
     const [page, setPage] = useState(1);
     const formTitles = [
@@ -64,10 +70,7 @@ const RdsStepper = (props: RdsStepperProps) => {
                             </>
                         ))}
                     </div>
-                </>
-            )}
-
-            <div className="mt-5">
+                    <div className="mt-5">
                 <button
                     disabled={page === 1}
                     className="btn btn-primary btn-sm me-2"
@@ -83,6 +86,29 @@ const RdsStepper = (props: RdsStepperProps) => {
                     Next
                 </button>
             </div>
+                </>
+            )}
+ {props.stepperType == "withcheckbox" && (
+                <>
+                    <div>
+            {props.stepperDetails?.map((detail, index) => (
+                <RdsCheckbox
+                    key={index}
+                    classes="py-2"
+                    label={detail.label}
+                    state="Checkbox"
+                    type="Square"
+                    id={`projectDetailsCheckbox-${index}`}
+                    checked
+                    dataTestId={`projectDetails-${index}`}
+                ></RdsCheckbox>
+            ))}
+                    </div>
+
+                    
+                </>
+            )}
+            
         </>
     );
 };

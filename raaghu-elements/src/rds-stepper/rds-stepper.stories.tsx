@@ -1,3 +1,4 @@
+import React from "react";
 import RdsStepper from "./rds-stepper";
 import { Meta, StoryObj } from "@storybook/react";
 
@@ -9,6 +10,10 @@ const meta: Meta = {
     },
     tags: ['autodocs'],
     argTypes: {
+        stepperType: {
+            options: ["simple", "withcheckbox"],
+            control: { type: "select" },
+        },
     },
 } satisfies Meta<typeof RdsStepper>;
 
@@ -21,4 +26,16 @@ export const Simple: Story = {
     }
 } satisfies Story;
 Simple.parameters = { controls: { include: ['stepperType'] } };
+
+export const withcheckbox: Story = {
+    args: {
+        stepperType: "withcheckbox",  
+        stepperDetails: [
+        { label: "Project Details", subtitle: "You can initiate a project which will be workspace to track, monitor project progress" },
+        { label: "Design System", subtitle: "Create and customize your design system based on your branding guidelines. AI Pundit will help you generate it." },
+        { label: "Resource Allocation", subtitle: "Create and customize your design system based on your branding guidelines. AI Pundit will help you generate it" },
+    ]
+    }
+} satisfies Story;
+withcheckbox.parameters = { controls: { include: ['stepperType', 'stepperDetails'] } };
 
