@@ -690,7 +690,7 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
                   src={icon.src}
                   alt={icon.alt}
                   className={`px-1 cursor-pointer ${activeImage === icon.id ? "active" : ""} `}
-                  onClick={() => handleImageClick(icon.id)}
+                  onClick={() => handleIconClick(icon)}
                 ></img>
               ))}
                 </div>
@@ -769,7 +769,7 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
                   src={icon.src}
                   alt={icon.alt}
                   className={`px-1 cursor-pointer ${activeImage === icon.id ? "active" : ""} `}
-                  onClick={() => handleImageClick(icon.id)}
+                  onClick={() => handleIconClick(icon)}
                 ></img>
               ))}
 
@@ -783,7 +783,7 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
                   stroke={false}
                   height="18px"
                   width="18px"
-                  onClick={() => handleImageClick(icon.id)}
+                  onClick={() => handleIconClick(icon)}
                 ></RdsIcon>
                 </span>
                 </>
@@ -872,7 +872,7 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
                   stroke={true}
                   height="18px"
                   width="18px"
-                  onClick={() => handleImageClick(icon.id)}
+                  onClick={() => handleIconClick(icon)}
                 ></RdsIcon>
               </span>
             ))}
@@ -938,7 +938,7 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
                   stroke={true}
                   height="18px"
                   width="18px"
-                  onClick={() => handleImageClick(icon.id)}
+                  onClick={() => handleIconClick(icon)}
                 ></RdsIcon>
               </span>
             ))}
@@ -1003,7 +1003,7 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
                   stroke={true}
                   height="18px"
                   width="18px"
-                  onClick={() => handleImageClick(icon.id)}
+                  onClick={() => handleIconClick(icon)}
                 ></RdsIcon>
               </span>
             ))}
@@ -1078,7 +1078,7 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
                   stroke={true}
                   height="18px"
                   width="18px"
-                  onClick={() => handleImageClick(icon.id)}
+                  onClick={() => handleIconClick(icon)}
                 ></RdsIcon>
               </span>
             ))}
@@ -1177,7 +1177,7 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
                   stroke={true}
                   height="18px"
                   width="18px"
-                  onClick={() => handleImageClick(icon.id)}
+                  onClick={() => handleIconClick(icon)}
                 ></RdsIcon>
               </span>
             ))}
@@ -1518,7 +1518,7 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
                   stroke={true}
                   height="18px"
                   width="18px"
-                  onClick={() => handleIconClick(icon.id)}
+                  onClick={() => handleIconClick(icon)}
                 ></RdsIcon>
               </span>
             ))}
@@ -2041,7 +2041,7 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
                height="18px"
                width="18px"
                colorVariant="dark"
-               onClick={props.mobileViewLogoClick}
+               onClick={() => handleIconClick(icon)}
              ></RdsIcon>
                </span>
               ))}
@@ -2168,7 +2168,7 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
                   src={icon.src}
                   alt={icon.alt}
                   className={`px-2 cursor-pointer ${activeImage === icon.id ? "active" : ""} `}
-                  onClick={() => handleImageClick(icon.id)}
+                  onClick={() => handleIconClick(icon)}
                 ></img>
               ))}
                 {( (props.product2 || props.product3)  && <button className="btn btn-primary p-2 ms-3 me-2">Download</button> )}
@@ -2198,7 +2198,7 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
                   stroke={true}
                   height="18px"
                   width="18px"
-                  onClick={() => handleImageClick(icon.id)}
+                  onClick={() => handleIconClick(icon)}
                 ></RdsIcon>
                 </span>
                 </>

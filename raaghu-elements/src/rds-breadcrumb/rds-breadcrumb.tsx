@@ -44,6 +44,10 @@ const RdsBreadcrumb = (props: BreadcrumbProps) => {
     );
   };
 
+  const handleIconClick = (icon: any) => {
+    console.log(`Icon ${icon} clicked`);
+  };
+
   const shapeClass = props.shape ? `breadcrumb-${props.shape}` : "";
   const noBgClass = props.shape ? `breadcrumb-${props.shape}-no-bg` : "";
   const roundedClass =
@@ -62,6 +66,8 @@ const RdsBreadcrumb = (props: BreadcrumbProps) => {
       >
         {data.map((breadItem, index) => {
           const isLastItem = index === data.length - 1;
+
+      
 
           return (
             <React.Fragment key={breadItem.id}>
@@ -89,6 +95,7 @@ const RdsBreadcrumb = (props: BreadcrumbProps) => {
                       height={breadItem.iconHeight}
                       colorVariant={breadItem.active ? breadItem.iconColor : ""}
                       isCursorPointer={true}
+                      onClick={() => handleIconClick(breadItem.icon)}
                     />
                   </span>
                 )}
@@ -109,6 +116,7 @@ const RdsBreadcrumb = (props: BreadcrumbProps) => {
                       height={breadItem.iconHeight}
                       colorVariant={breadItem.active ? breadItem.iconColor : ""}
                       isCursorPointer={true}
+                      onClick={() => handleIconClick(breadItem.icon)}
                     />
                 </span>)}
               </li>
