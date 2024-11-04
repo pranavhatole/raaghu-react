@@ -4,7 +4,7 @@ import RdsIcon from "../rds-icon";
 
 export interface BreadcrumbProps {
   breadcrumbItems: any[];
-  title: string;
+  title?: string;
   style?: "Pill Background" | "Square Background" | "Without Background";
   separator?: ">" | "/" | "→" | "»" | "|" | "-";
   level?: "Level 1" | "Level 2" | "Level 3" | "Level 4" | "Level 5";
