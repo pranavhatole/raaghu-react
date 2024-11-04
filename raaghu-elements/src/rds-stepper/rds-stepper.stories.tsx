@@ -14,6 +14,10 @@ const meta: Meta = {
             options: ["simple", "withcheckbox"],
             control: { type: "select" },
         },
+        showSubtitles: {
+            control: { type: 'boolean' },
+            defaultValue: true,
+        },
     },
 } satisfies Meta<typeof RdsStepper>;
 
@@ -34,8 +38,9 @@ export const withcheckbox: Story = {
         { label: "Project Details", subtitle: "You can initiate a project which will be workspace to track, monitor project progress" },
         { label: "Design System", subtitle: "Create and customize your design system based on your branding guidelines. AI Pundit will help you generate it." },
         { label: "Resource Allocation", subtitle: "Create and customize your design system based on your branding guidelines. AI Pundit will help you generate it" },
-    ]
+    ],
+    showSubtitles: true,
     }
 } satisfies Story;
-withcheckbox.parameters = { controls: { include: ['stepperType', 'stepperDetails'] } };
+withcheckbox.parameters = { controls: { include: ['stepperType', 'stepperDetails', 'showSubtitles'] } };
 
