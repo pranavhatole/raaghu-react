@@ -286,3 +286,14 @@
   font-weight: bold;
   z-index: 1;
 }
+.avatar-solid {
+  border: 2px solid #000;
+}
+
+.avatar-dotted {
+  border: 2px dotted #000;
+}
+
+.avatar-dashed{
+  border: 2px dashed #000;
+}

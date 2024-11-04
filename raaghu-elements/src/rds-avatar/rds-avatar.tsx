@@ -32,6 +32,8 @@ export interface RdsAvatarProps {
     maxVisibleAvatars?: number;
     activityChain?: boolean;
     type?: string;
+    iconName?:string;
+    border?:"Border"|"Dotted"|"Dashed" | "NoBorder";
 }
 
 const RdsAvatar = (props: RdsAvatarProps) => {
@@ -86,7 +88,19 @@ const RdsAvatar = (props: RdsAvatarProps) => {
 
         return classes;
     }
-
+    const getBorderClass = () => {
+        switch (props.border) {
+          case 'Border':
+            return 'avatar-solid';
+          case 'Dotted':
+            return 'avatar-dotted';
+          case 'Dashed':
+            return 'avatar-dashed';
+          case 'NoBorder':
+          default:
+            return '';
+        }
+      };
  // Function to get icon size based on the size prop
  const getIconSize = (size:any) => {
     switch (size) {
@@ -151,7 +165,7 @@ const RdsAvatar = (props: RdsAvatarProps) => {
             <div className="avatar-container">
                 {visibleAvatars.map((avatar, index) => (
                     <div key={index} className="avatar">
-                        <img  src={avatar.profilePic || defaultPP} className={classes()} alt="profile-default" />
+                        <img  src={avatar.profilePic || defaultPP} className=' classes() + getBorderClass()' alt="profile-default" />
                        
                     </div>
                 ))}
@@ -166,7 +180,7 @@ const RdsAvatar = (props: RdsAvatarProps) => {
         <Fragment>
             <div className={`${Aligned}`}>
                 {WPP === false && hasName && !avtarOnly  && !avtarWithName && !nameOnBottom && !stackingAvatar && !props.isTitle && (
-                    <div className={`d-flex justify-content-center bg-light align-items-center avatar rounded-circle ` + classes()}>
+                    <div className={`d-flex justify-content-center bg-light align-items-center avatar rounded-circle ` + classes() + getBorderClass()}>
                         <div className="avatar-initials flex-shrink-0 d-flex align-items-center">
                             <div className="fw-bold ">
                                 {fLetter}{lLetter}
@@ -177,7 +191,7 @@ const RdsAvatar = (props: RdsAvatarProps) => {
                 {props.isTitle && (
                     <div className={` flex-grow-0 ${Aligned}`}>
                         <div
-                            className={`d-flex justify-content-center bg-light me-2 mb-2 align-items-center avatar rounded-circle ` + classes()}
+                            className={`d-flex justify-content-center bg-light me-2 mb-2 align-items-center avatar rounded-circle `+ classes()  }
                         >
                             <span className="fw-bold ">
                                 {fLetter}
@@ -222,7 +236,7 @@ const RdsAvatar = (props: RdsAvatarProps) => {
                 {(avtarOnly || avtarWithName) && !stackingAvatar && (
                     <>
                     {props.type === "initials" ? (
-                        <div className={`d-flex justify-content-center bg-light align-items-center avatar rounded-circle ${classes()}`}>
+                        <div className={`d-flex justify-content-center bg-light align-items-center avatar rounded-circle ` + classes() + getBorderClass()}>
                             <div className="avatar-initials flex-shrink-0 d-flex align-items-center">
                                 <div className="fw-bold">
                                 {fLetter}
@@ -234,7 +248,7 @@ const RdsAvatar = (props: RdsAvatarProps) => {
                             </div>
                         </div>
                         ) : props.type === "icon" ? (
-                            <div className={`d-flex justify-content-center align-items-center avatar rounded-circle ${classes()}`}>
+                            <div className={`d-flex justify-content-center align-items-center avatar rounded-circle ` + classes() + getBorderClass()}>
                             <RdsIcon
                             name="user_identity"
                             fill={false}
