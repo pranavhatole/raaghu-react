@@ -109,3 +109,20 @@ export const Drop_Area_With_Upload_Button
     }
 } satisfies Story;
 Drop_Area_With_Upload_Button.parameters = { controls: { include: ['extensions', 'fileSizeLimitInMb', 'title', 'isRequired', 'showTitle', 'showHint', 'hintText'] } };
+
+
+export const Drop_Area_With_icon
+: Story = {
+    args: {
+        multiple: false,
+        extensions: "png, jpg",
+        fileSizeLimitInMb: 5,
+        validation: [
+            { isError: false, hint: "File size exceeds the limit" }
+        ],
+        isRequired: true,
+        showHint: false,
+        hintText: "File size should be less than given file size limit",
+    }
+} satisfies Story;
+Drop_Area_With_icon.parameters = { controls: { include: ['extensions', 'fileSizeLimitInMb', 'title', 'isRequired', 'showTitle', 'showHint', 'hintText'] } };

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "./rds-file-uploader.css";
 import RdsIcon from "../rds-icon/rds-icon";
 import { useTranslation } from "react-i18next";
+import RdsAvatar from "../rds-avatar";
 
 export interface RdsFileUploaderProps {
   Drop_Area_Top_Icon?: boolean;
@@ -480,6 +481,111 @@ const RdsFileUploader = (props: RdsFileUploaderProps) => {
                 <RdsIcon
                   colorVariant="secondary"
                   name={"close_circle"}
+                  height="16px"
+                  width="16px"
+                  stroke={true}
+                  fill={false}
+                />
+              </span>
+            </div>
+          </div>
+        ))}
+        {validation &&
+          validation.map((val: any, index: number) => (
+            <div key={index} className="">
+              <small
+                className={`${val.isError ? "showError" : "noError d-none"}`}
+              >
+                {val.isError && val.hint}
+              </small>
+            </div>
+          ))}
+      </div>
+      );
+    }
+
+    if (props.Drop_Area_With_Icon) {
+      return (
+        <div>
+        
+        <label
+          htmlFor="file-input-side-icon"
+          className={`align-items-center multiUploader row mx-0 rounded-4 border-${
+            props.colorVariant || "primary"
+          } ${size}`}
+        >
+          <div
+            className={`col-md-12 col-lg-12 col-12 d-flex align-items-center justify-content-between ${
+              dragging ? "dragging" : ""
+            }`}
+            onDragOver={handleDragOver}
+            onDragLeave={handleDragLeave}
+            onDrop={handleDrop}
+          >
+            <div>
+             
+                          <div className="fileFormat text-muted mt-2 text-semibold">{props.extensions} </div>
+            </div>
+            <RdsAvatar
+                type="icon"
+                size="medium"
+                border="Dashed"
+              />
+            <input
+              data-testid="rds-file-uploader-input"
+              className={`col-md-12 input mulinput d-none`}
+              type="file"
+              id="file-input-side-icon"
+              accept={props.extensions}
+              onChange={props.multiple ? onchangehandler : onChangeHandlerForSingleSelection}
+              multiple={props.multiple}
+              required={props.isRequired ? true : false}
+            />
+          </div>
+        </label>
+              {props.showHint && (
+                  <div className="d-flex justify-content-start text-muted mt-1">
+                      <small>{props.hintText}</small>
+                  </div>
+              )}
+
+        {/* Display file names */}
+        {selectedFiles.map((file, index) => (
+          <div
+            key={index}
+            className="d-flex justify-content-between p-3 mt-3 fileName border"
+          >
+            <div className="d-flex gap-2 align-items-center">
+            <span>
+                { props.showThumbnail &&
+                file.type.startsWith('image/') ? (
+                  <img
+                    src={URL.createObjectURL(file)}
+                    alt={file.name}
+                    height="120px"
+                    width="120px"
+                    className="file-thumbnail"
+                  />
+                ) : (
+                  <RdsIcon
+                    name={"file"}
+                    height="16px"
+                    width="16px"
+                    stroke={true}
+                    fill={false}
+                  />
+                )}
+              </span>
+              <span>{file.name}</span>
+            </div>
+            <div className="closeIcon">
+              <span className="text-muted opacity-50">
+                {(file.size / 1048576).toFixed(2)} MB
+              </span>
+              <span className="iconbox ms-2" onClick={() => onDelete(index)}>
+                <RdsIcon
+                  colorVariant="danger"
+                  name={"delete"}
                   height="16px"
                   width="16px"
                   stroke={true}
