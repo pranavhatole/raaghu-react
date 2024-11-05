@@ -1,8 +1,10 @@
 // /*button custom properties*/
 .btn {
-  text-transform: uppercase;
+  text-transform: capitalize;
   min-width: 4.35rem;
+  padding: $btn-padding-x $btn-padding-y;
 }
+
 
 .btn-icon {
   min-width: auto;
@@ -44,7 +46,7 @@
 .btn-sm,
 .btn-group-sm>.btn {
   height: 1.5rem;
-  line-height: initial;
+  line-height: 0rem;
   position: relative;
 }
 
@@ -92,4 +94,5 @@
   padding-top: 0rem !important;
   padding-bottom: 0rem !important;
   border-radius: 3px !important;
+  line-height: 1.5rem !important;
 }
