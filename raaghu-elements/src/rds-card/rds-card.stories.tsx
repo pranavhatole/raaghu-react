@@ -248,33 +248,27 @@ export const Filled: Story = {
 } satisfies Story;
 Filled.parameters = { controls: { include: ['colorVariant', 'borderColor', 'cardTitle','titlePosition', 'cardText', 'buttonLabel', 'showFooter','showLinkButton','showTitle','showSubTitle','iconName',"isDisabled" ,"iconShow","style","state"] } };
 
-export const WithStartDate: Story = {
+export const WithIconLabel: Story = {
     args: {
+        title: "Start Date",
+        subTitle: "13 Jul 2024",
         colorVariant: "primary",
-        borderColor: "",
-        // cardTitle: "Card title",
-        // cardSubTitle: "Card Sub title",
-        calenderText: "Start Date",
-        // cardText:
-        //     `In a laoreet purus. Integer turpis quam, laoreet id orci nec, ultrices lacinia nunc. Aliquam erat vo`,
+        borderColor: "dark",
         buttonLabel: "View Details",
-        footerLabelText:"Value Saved:$220",
-        startDate: new Date("2024-07-13"),
-        showCalender: true,
+        footerLabelText:"Value Saved:$220",       
+        iconName: "calendar",
+        iconShow: true,
         showFooter: true,  
         showLinkButton: true,
         showTitle: false,
         showSubTitle: false,
-        // iconName  : "users"  ,
+        showCalender: true,
         isDisabled : false,
-        // isBordered :false,
-        // isFilled :false  
         showFooterButton: false,
         showFooterLabel:false,
         style:"Default",
         state:"Default",
-
     }
 } satisfies Story;
-WithStartDate.parameters = { controls: { include: ['colorVariant', 'borderColor','calenderText', 'buttonLabel','footerLabelText','startDate','showFooter','showLinkButton','showCalender',"isDisabled" ,'showFooterButton','showFooterLabel',"style","state"] } };
+WithIconLabel.parameters = { controls: { include: ['title','subTitle','iconName','colorVariant', 'borderColor', 'buttonLabel','footerLabelText','showCalender','showFooter','showLinkButton','showFooterButton','showFooterLabel','iconShow',"isDisabled" ,"style","state"] } };
 

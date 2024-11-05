@@ -10,6 +10,7 @@ import RdsLabel from "../rds-label";
 import RdsDatepicker from "../rds-datepicker";
 import { RdsDatePicker } from "..";
 
+
 export interface RdsCardProps {
     buttonLabel?: string;
     colorVariant?: colors;
@@ -35,11 +36,11 @@ export interface RdsCardProps {
   titlePosition ? : string;
   showCalender ? : boolean;
   showLinkButton ? : boolean;
-  calenderText ? : string;
+  title ? : string;
   showFooterLabel ? : boolean;
   footerLabelText ? : string;
   showFooterButton ? : boolean;
-  startDate?: Date;
+  subTitle?: string;
 }
 
 const RdsCard = (props: RdsCardProps) => {
@@ -138,20 +139,22 @@ const RdsCard = (props: RdsCardProps) => {
         {props.showTitle === false && props.showSubTitle === false && props.showCalender === true && (
           <div className="headerClass mt-3 ms-3">
             <div className="d-flex align-items-center">
+            {props.iconShow && (
               <RdsIcon
                 colorVariant={props.colorVariant}
                 height="20px"
                 isCursorPointer
-                name="calendar"
+                name={props.iconName}
                 stroke
                 width="20px"
               />
+            )}
               <h6 className="ms-2 mb-0">
-                <label className="text-muted">{props.calenderText}</label>
+                <label className="text-muted">{props.title}</label>
               </h6>
             </div>
             <span className="mt-1 fs-4 mb-2">
-              <RdsLabel label={props.startDate ? new Date(props.startDate).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) : ''} fontWeight="bold" />
+              <RdsLabel label={props.subTitle } fontWeight="bold" />
             </span>
           </div>
         )}
