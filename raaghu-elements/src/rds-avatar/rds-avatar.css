@@ -287,13 +287,13 @@
   z-index: 1;
 }
 .avatar-solid {
-  border: 2px solid #000;
+  border: 2px solid;
 }
 
 .avatar-dotted {
-  border: 2px dotted #000;
+  border: 2px dotted;
 }
 
 .avatar-dashed{
-  border: 2px dashed #000;
+  border: 2px dashed;
 }

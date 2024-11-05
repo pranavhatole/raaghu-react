@@ -84,21 +84,17 @@ withInitials.argTypes = colorVariantArgTypes;
 export const withIcon: Story = {
     args: {
         size: "small",
-        withProfilePic: true,
         avtarOnly: false,
         avtarWithName: false,
         nameOnBottom: false,
         stackingAvatar: false,
-        firstName: "Wai",
-        lastName: "Technologies",
-        titleAlign: "horizontal",
-        role: "Developer",
         //colorVariant: "primary",
         border:"NoBorder",
+        iconName:"Home",
 
     }
 } satisfies Story;
-withIcon.parameters = { controls: { include: ['size', 'firstName', 'lastName', 'withProfilePic', 'titleAlign', 'role', 'profilePic', 'border'] } };
+withIcon.parameters = { controls: { include: ['size', 'iconName', 'border'] } };
 
 
 export const withLabel: Story = {
@@ -141,7 +137,7 @@ export const withProfile: Story = {
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU",
     }
 } satisfies Story;
-withProfile.parameters = { controls: { include: ['size', 'firstName', 'lastName', 'withProfilePic', 'titleAlign', 'role', 'profilePic'] } };
+withProfile.parameters = { controls: { include: ['size', 'firstName', 'lastName', 'withProfilePic', 'titleAlign', 'role','border', 'profilePic'] } };
 
 
 withProfile.argTypes = textAlignArgTypes;
