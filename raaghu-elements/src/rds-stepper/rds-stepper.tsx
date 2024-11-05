@@ -90,7 +90,10 @@ const RdsStepper = (props: RdsStepperProps) => {
                             </>
                         ))}
                     </div>
-                    <div className="mt-5">
+                </>
+            )}
+
+            <div className="mt-5">
                 <button
                     disabled={page === 1}
                     className="btn btn-primary btn-sm me-2"
@@ -106,47 +109,6 @@ const RdsStepper = (props: RdsStepperProps) => {
                     Next
                 </button>
             </div>
-                </>
-            )}
- {props.stepperType == "withcheckbox" && (
-                <>
-                    <div>
-            {props.stepperDetails?.map((detail, index) => (
-                <div key={index} className="mb-3">
-                    <RdsCheckbox
-                        classes="py-2"
-                        label={detail.label}
-                        state="Checkbox"
-                        type="Square"
-                        id={`projectDetailsCheckbox-${index}`}
-                        checked={checkedStates[index]}
-                        dataTestId={`projectDetails-${index}`} isDisabled={true}
-                    ></RdsCheckbox>
-                    {checkedStates[index] && props.showSubtitles && <div>{detail.subtitle}</div>}
-                </div>
-            ))}
-                    </div>
-         
-                    <div className="mt-5">
-                <button
-                    disabled={page === 1}
-                    className="btn btn-primary btn-sm me-2"
-                    onClick={decreasePageCountHandler}
-                >
-                    Prev
-                </button>
-                <button
-                    disabled={page === formTitles.length + 1}
-                    className="btn btn-primary btn-sm"
-                    onClick={increasePageCountHandler}
-                >
-                    Next
-                </button>
-            </div>
-                    
-                </>
-            )}
-            
         </>
     );
 };
