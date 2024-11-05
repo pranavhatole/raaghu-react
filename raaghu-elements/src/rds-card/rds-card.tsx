@@ -12,7 +12,8 @@ import { RdsDatePicker } from "..";
 
 
 export interface RdsCardProps {
-    buttonLabel?: string;
+    buttonLabel1?: string;
+    buttonLabel2?: string;
     colorVariant?: colors;
     cardTitle?: string;
     cardSubTitle?: string;
@@ -173,9 +174,9 @@ const RdsCard = (props: RdsCardProps) => {
           >
             {props.showLinkButton === true && (
               <div>
-                <RdsButton class="btn-link" label={props.buttonLabel + " >"} />
+                <RdsButton class="btn-link" label={props.buttonLabel1 + " >"} />
                 <br />
-                <RdsButton class="btn-link" label={props.buttonLabel + " >"} />
+                <RdsButton class="btn-link" label={props.buttonLabel2 + " >"} />
               </div>
             )}
             {props.showLinkButton === false && (
@@ -188,7 +189,7 @@ const RdsCard = (props: RdsCardProps) => {
                 {props.showFooterButton === true && (
                 <div>
                   <RdsButton
-                    label={props.buttonLabel}
+                    label={props.buttonLabel1}
                     colorVariant={props.colorVariant}
                   ></RdsButton>
                 </div>
@@ -284,9 +285,9 @@ const RdsCard = (props: RdsCardProps) => {
             >
               {props.showLinkButton === true && (
                 <div>
-                  <RdsButton class="btn-link" label={props.buttonLabel + " >"} />
+                  <RdsButton class="btn-link" label={props.buttonLabel1 + " >"} />
                   <br />
-                  <RdsButton class="btn-link" label={props.buttonLabel + " >"} />
+                  <RdsButton class="btn-link" label={props.buttonLabel2 + " >"} />
                 </div>
               )}
               {props.showLinkButton === false && (
@@ -300,7 +301,7 @@ const RdsCard = (props: RdsCardProps) => {
                   {props.showFooterButton === true && (
                   <div>
                     <RdsButton
-                      label={props.buttonLabel}
+                      label={props.buttonLabel1}
                       colorVariant={props.colorVariant}
                     ></RdsButton>
                   </div>
