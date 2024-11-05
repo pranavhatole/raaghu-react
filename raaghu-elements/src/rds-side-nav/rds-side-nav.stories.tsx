@@ -125,7 +125,6 @@ SideNavigationWithList.args = {
             key: "3",
             label: "DEMO Components",
             icon: "demo_ui",
-            //path: "",
             children: [
                 {
                     key: "3-0",

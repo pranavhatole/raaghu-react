@@ -98,7 +98,6 @@ const RdsSideNav = (props: RdsSideNavProps) => {
             if (mainMenu.length != 0) {
                 const item = mainMenu.map(copy).filter(function f(o: any) {
                     if (o.path && o.path.indexOf(location.pathname) != -1) {
-                       // setMenuNodeKey(o.key);
                         return true;
                     }
                     if (o.children) {

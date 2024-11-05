@@ -36,8 +36,7 @@ Default.args = {
         {
             key: "1",
             label: "UI Components",
-            icon: "demo_ui",
-            //path: "/demo-ui",
+            icon: "demo_ui",  
             children: [
                 {
                     key: "1-0",
