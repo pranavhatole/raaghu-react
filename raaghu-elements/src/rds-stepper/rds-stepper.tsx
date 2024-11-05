@@ -364,8 +364,5 @@ const RdsStepper = (props: RdsStepperProps) => {
         </>
     );
 };
-        </>
-    );
-};
 
 export default RdsStepper;
