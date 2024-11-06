@@ -8,7 +8,6 @@ export interface Item {
     feedIcon?: string;
     imageUrl?: string;
     description: string;
-    descriptionShort?: string;
     hashtags?: string;
     reviews?: string;
     reviewTitle?: string;
