@@ -1948,9 +1948,99 @@ $form-switch-style-bg4: $btn-primary-solid-default;
   color: $primary;*/
     }
 
-    @each $color, $value in $theme-colors {
-        .btn-outline-#{$color} {
-            @include button-outline-variant($value);
+.btn-tertiary {
+    @include button-variant( $bg-neutral-lighter-default, // background
+    $bg-neutral-lighter-default, // border
+    $txt-neutral-dark-default // text color
+    );
+    background-color:$btn-tertiary-solid-default;
+    color: $txt-neutral-light-default; // text color
+    border: $btn-tertiary-solid-default; // border
+    
+    svg {
+        width: 22px;
+        height: 22px;
+        fill: none;
+        stroke: $input-neutral-outline-default;
+ 
+        polyline.icon {
+            stroke: $input-neutral-outline-default;
+        }
+ 
+        polygon.icon {
+            stroke: $input-neutral-outline-default;
+        }
+ 
+        ellipse.icon {
+            stroke: $input-neutral-outline-default;
+        }
+ 
+        path.icon {
+            stroke: $input-neutral-outline-default;
+        }
+ 
+        line.icon {
+            stroke: $input-neutral-outline-default;
+        }
+ 
+        rect.icon {
+            stroke: $input-neutral-outline-default;
+        }
+ 
+        circle.icon {
+            stroke: $input-neutral-outline-default;
+        }
+    }
+}
+
+.btn-neutral {
+    @include button-variant( $bg-neutral-lighter-default, // background
+    $bg-neutral-lighter-default, // border
+    $txt-neutral-dark-default // text color
+    );
+    background-color:$btn-neutral-solid-default;
+    color: $txt-neutral-light-default; // text color
+    border: $btn-neutral-solid-default; // border
+    
+    svg {
+        width: 22px;
+        height: 22px;
+        fill: none;
+        stroke: $input-neutral-outline-default;
+ 
+        polyline.icon {
+            stroke: $input-neutral-outline-default;
+        }
+ 
+        polygon.icon {
+            stroke: $input-neutral-outline-default;
+        }
+ 
+        ellipse.icon {
+            stroke: $input-neutral-outline-default;
+        }
+ 
+        path.icon {
+            stroke: $input-neutral-outline-default;
+        }
+ 
+        line.icon {
+            stroke: $input-neutral-outline-default;
+        }
+ 
+        rect.icon {
+            stroke: $input-neutral-outline-default;
+        }
+ 
+        circle.icon {
+            stroke: $input-neutral-outline-default;
+        }
+    }
+}
+
+@each $color, $value in $theme-colors {
+    .btn-outline-#{$color} {
+        @include button-outline-variant($value);
 
             svg {
                 width: 22px;
@@ -2396,10 +2486,119 @@ $form-switch-style-bg4: $btn-primary-solid-default;
     }
 
 
+// progress color variables
 
-    .bs-datepicker {
-        background: $white;
-    }
+@mixin progress-variant($background, $border-radius: 0, $color) {
+    background: $background;
+    border-radius: $border-radius;
+    color: $color;
+}
+
+$success-progress-color: conic-gradient(
+    $bg-primary-dark-default calc(var(--progress-value) * 1%),
+    $bg-neutral-light-default calc(var(--progress-value) * 1%)
+);
+
+$error-progress-color: conic-gradient(
+    $bg-error-dark-default calc(var(--progress-value) * 1%),
+    $bg-neutral-light-default calc(var(--progress-value) * 1%)
+);
+
+.circular-progress-success {
+    @include progress-variant($success-progress-color, 96px, $txt-neutral-dark-default);
+}
+
+.circular-progress-error {
+    @include progress-variant($error-progress-color, 96px, $txt-neutral-dark-default);
+}
+
+.bg-default{
+    @include progress-variant($bg-neutral-light-default, 96px, $txt-neutral-dark-default);
+}
+
+.bg-inprogress {
+    @include progress-variant($bg-primary-medium-default, 96px, $txt-neutral-lighter-default);
+}
+
+.bg-completed {
+    @include progress-variant($bg-primary-dark-default, 96px, $txt-neutral-lighter-default);
+}
+
+.bg-error {
+    @include progress-variant($bg-error-dark-default, 96px, $txt-neutral-lighter-default);
+}
+
+.outline-default{
+    @include progress-variant($txt-neutral-lighter-default, 96px, $txt-neutral-dark-default);
+    border: 2px solid $bg-neutral-light-default;
+}
+
+.outline-completed{
+    @include progress-variant($txt-neutral-lighter-default, 96px, $txt-neutral-dark-default);
+    border: 2px solid $bg-primary-dark-default;
+}
+
+.outline-inprogress{
+    @include progress-variant($txt-neutral-lighter-default, 96px, $txt-neutral-dark-default);
+    border: 2px solid $bg-primary-medium-default;
+}
+
+.outline-error{
+    @include progress-variant($txt-neutral-lighter-default, 96px, $txt-neutral-dark-default);
+    border: 2px solid $bg-error-dark-default;
+}
+
+.stepper-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.step {
+    padding: 5px;
+    margin: 0 12px;
+    border-radius: 96px;
+}
+
+.Stepper_step {
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    position: relative;
+}
+
+.block_step, .step-icon{
+    font-size: 0.75rem;
+}
+
+
+.step-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.step-line {
+    position: absolute;
+    top: 50%;
+    right: -50%;
+    width: 100%;
+    height: 2px;
+    z-index: -1;
+}
+
+
+
+
+
+.bs-datepicker {
+    background: $white;
+}
 
     .tab-content.profileMenuContent {
         background-color: $white;
@@ -3114,9 +3313,9 @@ $form-switch-style-bg4: $btn-primary-solid-default;
         color: $primary;
     }
 
-    .breadcrumb-item.active {
-        color: $primary;
-    }
+.breadcrumb-item.active a{
+    color: $primary;
+}
 
     .scrolltotop {
         background-color: $white;
