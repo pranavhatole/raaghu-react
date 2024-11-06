@@ -91,6 +91,7 @@ const RdsSelectList = (props: RdsSelectProps) => {
     const imgUrl = optionProps.data.imgUrl || defaultImgUrl;
 
     return (
+      <div id="select-background-color">
       <components.Option {...optionProps}>
         {optionProps.selectProps.isMulti && (
           <input
@@ -112,6 +113,7 @@ const RdsSelectList = (props: RdsSelectProps) => {
         />
         <label className="cursor-pointer ms-1">{optionProps.label}</label>
       </components.Option>
+      </div>
     );
   };
 

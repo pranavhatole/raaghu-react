@@ -16,3 +16,8 @@
     background-color: #d8c0fa !important;
     color: #6525bf !important;
 }
+
+#select-background-color .css-1miq03v-option{
+    background-color: unset !important;
+    color: black !important;
+}
