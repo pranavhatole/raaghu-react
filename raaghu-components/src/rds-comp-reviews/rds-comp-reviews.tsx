@@ -31,7 +31,7 @@ const RdsCompReviews = (props: RdsCompReviewsProps) => {
                   size="medium"
                 />
               </div>
-              <p className="card-text text-center">{item.descriptionShort}</p>
+              <p className="card-text text-center">{item.description}</p>
             </div>
           </div>
         );
@@ -48,7 +48,7 @@ const RdsCompReviews = (props: RdsCompReviewsProps) => {
                   size="medium"
                 />
               </div>
-              <p className="card-text text-center">{item.descriptionShort}</p>
+              <p className="card-text text-center">{item.description}</p>
             </div>
           </div>
         );
