@@ -48,6 +48,7 @@ export const Default: Story = {
         showTitle: true,
         showHint: true,
         hintText: "File size should be less than given file size limit",
+        
     }
 } satisfies Story;
 Default.parameters = { controls: { include: ['extensions', 'fileSizeLimitInMb', 'title', 'isRequired', 'showTitle', 'showHint', 'hintText'] } };
@@ -111,18 +112,19 @@ export const Drop_Area_With_Upload_Button
 Drop_Area_With_Upload_Button.parameters = { controls: { include: ['extensions', 'fileSizeLimitInMb', 'title', 'isRequired', 'showTitle', 'showHint', 'hintText'] } };
 
 
-export const Drop_Area_With_icon
+export const Drop_Area_With_Icon
 : Story = {
     args: {
-        multiple: false,
+        Drop_Area_With_Icon: true,
         extensions: "png, jpg",
         fileSizeLimitInMb: 5,
         validation: [
             { isError: false, hint: "File size exceeds the limit" }
         ],
         isRequired: true,
-        showHint: false,
-        hintText: "File size should be less than given file size limit",
+        iconName:"edit",
+        profilePic:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU",
     }
 } satisfies Story;
-Drop_Area_With_icon.parameters = { controls: { include: ['extensions', 'fileSizeLimitInMb', 'title', 'isRequired', 'showTitle', 'showHint', 'hintText'] } };
+Drop_Area_With_Icon.parameters = { controls: { include: ['profilePic', 'iconName', 'extensions', 'fileSizeLimitInMb', 'isRequired'] } };

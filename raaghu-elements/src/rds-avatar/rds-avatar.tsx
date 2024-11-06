@@ -37,6 +37,7 @@ export interface RdsAvatarProps {
 }
 
 const RdsAvatar = (props: RdsAvatarProps) => {
+  const { profilePic } = props;
   const tAlign = props.titleAlign;
   const Align = `${props.hasOwnProperty("titleAlign") ? tAlign : "horizontal"}`;
   const Aligned = `${
@@ -116,11 +117,11 @@ const RdsAvatar = (props: RdsAvatarProps) => {
   const getBorderClasses = (border: any) => {
     switch (border) {
       case "solid":
-        return " avatar-solid";
+        return " avatar-solid rounded-5";
       case "dotted":
-        return " avatar-dotted";
+        return " avatar-dotted rounded-5";
       case "dashed":
-        return " avatar-dashed";
+        return " avatar-dashed rounded-5";
       case "noBorder":
         return " ";
     }

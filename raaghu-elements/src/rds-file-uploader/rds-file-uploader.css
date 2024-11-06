@@ -144,6 +144,6 @@
 .fileFormat{
   font-size: 12px !important;
 }
-.custom-file-button{
-  
+.custom-file-button-rounded{
+  border-radius: 50%;
 }
