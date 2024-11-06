@@ -13,8 +13,13 @@ export interface BreadcrumbProps {
 }
 
 const RdsBreadcrumb = (props: BreadcrumbProps) => {
-  const [data, setData] = useState(props.breadcrumbItems);
-  const [hoveredItem, setHoveredItem] = useState<number | null>(null);
+  const [data, setData] = useState(() => {
+    const initialData = props.breadcrumbItems.map((item, index) => ({
+      ...item,
+      active: index === props.breadcrumbItems.length - 1, // Set the last item as active by default
+    }));
+    return initialData;
+  });  const [hoveredItem, setHoveredItem] = useState<number | null>(null);
 
   useEffect(() => {
     setData(props.breadcrumbItems);
@@ -38,36 +43,41 @@ const RdsBreadcrumb = (props: BreadcrumbProps) => {
       }))
     );
   };
-
   const styleClass =
-    props.style === "Pill Background"
-      ? "breadcrumb-pill"
-      : props.style === "Square Background"
-      ? "breadcrumb-square"
-      : "";
+  props.style === "Pill Background"
+    ? "breadcrumb-pill background-filled"
+    : props.style === "Square Background"
+    ? "breadcrumb-square background-filled"
+    : "";
 
-  const roundedClass =
+    const roundedClass =
     props.style === "Pill Background"
       ? "rounded-5 px-2"
       : props.style === "Square Background"
       ? "rounded-2 px-2"
       : "";
-
-  return (
-    <nav aria-label="breadcrumb">
-      <ol className={`breadcrumb m-0 ${styleClass}`}>
-        {displayedItems.map((breadItem, index) => {
-          const isLastItem = index === displayedItems.length - 1;
-
-          // Determine item class names based on state
-          const itemClassNames = `breadcrumb-item ${
-            breadItem.active ? "active" : ""
-          } ${isLastItem ? "text-primary" : ""} ${
-            isLastItem && props.style !== "Without Background" ? "bg-primary-subtle" : ""
-          } ${!isLastItem && breadItem.active && props.style !== "Without Background" ? "breadcrumb-no-bg" : ""} ${roundedClass} ${
-            props.style === "Without Background" ? "ms-2 me-2" : ""
-          }`; // Adjust class based on hover and state
-
+  
+      return (
+        <nav aria-label="breadcrumb">
+          <ol className={`breadcrumb m-0 `}>
+            {displayedItems.map((breadItem, index) => {
+              const isLastItem = index === displayedItems.length - 1;
+              const isAnyOtherItemActive = displayedItems.some((item, idx) => item.active && idx !== index);
+      
+              const itemClassNames = `breadcrumb-item ${
+                breadItem.active && !isLastItem ? `active ${styleClass} `: ""
+              } ${
+                isLastItem && !isAnyOtherItemActive ?   `active ${styleClass} ` : ""
+              } ${
+                !isLastItem && breadItem.active && props.style !== "Without Background" ? "" : ""
+              } ${
+                breadItem.active ? styleClass : ""
+              } ${
+                isLastItem && isAnyOtherItemActive ? roundedClass : roundedClass
+              } ${
+                props.style === "Without Background" ? "ms-2 me-2" : ""
+              }`;
+              
           return (
             <React.Fragment key={breadItem.id}>
               <li
