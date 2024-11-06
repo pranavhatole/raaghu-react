@@ -116,15 +116,14 @@ export const Drop_Area_With_Icon
 : Story = {
     args: {
         Drop_Area_With_Icon: true,
-        extensions: "png, jpg",
+        extensions: "jpg, png, gif",
         fileSizeLimitInMb: 5,
         validation: [
             { isError: false, hint: "File size exceeds the limit" }
         ],
-        isRequired: true,
         iconName:"edit",
         profilePic:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU",
     }
 } satisfies Story;
-Drop_Area_With_Icon.parameters = { controls: { include: ['profilePic', 'iconName', 'extensions', 'fileSizeLimitInMb', 'isRequired'] } };
+Drop_Area_With_Icon.parameters = { controls: { include: ['profilePic', 'iconName', 'extensions', 'fileSizeLimitInMb'] } };

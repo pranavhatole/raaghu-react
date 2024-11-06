@@ -38,6 +38,8 @@ const RdsFileUploader = (props: RdsFileUploaderProps) => {
   const { t } = useTranslation();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  const withIcon = props.iconName ? true : false;
+
   const size =
     props.size === "small"
       ? "form-control-sm"
@@ -573,13 +575,13 @@ const RdsFileUploader = (props: RdsFileUploaderProps) => {
                     <RdsAvatar
                       profilePic={props.profilePic} // Ensure avatarImage is a string
                       size="largest"
-                     // border="dashed"
+                      border="dashed" withProfilePic = {true}
                     />
                   ) : (
-                    <RdsAvatar
-                      iconName="edit"
+                    <RdsAvatar 
+                     iconName={props.iconName}
                       size="largest"
-                      //border="dashed"
+                      border="dashed"
                     />
                   )}
               </label>

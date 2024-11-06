@@ -33,7 +33,7 @@ export interface RdsAvatarProps {
   activityChain?: boolean;
   type?: string;
   iconName?: string;
-  border?: "Border" | "Dotted" | "Dashed" | "NoBorder";
+  border?: "solid" | "dotted" | "dashed" | "noBorder";
 }
 
 const RdsAvatar = (props: RdsAvatarProps) => {

@@ -56,7 +56,7 @@ type Story = StoryObj<typeof RdsAvatar>;
 export const Default: Story = {
     args: {
         size: "medium",
-        border:"NoBorder"
+        border:"noBorder"
     }
 } satisfies Story;
 Default.parameters = { controls: { include: ['size','border'] } };
@@ -70,7 +70,7 @@ export const withInitials: Story = {
         avtarWithName: false,
         nameOnBottom: false,
         stackingAvatar: false,
-        border:"NoBorder",
+        border:"noBorder",
         lastName: "Technologies",
         size: "medium",
     }
@@ -89,7 +89,7 @@ export const withIcon: Story = {
         nameOnBottom: false,
         stackingAvatar: false,
         //colorVariant: "primary",
-        border:"NoBorder",
+        border:"noBorder",
         iconName:"Home",
 
     }
@@ -110,7 +110,7 @@ export const withLabel: Story = {
         isTitle: true,
         titleAlign: "horizontal",
         role: "Developer",
-        border:"NoBorder"
+        border:"noBorder"
     }
 } satisfies Story;
 withLabel.parameters = { controls: { include: ['size', 'firstName', 'lastName', 'isTitle', 'titleAlign', 'role', 'border'] } };
@@ -132,7 +132,7 @@ export const withProfile: Story = {
         titleAlign: "horizontal",
         role: "Developer",
         //colorVariant: "primary",
-        border:"NoBorder",
+        border:"noBorder",
         profilePic:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU",
     }
