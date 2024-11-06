@@ -14,7 +14,7 @@ const RdsCompReviews = (props: RdsCompReviewsProps) => {
     switch (props.style) {
       case "style1":
         return (
-          <div className="card" style={{ width: '16rem' }}>
+          <div className="card col-lg-4 col-sm-12 col-md-6" >
             <div className="card-body">
               <div className="d-flex justify-content-center mb-3">
                 <RdsAvatar
@@ -31,14 +31,14 @@ const RdsCompReviews = (props: RdsCompReviewsProps) => {
                   size="medium"
                 />
               </div>
-              <p className="card-text text-center">{item.descriptionShort}</p>
+              <p className="card-text text-center">{item.description}</p>
             </div>
           </div>
         );
 
       case "style2":
         return (
-          <div className="card" style={{ width: '16rem' }}>
+          <div className="card col-lg-4 col-sm-12 col-md-6" >
             <div className="card-body">
               <h5 className="card-title text-center">{item.name}</h5>
               <div className="my-2 d-flex justify-content-center">
@@ -48,14 +48,14 @@ const RdsCompReviews = (props: RdsCompReviewsProps) => {
                   size="medium"
                 />
               </div>
-              <p className="card-text text-center">{item.descriptionShort}</p>
+              <p className="card-text text-center">{item.description}</p>
             </div>
           </div>
         );
 
       case "style3":
         return (
-          <div className="card p-3" style={{ width: '27rem'}}>
+          <div className="card p-3 col-lg-4 col-sm-12 col-md-6" >
             <div className="d-flex align-items-center">
               <img
                 src={item.imageUrl}
@@ -90,7 +90,7 @@ const RdsCompReviews = (props: RdsCompReviewsProps) => {
 
       case "style4":
         return (
-          <div className="card p-3" style={{ width: '27rem'}}>
+          <div className="card p-3 col-lg-4 col-sm-12 col-md-6" >
             <div className="d-flex align-items-center">
               <div className="ms-3">
                 <h5 className="fw-bold mb-0">{item.name}</h5>
@@ -118,7 +118,7 @@ const RdsCompReviews = (props: RdsCompReviewsProps) => {
 
         case "style5":
           return (
-            <div className="card p-3" style={{ width: '27rem'}}>
+            <div className="card p-3 col-lg-4 col-sm-12 col-md-6" >
               <div className="d-flex align-items-center">
                 <img
                   src={item.imageUrl}
@@ -149,7 +149,7 @@ const RdsCompReviews = (props: RdsCompReviewsProps) => {
           );
           case "style6":
             return (
-              <div className="card p-3" style={{ width: '27rem'}}>
+              <div className="card p-3 col-lg-4 col-sm-12 col-md-6">
                 <div className="d-flex align-items-center">
                   <div className="ms-3">
                     <h5 className="fw-bold mb-0">{item.name}</h5>
@@ -174,8 +174,8 @@ const RdsCompReviews = (props: RdsCompReviewsProps) => {
             );
             case "style7":
               return (
-                <div className="card p-3" style={{ width: '29rem' }}>
-                  <div className="d-flex justify-content-between align-items-center">
+                <div className="card p-3 col-lg-5 col-sm-12 col-md-6" >
+                  <div className=" justify-content-between align-items-center">
                     <div className="d-flex align-items-center">
                       <img
                         src={item.imageUrl}
@@ -210,9 +210,9 @@ const RdsCompReviews = (props: RdsCompReviewsProps) => {
               );
               case "style8":
                 return (
-                  <div className="card p-3" style={{ width: '27rem', height: '100%' }}>
+                  <div className="card p-3 col-lg-5 col-sm-12 col-md-6" style={{ height: '100%' }}>
                     <div>
-                      <div className="d-flex align-items-center">
+                      <div className=" align-items-center">
                         <div className="ms-3">
                           <small className="text-muted">
                             <div className="d-flex align-items-center mt-2">
@@ -241,7 +241,7 @@ const RdsCompReviews = (props: RdsCompReviewsProps) => {
                 );
               case "style9": 
               return (
-                <div className="card p-3" style={{ width: '27rem' }}>
+                <div className="card p-3 col-lg-6 col-md-6 col-sm-12 " >
                   <div className="d-flex align-items-center">
                     <img
                       src={item.imageUrl}
@@ -254,7 +254,7 @@ const RdsCompReviews = (props: RdsCompReviewsProps) => {
                       <div className="text-muted text-lowercase">{item.username}</div>
                     </div>
                   </div>
-                  <div className="d-flex justify-content-between align-items-center mt-2">
+                  <div className=" justify-content-between align-items-center mt-2">
                     <RdsRating rating={item.rating} colorVariant="warning" size="medium" />
                     <small className="text-muted">
                       {item.date
@@ -272,14 +272,14 @@ const RdsCompReviews = (props: RdsCompReviewsProps) => {
               ); 
               case "style10": 
               return (
-                <div className="card p-3" style={{ width: '27rem' }}>
+                <div className="card p-3 col-lg-6 col-md-6 col-sm-12" >
                   <div className="d-flex align-items-center">
                     <div className="ms-3">
                       <h5 className="fw-bold mb-0">{item.name}</h5>
                       <div className="text-muted text-lowercase">{item.username}</div>
                     </div>
                   </div>
-                  <div className="d-flex justify-content-between align-items-center mt-2">
+                  <div className=" justify-content-between align-items-center mt-2">
                     <RdsRating rating={item.rating} colorVariant="warning" size="medium" />
                     <small className="text-muted">
                       {item.date
