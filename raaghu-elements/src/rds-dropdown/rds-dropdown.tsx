@@ -23,12 +23,6 @@ const RdsDropdown = (props: RdsDropdownProps) => {
     const [show, setShow] = useState(false);
     const [selectedItems, setSelectedItems] = useState<string[]>([]);
 
-    let size: "btn-sm" | "btn-lg" | undefined = undefined;
-    if (props.size === "small") {
-        size = "btn-sm";
-    } else if (props.size === "large") {
-        size = "btn-lg";
-    }
 
     const toggleShow = () => {
         if (!props.disable) {
@@ -74,7 +68,19 @@ const RdsDropdown = (props: RdsDropdownProps) => {
         }
     };
 
-    const buttonClass = `btn btn-${props.colorVariant} ${size}`;
+    const getSizeClass = () => {
+        switch (props.size) {
+            case 'small':
+                return 'btn-sm dropdown-toggle-small';
+            case 'medium':
+                return 'btn-md';
+            case 'large':
+                return 'btn-lg';
+            default:
+                return '';
+        }
+    };
+    const buttonClass = `btn btn-${props.colorVariant} ${getSizeClass()}`;
 
     return (
         <>

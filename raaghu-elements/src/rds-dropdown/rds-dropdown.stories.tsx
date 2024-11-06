@@ -62,7 +62,7 @@ export const Default: Story = {
         buttonIcon: "plus",
         iconFill: false,
         iconStroke: true,
-        size: "mid",
+        size: "medium",
         darkDropdown: false,
         disable: false,
         isSelected: false,
@@ -94,7 +94,7 @@ export const WithSplit: Story = {
     args: {
         colorVariant: "primary",
         id: "3",
-        size: "mid",
+        size: "medium",
         darkDropdown: false,
         displayType: 'split',
         label: "Dropdown Button",
