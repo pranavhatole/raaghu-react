@@ -21,7 +21,10 @@ const RdsAiPromptBox = (props: RdsAiPromptBoxProps) => {
   >([]);
   const [selectedViews, setSelectedViews] = useState<{ [key: number]: string }>({});
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const [selected, setSelected] = useState("Design");
+  const [isChecked, setIsChecked] = useState(false);
+  const [isStarred, setIsStarred] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
+  const [isDisliked, setIsDisliked] = useState(false);
   const defaultImage = "../../../stories/assets/Aigeneratedimage.png";
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -187,7 +190,33 @@ const RdsAiPromptBox = (props: RdsAiPromptBoxProps) => {
       console.log("Regenerate button clicked");
     }
   };
+  const handleCheckboxChange = (checked: boolean) => {
+    setIsChecked(checked);
+    if (checked) {
+      // Perform actions to select all data into the frame
+      console.log("Checkbox checked, select all data into the frame");
+    } else {
+      // Perform actions to deselect all data from the frame
+      console.log("Checkbox unchecked, deselect all data from the frame");
+    }
+  };
+  const handleStarClick = () => {
+    setIsStarred(!isStarred);
+  };
 
+  const handleLikeClick = () => {
+    setIsLiked(!isLiked);
+    if (isDisliked) {
+      setIsDisliked(false); // Ensure dislike is reset if like is clicked
+    }
+  };
+
+  const handleDislikeClick = () => {
+    setIsDisliked(!isDisliked);
+    if (isLiked) {
+      setIsLiked(false); // Ensure like is reset if dislike is clicked
+    }
+  };
   const preCode = `<!DOCTYPE html>
   <html lang="en">
     <head>
@@ -298,6 +327,46 @@ const RdsAiPromptBox = (props: RdsAiPromptBoxProps) => {
                           </div>
                         )}
                       </div>
+                      <div className="hover-buttons">
+                      <span className="hover-button">
+                        <input
+                            type="checkbox"
+                            checked={isChecked}
+                            className="form-check-input customcheckbox"
+                            onChange={(e) => handleCheckboxChange(e.target.checked)}
+                        />
+                        </span>
+                        <span className="hover-button" onClick={handleStarClick}>
+                            <RdsIcon
+                                name="star"
+                                height="33px"
+                                width="24px"
+                                colorVariant="primary"
+                                fill={isStarred}
+                                stroke={!isStarred}
+                            />
+                            </span>
+                            <span className="hover-button " onClick={ handleLikeClick}>
+                            <RdsIcon
+                                name="likeaiprompt"
+                                height="33px"
+                                width="24px"
+                                colorVariant="primary"
+                                fill={isLiked}
+                                stroke={!isLiked}
+                            />
+                            </span>
+                            <span className="hover-button" onClick={handleDislikeClick}>
+                            <RdsIcon
+                                name="dislikeaiprompt"
+                                height="33px"
+                                width="24px"
+                                colorVariant="primary"
+                                fill={isDisliked}
+                                stroke={!isDisliked}
+                            />
+                            </span>
+                      </div>
                     </>
                   )}
                 </div>
@@ -374,7 +443,7 @@ const RdsAiPromptBox = (props: RdsAiPromptBoxProps) => {
                 name="newchat"
                 height="33px"
                 width="24px"
-                colorVariant="danger"
+                colorVariant="primary"
                 fill={false}
                 stroke={false}
               />

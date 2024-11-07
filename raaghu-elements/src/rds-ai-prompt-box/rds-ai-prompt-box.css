@@ -298,3 +298,34 @@
   white-space: pre-wrap; /* Ensure the code wraps within the container */
   font-family: monospace;
 }
+.output-content {
+  position: relative;
+}
+
+.hover-buttons {
+  position: absolute;
+  top: 22%;
+  right: 295px;
+  transform: translateY(-50%);
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.output-content:hover .hover-buttons {
+  display: flex;
+}
+
+.hover-button {
+  /* background-color: #007bff; */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.customcheckbox{
+  width: 26px !important;
+  height: 29px;
+}
