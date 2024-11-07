@@ -13,7 +13,7 @@ const meta: Meta = {
             options: ["medium","small",  "large"],
             control: { type: "select" },
         },
-        layout: {
+        inputType: {
             options: ["text","email", "password","number","phone number","card number", "otp"],
             control: { type: "select" },
         },
@@ -42,7 +42,7 @@ type Story = StoryObj<typeof RdsInput>;
 export const Default: Story = {
     args: {
         size: "medium",
-        layout: "text",
+        inputType: "text",
         state: "default",
         style: "Default",
         label: "Label",
@@ -57,12 +57,12 @@ export const Default: Story = {
         singleDigit: false,
     }
 } satisfies Story;
-Default.parameters = { controls: { include: ['size', 'layout', 'state','style','placeholder', 'label','showTitle', 'labelPosition','HintText','showHintText', 'id', 'value', 'required', 'showIcon', 'singleDigit'] } };
+Default.parameters = { controls: { include: ['size', 'inputType', 'state','style','placeholder', 'label','showTitle', 'labelPosition','HintText','showHintText', 'id', 'value', 'required', 'showIcon', 'singleDigit'] } };
 
 export const Tooltip: Story = {
     args: {
         size: "medium",
-        layout: "text",
+        inputType: "text",
         state: "default",
         style: "Default",
         label: "Label",
@@ -78,12 +78,12 @@ export const Tooltip: Story = {
         showTitle: true,
     }
 } satisfies Story;
-Tooltip.parameters = { controls: { include: ['size', 'layout', 'state','style','placeholder', 'label', 'showTitle', 'labelPosition', 'HintText','showHintText','id', 'value', 'required', 'tooltipPlacement', 'tooltipTitle','showIcon'] } };
+Tooltip.parameters = { controls: { include: ['size', 'inputType', 'state','style','placeholder', 'label', 'showTitle', 'labelPosition', 'HintText','showHintText','id', 'value', 'required', 'tooltipPlacement', 'tooltipTitle','showIcon'] } };
 
 export const Disabled: Story = {
     args: {
         size: "medium",
-        layout: "text",
+        inputType: "text",
         state: "disable",
         style: "Default",
         label: "Label",
@@ -98,12 +98,12 @@ export const Disabled: Story = {
         showIcon: true,
     }
 } satisfies Story;
-Disabled.parameters = { controls: { include: ['size', 'layout', 'state','style','placeholder', 'label', 'showTitle','labelPosition','HintText','showHintText', 'id', 'value', 'required', 'isDisabled', 'showIcon'] } };
+Disabled.parameters = { controls: { include: ['size', 'inputType', 'state','style','placeholder', 'label', 'showTitle','labelPosition','HintText','showHintText', 'id', 'value', 'required', 'isDisabled', 'showIcon'] } };
 
 export const Readonly: Story = {
     args: {
         size: "medium",
-        layout: "text",
+        inputType: "text",
         state: "default",
         style: "Default",
         label: "Label",
@@ -118,12 +118,12 @@ export const Readonly: Story = {
         showIcon: true,
     }
 } satisfies Story;
-Readonly.parameters = { controls: { include: ['size', 'layout', 'state','style','placeholder', 'label','showTitle', 'labelPosition','HintText','showHintText', 'id', 'value', 'required', 'readonly', 'showIcon'] } };
+Readonly.parameters = { controls: { include: ['size', 'inputType', 'state','style','placeholder', 'label','showTitle', 'labelPosition','HintText','showHintText', 'id', 'value', 'required', 'readonly', 'showIcon'] } };
 
 export const Email: Story = {
     args: {
         size: "medium",
-        layout: "email",
+        inputType: "email",
         state: "default",
         style: "Default",
         label: "Email",
@@ -143,7 +143,7 @@ Email.parameters = { controls: { include: ['size', 'state','style','placeholder'
 export const Password: Story = {
     args: {
         size: "medium",
-        layout: "password",
+        inputType: "password",
         state: "default",
         style: "Default",
         label: "Password",
