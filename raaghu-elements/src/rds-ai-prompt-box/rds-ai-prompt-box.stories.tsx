@@ -29,5 +29,5 @@ import React from 'react';
 
                 }
             } satisfies Story;
-            Default.parameters = { controls: { include: [] } };
+            Default.parameters = { controls: { include: ['prefilledprompt'] } };
             
