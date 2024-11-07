@@ -7,7 +7,7 @@ import { fontWeight } from "../../libs";
 import { useTranslation } from "react-i18next";
 
 export interface RdsInputProps {
-  size?: "small" | "large" | "default" | string;
+  size?: "small" | "large" | "medium" | string;
   isDisabled?: boolean;
   readonly?: boolean;
   value?: string;

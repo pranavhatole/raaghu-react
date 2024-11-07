@@ -10,7 +10,7 @@ const meta: Meta = {
     tags: ['autodocs'],
     argTypes: {
         size: {
-            options: ["default","small",  "large"],
+            options: ["medium","small",  "large"],
             control: { type: "select" },
         },
         layout: {
@@ -41,7 +41,7 @@ type Story = StoryObj<typeof RdsInput>;
 
 export const Default: Story = {
     args: {
-        size: "default",
+        size: "medium",
         layout: "text",
         state: "default",
         style: "Default",
@@ -61,7 +61,7 @@ Default.parameters = { controls: { include: ['size', 'layout', 'state','style','
 
 export const Tooltip: Story = {
     args: {
-        size: "default",
+        size: "medium",
         layout: "text",
         state: "default",
         style: "Default",
@@ -82,7 +82,7 @@ Tooltip.parameters = { controls: { include: ['size', 'layout', 'state','style','
 
 export const Disabled: Story = {
     args: {
-        size: "default",
+        size: "medium",
         layout: "text",
         state: "disable",
         style: "Default",
@@ -102,7 +102,7 @@ Disabled.parameters = { controls: { include: ['size', 'layout', 'state','style',
 
 export const Readonly: Story = {
     args: {
-        size: "default",
+        size: "medium",
         layout: "text",
         state: "default",
         style: "Default",
@@ -122,7 +122,7 @@ Readonly.parameters = { controls: { include: ['size', 'layout', 'state','style',
 
 export const Email: Story = {
     args: {
-        size: "default",
+        size: "medium",
         layout: "email",
         state: "default",
         style: "Default",
@@ -142,7 +142,7 @@ Email.parameters = { controls: { include: ['size', 'state','style','placeholder'
 
 export const Password: Story = {
     args: {
-        size: "default",
+        size: "medium",
         layout: "password",
         state: "default",
         style: "Default",
