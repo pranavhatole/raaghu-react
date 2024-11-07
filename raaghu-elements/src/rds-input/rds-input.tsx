@@ -7,11 +7,14 @@ import { fontWeight } from "../../libs";
 import { useTranslation } from "react-i18next";
 
 export interface RdsInputProps {
-  size?: "small" | "large" | "medium" | string;
+  size?: "small" | "large" | "default" | string;
   isDisabled?: boolean;
   readonly?: boolean;
   value?: string;
-  inputType?: string;
+  layout?: string;
+  state?: string;
+  style?: string;
+  showTitle: boolean;
   validatonPattern?: RegExp;
   validationMsg?: string;
   placeholder?: string;
@@ -40,6 +43,8 @@ export interface RdsInputProps {
   minValue?: any;
   maxValue?: any;
   showIcon?: boolean;
+  HintText?: string;
+  ShowHintText?: boolean;
 }
 
 const RdsInput = React.forwardRef<HTMLInputElement, RdsInputProps>(
@@ -110,7 +115,7 @@ const RdsInput = React.forwardRef<HTMLInputElement, RdsInputProps>(
         setErrorRegardingLengthOrValue("");
       }
       if (
-        props.inputType === "otp" &&
+        props.layout === "otp" &&
         !/^\d*$/.test(e.target.value) &&
         e.target.value !== ""
       ) {
@@ -126,11 +131,25 @@ const RdsInput = React.forwardRef<HTMLInputElement, RdsInputProps>(
     } else if (props.size == "large") {
       size = "lg";
     }
+    const borderColorClass=
+    (props.state ==="active"?" inputOutlineActive ":"  ")+
+    (props.state ==="selected"?" inputOutlineSelected ":" ")+
+    (props.state ==="error"?" inputOutlineError ":"  ")+
+    (props.state==="default"?" inputOutline ":"  ")
+    ;
+
     const inputClasses =
-      "form-control rounded mt-1 form-control-" +
+      "form-control  mt-1 form-control-" +
       size +
       " flex-grow-1 " +
-      props.customClasses;
+      props.customClasses +
+      (props.state === "active" ? " inputActive" : "") +
+      (props.state === "selected" ? " inputSelected" : "")+
+      (props.state === "error" ? " inputError" : "") +
+      (props.style === "Bottom Outline" ? borderColorClass : "") +
+      (props.style === "Pill" ? " rounded-5" : " rounded ");
+
+
 
     const getClassNames = () => {
       let defaultClasses: string = "input-group mb-0";
@@ -157,11 +176,31 @@ const RdsInput = React.forwardRef<HTMLInputElement, RdsInputProps>(
       return labelPositionClass;
     };
     const fontWeight = "fw-" + props.fontWeight;
-
+    const getPlaceholder = () => {
+      switch (props.layout) {
+        case 'phone number':
+          return 'Add Phone Number';
+        case 'card number':
+          return 'Add Card Number';
+          case 'otp':
+          return 'Enter OTP';
+        case 'number':
+          return 'Enter Number';
+        case 'password':
+          return 'Enter Password';
+        case 'email':
+          return 'Enter Email';
+        case 'text':
+          return 'Enter Text';
+        default:
+          return 'Enter value';
+      }
+    };
     return (
       <>
         {/* test  */}
         <div className={`${labelClass()} mt-2`}>
+          {props.showTitle && (
            <label
             htmlFor={props.id}
             className={`text-capitalize mt-2 form-label ${fontWeight}`}
@@ -171,24 +210,25 @@ const RdsInput = React.forwardRef<HTMLInputElement, RdsInputProps>(
               <span className="text-danger ms-1">*</span>
             )}
           </label>
+          )}
           {!props.tooltipTitle && (
             <div className={getClassNames()}>
               <input
                 type={
-                  props.inputType == "password"
+                  props.layout == "password"
                     ? showPassword
                       ? "text"
                       : "password"
-                    : props.inputType === "otp"
+                    : props.layout === "otp"
                     ? "tel"
-                    : props.inputType
+                    : props.layout
                 }
                 maxLength={
-                  props.inputType === "otp" && props.singleDigit ? 1 : undefined
+                  props.layout === "otp" && props.singleDigit ? 1 : undefined
                 }
-                className={`${inputClasses}`}
+                className={`${inputClasses} `}
                 id={props.id}
-                placeholder={props.placeholder}
+                placeholder={getPlaceholder()}
                 form={props.formName}
                 required={props.required}
                 onFocus={props.onFocus}
@@ -196,7 +236,7 @@ const RdsInput = React.forwardRef<HTMLInputElement, RdsInputProps>(
                 onKeyDown={props.onKeyDown}
                 value={value ?? ""}
                 onChange={handlerChange}
-                disabled={props.isDisabled}
+                disabled={props.isDisabled || props.state === "disable"}
                 readOnly={props.readonly}
                 data-testid={props.dataTestId}
                 onClick={props.onClick}
@@ -205,7 +245,8 @@ const RdsInput = React.forwardRef<HTMLInputElement, RdsInputProps>(
                 autoFocus={props.autoFocus && props.autoFocus[1] === 0}
                 ref={ref}
               />
-              {props.inputType === "password" && props.showIcon ? (
+              
+              {props.layout === "password" && props.showIcon ? (
         <RdsIcon
           name={showPassword ? "eye" : "eye_slash"}
           classes="password-toggle"
@@ -231,17 +272,19 @@ const RdsInput = React.forwardRef<HTMLInputElement, RdsInputProps>(
       )}
              
             </div>
+          
           )}
+            
           {props.tooltipTitle && (
             <Tooltip text={props.tooltipTitle} place={props.tooltipPlacement}>
               <div className={getClassNames()}>
                 <input
                   type={
-                    props.inputType == "password"
+                    props.layout == "password"
                       ? showPassword
                         ? "text"
                         : "password"
-                      : props.inputType
+                      : props.layout
                   }
                   className={inputClasses}
                   id={props.id}
@@ -258,10 +301,12 @@ const RdsInput = React.forwardRef<HTMLInputElement, RdsInputProps>(
                   readOnly={props.readonly}
                   data-testid={props.dataTestId}
                 ></input>
+                
                 {props.labelPosition == "floating" && (
                   <>
                     {props.label && (
                       <>
+                      {props.showTitle && (
                         <label
                           htmlFor={props.id}
                           className={`form-label mt-2 text-capitalize ${fontWeight}`}
@@ -269,11 +314,12 @@ const RdsInput = React.forwardRef<HTMLInputElement, RdsInputProps>(
                           {" "}
                           {props.label}
                         </label>
+                        )}
                       </>
                     )}
                   </>
                 )}
-                {props.inputType === "password" && props.showIcon ? (
+                {props.layout === "password" && props.showIcon ? (
         <RdsIcon
           name={showPassword ? "eye" : "eye_slash"}
           classes="password-toggle"
@@ -297,10 +343,15 @@ const RdsInput = React.forwardRef<HTMLInputElement, RdsInputProps>(
           />
         )
       )}
+   
               </div>
+              
             </Tooltip>
-          )}
 
+          )}
+{props.ShowHintText && (
+                <span className="hint-text">{props.HintText}</span>
+              )}
           {props.required && !props.validationMsg && (
             <div className="form-control-feedback">
               {props.required && props.value == "" && hasError && isTouch && (
@@ -314,13 +365,30 @@ const RdsInput = React.forwardRef<HTMLInputElement, RdsInputProps>(
           {props.required && props.value !== "" && (
             <div className="form-control-feedback">
               {props.validationMsg &&
-                props.inputType === "password" &&
+                props.layout === "password" &&
                 isTouch && (
                   <span className="text-danger">{props.validationMsg}</span>
                 )}
             </div>
           )}
-
+          {props.required && props.value !== "" && (
+            <div className="form-control-feedback">
+              {props.validationMsg &&
+                props.layout === "card number" &&
+                isTouch && (
+                  <span className="text-danger">{props.validationMsg}</span>
+                )}
+            </div>
+          )}
+          {props.required && props.value !== "" && (
+            <div className="form-control-feedback">
+              {props.validationMsg &&
+                props.layout === "phone number" &&
+                isTouch && (
+                  <span className="text-danger">{props.validationMsg}</span>
+                )}
+            </div>
+          )}
           {props.validatonPattern && (
             <div className="form-control-feedback">
               {props.value === "" && isTouch && props.required && (
