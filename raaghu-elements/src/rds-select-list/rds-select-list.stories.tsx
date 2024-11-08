@@ -30,6 +30,7 @@ type Story = StoryObj<typeof RdsSelectList>;
 export const Default: Story = {
     args: {
         id: "story",
+        showLabel: true,
         label: "Default Select List",
         isMultiple: false,
         placeholder: "Select label",
@@ -65,6 +66,7 @@ Default.parameters = { controls: { include: ['id', 'label', 'isMultiple', 'place
 export const Multiple: Story = {
     args: {
         id: "story",
+        showLabel: true,
         label: "Multiple Select List",
         isMultiple: true,
         placeholder: "Select label",
