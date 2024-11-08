@@ -33,9 +33,7 @@ export const Default: Story = {
                 feedIcon: "person",
                 imageUrl:
                     "https://th.bing.com/th/id/OIP.3IsXMskZyheEWqtE3Dr7JwHaGe?pid=ImgDet&rs=1",
-                description:"This bag is of the quality expected for the price. The lining inside the bag seems like satin and it is very strong one It has huge space inside inside as the zipper can be opened in either side.",
-                descriptionShort:
-                    "Awesome website and funnel for you business",
+                description:"Awesome website and funnel for you business",               
                 hashtags: "#newbag #fancybag #designerbag",
                 reviews: "See all 125 reviews",
                 rating: 4,
