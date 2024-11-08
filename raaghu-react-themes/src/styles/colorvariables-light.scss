@@ -3640,3 +3640,6 @@ hr {
 .form-check-input-type-circular-indeterminate{
     border-color:$primary;
 }
+.avatar-solid, .avatar-dotted, .avatar-dashed {
+    border-color:$input-neutral-outline-default;
+  }
