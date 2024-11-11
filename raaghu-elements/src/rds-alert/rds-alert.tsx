@@ -60,8 +60,7 @@ const RdsAlert = (props: RdsAlertProps) => {
             const position = `${props.position === "top" ? " position-absolute top-0 start-0 fullWidth z-index" : " position-absolute bottom-0 start-0 fullWidth z-index"}`;
             defaultClass = defaultClass + defaultClass + position;
         }
-
-        
+                
         if (props.border === "none") {
             defaultClass = defaultClass + " shadow ";
         }

@@ -69,7 +69,7 @@ export const SingleLineAlert: Story = {
         showbutton: true,        
     }
 };
-SigleLineAlert.parameters = { controls: { include: ["type", "icon", "title", "message", "border", "size", "dismisable", "sticky", "position", "showlink", "showbutton"] } };
+SingleLineAlert.parameters = { controls: { include: ["type", "icon", "title", "message", "border", "size", "dismisable", "sticky", "position", "showlink", "showbutton"] } };
 
 export const MultilineAlert: Story = {
     args: {
