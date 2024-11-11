@@ -47,9 +47,11 @@ export const ScatterChart: Story = {
                 legend: {
                     position: "top",
                     align: "center",
+                    //pointStyle: "line",
                     labels: {
                         usePointStyle: true,
-                    },
+                       //  pointStyle: "triangle"
+                    }
                 },
                 tooltip: {
                     usePointStyle: true,
