@@ -113,7 +113,7 @@ const RdsBreadcrumb = (props: BreadcrumbProps) => {
                   onClick={(e) => e.preventDefault()}
                   aria-disabled="true"
                 >
-                  {props.title}
+                  {props.title || breadItem.label}
                 </a>
                 {(props.topnavPlusIcon && <span className="ps-2">
                 <RdsIcon
