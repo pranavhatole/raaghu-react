@@ -49,7 +49,7 @@ const meta: Meta<typeof RdsAlert> = {
 export default meta;
 type Story = StoryObj<typeof RdsAlert>;
 
-export const SigleLineAlert: Story = {
+export const SingleLineAlert: Story = {
     args: {
         type: "info",
         icon: "information",
