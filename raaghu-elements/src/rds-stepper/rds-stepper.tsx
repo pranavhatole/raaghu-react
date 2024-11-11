@@ -1,11 +1,23 @@
 import React, { useState } from "react";
 import "./rds-stepper.css";
 import RdsIcon from "../rds-icon";
+import RdsCheckbox from "../rds-checkbox/rds-checkbox";
 
+
+interface StepperDetail {
+    label: string;
+    subtitle: string;
+    detail?: {
+        subtitle: string;
+    };
+}
 export interface RdsStepperProps {
+    detail: any;
+    stepperType?: string;
+    stepperDetails?: StepperDetail[];
+    showSubtitles?: boolean;
     selectedStep?: number;
     steps?: number;
-    stepperType: string;
     role?: string;
     state?: string;
     height?: number;
@@ -37,6 +49,7 @@ export interface RdsStepperProps {
 
 const RdsStepper = (props: RdsStepperProps) => {
     const [page, setPage] = useState(1);
+    const [checkedStates, setCheckedStates] = useState<boolean[]>(Array(props.stepperDetails?.length).fill(false));
     const formTitles = [
         { stepName: "Step 1", stepabname: "Profile" },
         { stepName: "Step 2", stepabname: "Positions" },
@@ -46,11 +59,25 @@ const RdsStepper = (props: RdsStepperProps) => {
     const increasePageCountHandler = () => {
         if (page <= formTitles.length) {
             setPage(page + 1);
+            setCheckedStates((prevStates) => {
+                const newStates = [...prevStates];
+                if (page - 1 < newStates.length) {
+                    newStates[page - 1] = true;
+                }
+                return newStates;
+            });
         }
     };
 
     const decreasePageCountHandler = () => {
-        if (page !== 1) {
+        if (page > 1) {
+            setCheckedStates((prevStates) => {
+                const newStates = [...prevStates];
+                if (page - 2 >= 0) {
+                    newStates[page - 2] = false;
+                }
+                return newStates;
+            });
             setPage(page - 1);
         }
     };
@@ -294,6 +321,46 @@ const RdsStepper = (props: RdsStepperProps) => {
                     </div>
                 </>
             )}
+
+            {props.stepperType == "withcheckbox" && (
+                <>
+                    <div>
+                        {props.stepperDetails?.map((detail, index) => (
+                            <div key={index} className="mb-3">
+                                <RdsCheckbox
+                                    classes="py-2"
+                                    label={detail.label}
+                                    state="Checkbox"
+                                    type="Square"
+                                    id={`projectDetailsCheckbox-${index}`}
+                                    checked={checkedStates[index]}
+                                    dataTestId={`projectDetails-${index}`} isDisabled={true}
+                                ></RdsCheckbox>
+                                {checkedStates[index] && props.showSubtitles && <div>{detail.subtitle}</div>}
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="mt-5">
+                        <button
+                            disabled={page === 1}
+                            className="btn btn-primary btn-sm me-2"
+                            onClick={decreasePageCountHandler}
+                        >
+                            Prev
+                        </button>
+                        <button
+                            disabled={page === formTitles.length + 1}
+                            className="btn btn-primary btn-sm"
+                            onClick={increasePageCountHandler}
+                        >
+                            Next
+                        </button>
+                    </div>
+
+                </>
+            )}
+
         </>
     );
 };
