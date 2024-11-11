@@ -329,3 +329,26 @@
   width: 26px !important;
   height: 29px;
 }
+.layout-1 {
+  display: block;
+}
+
+.layout-2 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.layout-2 .chat-image,
+.layout-2 .code-block {
+  flex: 1 1 50%;
+}
+
+.layout-4 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.layout-4 .chat-image,
+.layout-4 .code-block {
+  flex: 1 1 25%;
+}

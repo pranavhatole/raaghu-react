@@ -4,10 +4,10 @@ import RdsDropdownList from "../rds-dropdown-list/rds-dropdown-list";
 import RdsIcon from "../rds-icon/rds-icon";
 
 export interface RdsAiPromptBoxProps {
-  prefilledprompt: any;
-  aiButtons: any;
-  selectScreen: any;
-  colorVariant: string;
+  prefilledprompt?: any;
+  colorVariant?: string;
+  outputtype?: string;
+  showVariations?: boolean;
   onClick?: ($event: React.MouseEvent<HTMLLIElement>, val: string) => void;
 }
 
@@ -332,7 +332,7 @@ const RdsAiPromptBox = (props: RdsAiPromptBoxProps) => {
                         <input
                             type="checkbox"
                             checked={isChecked}
-                            className="form-check-input customcheckbox"
+                            className={"form-check-input customcheckbox border-primary"}
                             onChange={(e) => handleCheckboxChange(e.target.checked)}
                         />
                         </span>
@@ -414,7 +414,7 @@ const RdsAiPromptBox = (props: RdsAiPromptBoxProps) => {
 
       <div className="main-content">
         <div className="button-column mt-1">
-          <div className="button-row">
+         { props.showVariations &&( <div className="button-row">
             <button
               className={`form-controls sidebar-button me-2 text-primary border-primary`}
               onClick={() => handleButtonClick({ id: "1" })}
@@ -427,14 +427,15 @@ const RdsAiPromptBox = (props: RdsAiPromptBoxProps) => {
             >
               2
             </button>
-          </div>
-          <div className="button-row mt-2">
-            <button
+          </div>)}
+          <div className={`button-row ${props.showVariations? 'mt-2':''}`}>
+          { props.showVariations &&(  <button
               className={`form-controls sidebar-button me-2 text-primary border-primary`}
               onClick={() => handleButtonClick({ id: "4" })}
             >
               4
             </button>
+          )}
             <button
               className={`form-controls sidebar-button me-2 text-primary border-primary`}
               onClick={() => handleButtonClick({ id: "Chat" })}

@@ -10,6 +10,10 @@ import React from 'react';
             },
             tags: ['autodocs'],
             argTypes: {
+                outputtype: {
+                        options: ["raaghu_reply_with_design", "Ai_reply_with_output"],
+                        control: { type: "select" },
+                    },
             },
         } satisfies Meta<typeof RdsAiPromptBox>;
 
@@ -26,8 +30,10 @@ import React from 'react';
                                 { question: "Prefilled Prompt 3" },
                                 { question: "Prefilled Prompt 4" },
                             ],
+                        showVariations: true,
+                        outputtype: "raaghu_reply_with_design",
 
                 }
             } satisfies Story;
-            Default.parameters = { controls: { include: ['prefilledprompt'] } };
+            Default.parameters = { controls: { include: ['prefilledprompt','showVariations','outputtype'] } };
             
