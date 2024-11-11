@@ -46,18 +46,10 @@
     margin-left: 4rem;
   }
 }
-/* @media (min-width: 577px) {
-  .tree-node {
-    margin-left: 0px !important;
-  }
-  .btngroup {
-    display: flex;
-  }
 
-  .btngroup-mobile {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-left: 20px;
-  }
-} */
+.theme-dark .filename {
+  color: #fffdfd !important;
+}
+.filename{
+  max-height: 22px;
+}

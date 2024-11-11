@@ -11,115 +11,46 @@ export interface RdsTreeStructureProps {
   showCollapsed?: boolean;
   state?: "default" | "hover" | "selected";
   folderType?: "circle" | "folder";
+  showActions?: boolean;
+  treeData?: any;
+  fileLanguage?: string;
+  iconName?: string;
+  onSelectNode?: (item: any) => void;
+  onDeleteNode?: (id: any) => void;
+  onNodeEdit?: (data: any) => void;
+  onCreateNode?: (node: any) => void;
+  onCreateSubUnit?: (node: any) => void;
+  onMoveNode?: (id: any) => void;
 }
-
-const treeData = [
-        {
-          id: 1,
-          name: "Name 1",
-          icon: "folder",
-          children: [
-            {
-              id: 2,
-              name: "Name 2",
-              icon: "folder",
-              children: [
-                {
-                  id: 3,
-                  name: "Name 3",
-                  icon: "file",
-                  children: [
-                    {
-                      id: 4,
-                      name: "Name 4",
-                      icon: "file",
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
-        },
-        {
-          id: 5,
-          name: "Name 5",
-          icon: "folder",
-          children: [
-            {
-              id: 6,
-              name: "Name 6",
-              icon: "folder",
-              children: [
-                {
-                  id: 7,
-                  name: "Name 7",
-                  icon: "file",
-                  children: [
-                    {
-                      id: 8,
-                      name: "Name 8",
-                      icon: "file",
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
-        },
-        {
-          id: 9,
-          name: "Name 9",
-          icon: "folder",
-          children: [
-            {
-              id: 10,
-              name: "Name 10",
-              icon: "folder",
-              children: [
-                {
-                  id: 11,
-                  name: "Name 11",
-                  icon: "file",
-                  children: [
-                    {
-                      id: 12,
-                      name: "Name 12",
-                      icon: "file",
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
-        },
-        {
-          id: 13,
-          name: "Name 13",
-          icon: "folder",
-          children: [
-            {
-              id: 14,
-              name: "Name 14",
-              icon: "folder",
-              children: [
-                {
-                  id: 15,
-                  name: "Name 15",
-                  icon: "file",
-                  children: [
-                    {
-                      id: 16,
-                      name: "Name 16",
-                      icon: "file",
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
-        },
-      ];
-
+const fileTypeIcons = {
+  CSS: "cssicon",
+  Cplus: "cppicon",
+  Config: "configicon",
+  Database: "databaseicon",
+  Default: "defaulticon",
+  Docker: "dockericon",
+  ESLint: "eslinticon",
+  Git: "giticon",
+  GitHub: "githubicon",
+  Go: "goicon",
+  Gulp: "gulpicon",
+  HTML: "htmlicon",
+  JS: "jsicon",
+  JSON: "jsonicon",
+  Markdown: "markdownicon",
+  Notebook: "notebookicon",
+  Python: "pythonicon",
+  React: "reacticon",
+  Sass: "sassicon",
+  TypeScript: "typescripticon",
+  XML: "xmlicon",
+  YML: "ymlicon",
+};
+const getFileIcon = (fileType: keyof typeof fileTypeIcons) => {
+  debugger
+  const fileTypes = fileTypeIcons[fileType] || fileTypeIcons.Default;
+  return fileTypeIcons[fileType] || fileTypeIcons.Default;
+};
 const TreeNode = ({
   node,
   level,
@@ -162,19 +93,38 @@ const TreeNode = ({
     e.stopPropagation();
     setHoveredNodeId(null);
   };
-
+  const handlerButtonGroupClick = (e: any, id: any, node: any) => {
+    if (id == 'plus') {
+        e.stopPropagation();
+        props.onCreateNode && props.onCreateNode(node.data)
+    }
+    if (id == 'edit') {
+        e.stopPropagation();
+        props.onNodeEdit && props.onNodeEdit(node.data);
+    }
+    if (id == 'move') {
+      e.stopPropagation();
+        props.onMoveNode && props.onMoveNode(node.data.id);
+    }
+    if (id == 'delete') {
+      e.stopPropagation();
+        props.onDeleteNode && props.onDeleteNode(node.data.id);
+    }
+}
   return (
     <div
       className="tree-node-container"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+     
     >
       <div
         className={`tree-node p-1 cursor-pointer ${props.state === "hover" ? "nodehover" : ""}`}
         style={{ marginLeft: level * 20 }}
-        onClick={handleClick}
+     
+       
       >
-        <div className="d-flex align-items-center p-3 ">
+        <div className="d-flex align-items-center p-3 filename"    onMouseEnter={(e)=> handleMouseEnter(e)}
+        onMouseLeave={(e)=>handleMouseLeave(e)}
+        onClick={handleClick}>
           {(node.children && level < maxLevel && props.showChewron) && (
             <span
               className="me-2 cursor-pointer"
@@ -222,11 +172,17 @@ const TreeNode = ({
               )}
             </span>
           )}
-          {props.showFileIcon && <span style={{ color: "#0066cc" }}>TS</span>}
+          {props.showFileIcon && <span style={{ color: "#0066cc" }}> <RdsIcon
+              height="18px"
+              width="18px"
+              name={getFileIcon(props.fileLanguage as keyof typeof fileTypeIcons || "Default")}
+              fill={false}
+              stroke={false}
+            /></span>}
           <span style={{ marginLeft: 5 }}>{node.name}</span>
-          {isHovered && (
-            <div className="ms-auto d-flex btngroup">
-              <span className="p-2 customborder">
+          {(isHovered && props.showActions) && (
+            <div className="ms-auto d-flex btngroup" onClick={(e)=> e.stopPropagation()}>
+              <small className=" customborder p-2">
                 <RdsIcon
                   height="16px"
                   width="16px"
@@ -234,19 +190,35 @@ const TreeNode = ({
                   fill={false}
                   stroke={true}
                   colorVariant="primary"
+                   classes={"p-1"}
+                  onClick={(e) => handlerButtonGroupClick(e, 'plus', {data: node})}
                 />
-              </span>
-              <span className="p-2 customborder">
+              </small>
+              <small className="customborder p-2">
                 <RdsIcon
                   height="16px"
                   width="16px"
-                  name="edit"
+                  name="pencil"
                   fill={false}
                   stroke={true}
                   colorVariant="primary"
+                  classes={"p-1"}
+                  onClick={(e) => handlerButtonGroupClick(e, 'edit', {data: node})}
                 />
-              </span>
-              <span className="p-2 customborder">
+              </small>
+              <small className="customborder p-2">
+                <RdsIcon
+                  height="16px"
+                  width="16px"
+                  name="move"
+                  fill={false}
+                  stroke={true}
+                  colorVariant="primary"
+                  classes={"p-1"}
+                  onClick={(e) => handlerButtonGroupClick(e, 'move', {data: node})}
+                />
+              </small>
+              <small className=" customborder p-2">
                 <RdsIcon
                   height="16px"
                   width="16px"
@@ -254,8 +226,10 @@ const TreeNode = ({
                   fill={false}
                   stroke={true}
                   colorVariant="primary"
+                  classes={"p-1"}
+                  onClick={(e) => handlerButtonGroupClick(e, 'delete', {data: node})}
                 />
-              </span>
+              </small>
             </div>
           )}
         </div>
@@ -287,10 +261,10 @@ const RdsTreeStructure = (props: RdsTreeStructureProps) => {
   const [hoveredNodeId, setHoveredNodeId] = useState<number | null>(null);
 
   useEffect(() => {
-    if (props.showCollapsed) {
+    if (!props.showCollapsed) {
       setExpandedNodeIds([]);
     } else {
-      const allNodeIds = getAllNodeIds(treeData);
+      const allNodeIds = getAllNodeIds(props.treeData);
       setExpandedNodeIds(allNodeIds);
     }
   }, [props.showCollapsed]);
@@ -312,7 +286,7 @@ const RdsTreeStructure = (props: RdsTreeStructureProps) => {
 
   return (
     <div>
-      {treeData.map((node) => (
+      {props.treeData?.map((node: any) => (
         <TreeNode
           key={node.id}
           node={node}
