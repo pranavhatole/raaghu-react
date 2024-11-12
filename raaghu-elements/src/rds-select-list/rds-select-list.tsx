@@ -11,8 +11,8 @@ export interface RdsSelectProps {
   isBold?: boolean;
   isMultiple?: boolean;
   selectItems: {
-    label: string;
-    value: string;
+    label?: string;
+    value?: any;
     imgUrl?: string;
     imgWidth?: string;
     imgHeight?: string;
