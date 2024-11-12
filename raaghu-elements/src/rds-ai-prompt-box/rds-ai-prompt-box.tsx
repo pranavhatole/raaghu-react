@@ -270,7 +270,7 @@ const RdsAiPromptBox = (props: RdsAiPromptBoxProps) => {
                           <div className="d-flex justify-content-between align-items-center mb-2">
                             <div>{entry.text}</div>
                             <div className="d-flex ml-auto">
-                              <div className="toggle-container">
+                              {props.outputtype=='Raaghu_reply_with_design' &&(<div className="toggle-container">
                                 <div
                                   className={`toggle-option ${
                                     selectedViews[index] === "Design"
@@ -291,7 +291,7 @@ const RdsAiPromptBox = (props: RdsAiPromptBoxProps) => {
                                 >
                                   Code
                                 </div>
-                              </div>
+                              </div>)}
                               <span
                                 className="form-controls border-primary ms-1 cursor-pointer"
                                 style={{ height: "2.5rem" }}

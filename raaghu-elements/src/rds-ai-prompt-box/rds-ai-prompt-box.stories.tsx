@@ -11,7 +11,7 @@ import React from 'react';
             tags: ['autodocs'],
             argTypes: {
                 outputtype: {
-                        options: ["raaghu_reply_with_design", "Ai_reply_with_output"],
+                        options: ["Raaghu_reply_with_design", "Ai_reply_with_output"],
                         control: { type: "select" },
                     },
             },
@@ -31,7 +31,7 @@ import React from 'react';
                                 { question: "Prefilled Prompt 4" },
                             ],
                         showVariations: true,
-                        outputtype: "raaghu_reply_with_design",
+                        outputtype: "Raaghu_reply_with_design",
 
                 }
             } satisfies Story;
