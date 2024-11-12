@@ -109,7 +109,7 @@ const RdsCompSkeleton = (props: RdsCompSkeletonProps) => {
         <RdsSkeleton
           shape="rectangle"
           isAnimated={isAnimated}
-          width="90%"
+          width="100%"
           height="8px"
         />
         <RdsSkeleton
@@ -121,8 +121,8 @@ const RdsCompSkeleton = (props: RdsCompSkeletonProps) => {
         <RdsSkeleton
           shape="rectangle"
           isAnimated={isAnimated}
-          width="80%"
-          height="20px"
+          width="100%"
+          height="10px"
         />
         <RdsSkeleton
           shape="rectangle"
