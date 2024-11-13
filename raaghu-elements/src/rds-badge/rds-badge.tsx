@@ -113,7 +113,7 @@ const RdsBadge = (props: RdsBadgeProps) => {
                     </span>))
                    
                 )}
-                {props.iconName && props.iconPosition === 'left' && Icons.hasOwnProperty(props.iconName) && (
+                {props.iconName && props.iconPosition === 'left' && props.layout !="Text_only"  && Icons.hasOwnProperty(props.iconName) && (
                     <RdsIcon
                         name={props.iconName}
                         fill={props.iconFill}
@@ -124,7 +124,7 @@ const RdsBadge = (props: RdsBadgeProps) => {
                 )}
                 {(props.layout =="Text_only" || props.layout == "Icon+Text" || props.layout== "Text+Icon" || props.textwithlabel) && (<span className="mb-0 p-1">{props.label}</span>)}
 
-                {(props.iconName && props.iconPosition === 'right' && props.layout !="Text_only" && props.layout != "Icon_only" && props.layout != "Icon+Text" ) && Icons.hasOwnProperty(props.iconName) && (
+                {(props.iconName && props.iconPosition === 'right' && props.layout !="Text_only" && props.layout != "Icon_only"  ) && Icons.hasOwnProperty(props.iconName) && (
                     <RdsIcon
                         name={props.iconName}
                         fill={props.iconFill}
