@@ -11,3 +11,6 @@
   align-items: center;
   margin: 0 0.55rem;
 }
+.breadcrumb-md-separator {
+    margin: 0 0.35rem;
+}

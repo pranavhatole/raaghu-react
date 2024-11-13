@@ -347,8 +347,8 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
               <span className="navbar-toggler-icon"></span>
             </button>
     
-            <div className="d-flex align-items-center mt-5 mt-md-0 d-xxl-block d-xl-block d-lg-block d-none flex-grow-1 justify-content-center px-5">
-              <div className="d-flex align-items-center px-5">
+            <div className="d-flex align-items-center mt-5 mt-md-0 d-xxl-block d-xl-block d-lg-block flex-grow-1 justify-content-center">
+              <div className="d-flex align-items-center">
                   <>
                     <div className="d-flex align-items-center">
                       {props.showLogo && (
@@ -362,7 +362,7 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
                       <ul className="nav-items-list list-unstyled d-flex align-items-center  mb-0">
                         {navtabItem?.map((item: any, index: number) => (
                           <li key={index} className="nav-item mx-3  ">
-                            <a href={item.href} className="nav-link cursor-pointer" style={{ fontWeight: "bold" }}>
+                            <a href={item.href} className="nav-link cursor-pointer">
                               {item.label}
                             </a>
                           </li>
@@ -474,7 +474,7 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
     if (props.ecommerce1) {
       return (
         <div  id="topnav">
-        <nav className="navbar d-flex justify-content-between p-1 min-width align-items-center justify-content-md-end justify-content-lg-between shadow">
+        <nav className="navbar d-flex justify-content-between p-1 min-width align-items-center justify-content-md-between justify-content-lg-between shadow">
             <div id="raaghuLogo" className="d-block m-2">
             {props.showLogo && (  <img
                     className="cursor-pointer sidenav-logo mx-4"
@@ -492,7 +492,7 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
                 <span className="navbar-toggler-icon"></span>
             </button>
 
-            <div className="d-flex align-items-center mt-5 mt-md-0 d-xxl-block d-xl-block d-lg-block d-none">
+            <div className="d-flex align-items-center mt-5 mt-md-0 d-xxl-block d-xl-block d-lg-block">
                 <div>
                     {breacrumItem?.length > 0 && (
                             <div>
@@ -629,7 +629,18 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
                 )}
             </div>
            
-        </nav>
+              </nav>
+              <div className="d-flex align-items-center mt-5 mt-md-0 d-xxl-none d-xl-none d-lg-none">
+                  <div>
+                      {breacrumItem?.length > 0 && (
+                          <div>
+                              <>
+                                  <RdsBreadcrumb breadcrumbItems={breacrumItem} onBreadcrumbClick={handleBreadcrumbClick} ></RdsBreadcrumb>
+                              </>
+                          </div>
+                      )}
+                  </div>
+              </div>
     </div>
       );
     }
@@ -705,15 +716,27 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
                 )}
             </div>
            
-        </nav>
+              </nav>
+              <div className="d-flex align-items-center mt-5 mt-md-0 d-xxl-none d-xl-none d-lg-none">
+                  <div>
+                      {breacrumItem?.length > 0 && (
+                          <div className={` ${props.ecommerce3 ? "ps-4" : ""}`}>
+                              <>
+                                  <RdsBreadcrumb breadcrumbItems={breacrumItem} onBreadcrumbClick={handleBreadcrumbClick} ></RdsBreadcrumb>
+                              </>
+                          </div>
+                      )}
+                  </div>
+              </div>
     </div>
       );
     }
     if (props.ecommerce4) {
       return (
         <div  id="topnav">
-        <nav className="navbar d-flex justify-content-between p-1 min-width align-items-center justify-content-md-end justify-content-lg-between shadow">
-            <div id="raaghuLogo" className="d-block m-2">
+              <nav className="navbar d-flex justify-content-between p-1 min-width align-items-center justify-content-md-end justify-content-lg-between shadow">
+                  <div className="d-flex">    
+        <div id="raaghuLogo" className="d-block m-2 ">
             {props.showLogo && (  <img
                     className="cursor-pointer sidenav-logo mx-4"
                     src={brandLogo}
@@ -730,7 +753,7 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
                 <span className="navbar-toggler-icon"></span>
             </button>
 
-            <div className="d-flex align-items-center mt-5 mt-md-0 d-xxl-block d-xl-block d-lg-block d-none">
+                      <div className="d-flex align-items-center mt-5 mt-md-0 d-xxl-block d-xl-block d-lg-block d-none breadcrumd-ps">
                 <div>
                     {breacrumItem?.length > 0 && (
                             <div>
@@ -740,7 +763,8 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
                             </div>
                         )}
                 </div>
-            </div>
+                  </div>
+           </div>
             <div
                 className={
                     "d-flex align-items-center justify-content-between right-side-menu"
@@ -808,7 +832,18 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
                 </div>)}
             </div>
            
-        </nav>
+              </nav>
+              <div className="d-flex align-items-center mt-5 mt-md-0 d-xxl-none d-xl-none d-lg-none breadcrumd-ps">
+                  <div>
+                      {breacrumItem?.length > 0 && (
+                          <div>
+                              <>
+                                  <RdsBreadcrumb breadcrumbItems={breacrumItem} onBreadcrumbClick={handleBreadcrumbClick} ></RdsBreadcrumb>
+                              </>
+                          </div>
+                      )}
+                  </div>
+              </div>
     </div>
       );
     }
@@ -1266,12 +1301,12 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
           <div className="d-flex align-items-center right-side-menu">
             {props.professional2 && (
               <>
-                <ul className="nav-items-list list-unstyled d-flex align-items-center  mb-0">
+                              <ul className="nav-items-list list-unstyled  align-items-center mb-0 d-md-none d-lg-flex">
                 <div className="border-end-custom p-0 ps-2" style={{ minHeight: '44px'}}>
                 </div>
                         {navtabItem?.map((item: any, index: number) => (
                           <>
-                          <li key={index} className="nav-item mx-3  ">
+                          <li key={index} className="nav-item mx-3 ">
                             <a href={item.href} className="nav-link cursor-pointer" style={{ fontWeight: "bold" }}>
                               {item.label}
                             </a>
@@ -1290,7 +1325,27 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
               </>
             )}
           </div>
-        </nav>
+              </nav>
+              {props.professional2 && (
+                  <>
+                      <ul className="nav-items-list list-unstyled d-flex align-items-center mb-0 d-xxl-none d-xl-none d-lg-none">
+                          <div className="border-end-custom p-0 ps-2" style={{ minHeight: '24px' }}>
+                          </div>
+                          {navtabItem?.map((item: any, index: number) => (
+                              <>
+                                  <li key={index} className="mt-2 mx-3 nav-item ">
+                                      <a href={item.href} className="nav-link cursor-pointer" style={{ fontWeight: "bold" }}>
+                                          {item.label}
+                                      </a>
+                                  </li>
+                                  <div className="border-end-custom p-0 ps-2" style={{ minHeight: '24px' }}>
+                                  </div>
+                              </>
+                          ))}
+                      </ul>
+                     
+                  </>
+              )}
       </div>
     );
     }
@@ -1341,7 +1396,7 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
           <div className="d-flex align-items-center right-side-menu">
             {props.professional3 && (
               <>
-                <ul className="nav-items-list list-unstyled d-flex align-items-center  mb-0">
+                              <ul className="nav-items-list list-unstyled align-items-center mb-0 d-md-none d-lg-flex">
                 <li className="nav-item mx-3 cursor-pointer  ">Home</li>
               
                 {props.professional3 && breacrumItem?.length > 0 && (
@@ -1367,7 +1422,29 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
               </>
             )}
           </div>
-        </nav>
+              </nav>
+              {props.professional3 && (
+                  <>
+                      <ul className="nav-items-list list-unstyled d-flex align-items-center mb-0 d-xxl-none d-xl-none d-lg-none">
+                          <li className="nav-item mx-3 cursor-pointer  d-flex align-items-center mt-2">Home</li>
+
+                          {props.professional3 && breacrumItem?.length > 0 && (
+                              <div className="mob-description ">
+                                  <>
+                                      <RdsBreadcrumb
+                                          breadcrumbItems={breacrumItem}
+                                          separator={props.product1 ? ">" : undefined}
+                                          topnavPlusIcon={true}
+                                      ></RdsBreadcrumb>
+                                  </>
+                              </div>
+                          )}
+                          <li className="nav-item mx-3 cursor-pointer d-flex align-items-center mt-2">About us</li>
+
+                      </ul>
+                     
+                  </>
+              )}
       </div>
     );
     }
@@ -1411,16 +1488,14 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-      
-          <div className="d-flex align-items-center flex-grow-1 justify-content-center">
-          {breacrumItem?.length > 0 && (
+                  {breacrumItem?.length > 0 && (
+                      <div className="d-flex align-items-center flex-grow-1 justify-content-center  d-md-none d-lg-flex">          
                <div className={` ${props.professional4?"ps-4":""}`}>
                    <>
                       <RdsBreadcrumb breadcrumbItems={breacrumItem} onBreadcrumbClick={handleBreadcrumbClick} ></RdsBreadcrumb>
                    </>
-                  </div>
-             )}
-          </div>
+                  </div>             
+          </div>)}
       
           <div className="d-flex align-items-center right-side-menu">
           {props.showSearch && props.professional4 && (
@@ -1443,7 +1518,15 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
               </div>
             )}
           </div>
-        </nav>
+              </nav>
+              {breacrumItem?.length > 0 && (
+                  <div className="align-items-center flex-grow-1 justify-content-center d-xxl-none d-xl-none d-lg-none mt-2">
+                      <div className={` ${props.professional4 ? "ps-4" : ""}`}>
+                          <>
+                              <RdsBreadcrumb breadcrumbItems={breacrumItem} onBreadcrumbClick={handleBreadcrumbClick} ></RdsBreadcrumb>
+                          </>
+                      </div>
+                  </div>)}
       </div>
     );
     }
@@ -1866,7 +1949,7 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
             <div className="d-flex align-items-center justify-content-center flex-grow-1">
               <div className="d-flex justify-content-center w-100">
                 { breacrumItem?.length > 0 && (
-                  <div className="mob-description">
+                  <div className="mob-description fs-6">
                     <RdsBreadcrumb
                       breadcrumbItems={breacrumItem}
                       separator={props.product1 ? ">" : undefined}
@@ -1885,7 +1968,7 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
     }
     return (
       <div>
-        <nav className="navbar d-flex justify-content-between p-1 min-width align-items-center justify-content-md-end justify-content-lg-between shadow">
+        <nav className="navbar d-flex justify-content-between p-1 min-width align-items-center justify-content-lg-between shadow">
           <div
             onClick={handlerLogoClick}
             id="raaghuLogo"
@@ -1906,7 +1989,7 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          <div className="d-flex align-items-center mt-5 mt-md-0 d-xxl-block d-xl-block d-lg-block d-none">
+          <div className="d-flex align-items-center mt-5 mt-md-0 d-xxl-block d-xl-block d-lg-block">
             <div className="d-flex">
                 <>
                  {(!props.product1  && <div>
@@ -1924,7 +2007,7 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
                   </div>)}
                 </>
               {(props.product1 || props.product2 || props.product3)&& breacrumItem?.length > 0 && (
-                <div className="mob-description ">
+                            <div className="mob-description d-flex align-items-center mt-5 mt-md-0 d-xxl-block d-xl-block d-lg-block d-none">
                   <>
                     <RdsBreadcrumb
                       breadcrumbItems={breacrumItem}
@@ -2238,7 +2321,18 @@ const filterMenuItem = (menuItem: { label: string, children?: any[] }, query: st
             </div>
           </nav>
             }
-
+       
+            {(props.product1 || props.product2 || props.product3) && breacrumItem?.length > 0 && (
+                <div className="mob-description d-flex align-items-center mt-5 mt-md-0 d-xxl-none d-xl-none d-lg-none">
+                    <>
+                        <RdsBreadcrumb
+                            breadcrumbItems={breacrumItem}
+                            separator={props.product1 ? ">" : undefined}
+                            topnavPlusIcon={props.product2 || props.product3}
+                        ></RdsBreadcrumb>
+                    </>
+                </div>
+            )}
       </div>
     );
   };
