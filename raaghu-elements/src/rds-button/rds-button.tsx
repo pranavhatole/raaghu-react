@@ -60,6 +60,9 @@ const RdsButton = (props: RdsButtonProps) => {
         if (props.class === " btn-link ") {
             defaultClass = defaultClass + " btn-link ";
         }
+        if(props.colorVariant === "light" && props.isBanerButton){
+            defaultClass = defaultClass + " text-primary border-primary";
+        }
         return defaultClass;
     };
 
