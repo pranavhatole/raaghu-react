@@ -46,12 +46,42 @@ const RdsNavtabs = (props: RdsNavtabsProps) => {
       <div>
        <ul
   className={
-    "nav fit-content mobile-ul-tabs flex" +
+    "nav fit-content mobile-ul-tabs flex nav-tabs" +
     (props.layout === "Vertical"
       ? " col-12 d-flex d-lg-block d-xl-block d-xxl-block d-md-block"
+      : props.style === "Top Select"
+      ? " top-select"
+      : props.style === "Bottom Select"
+              ? " bottom-select"
+              : props.style === "Bottom Select Alt"
+              ? " bottom-select-alt"
+              : props.style === "Top Select Alt"
+              ? " top-select-alt"
+              : props.style === "Background Filled"
+              ? " background-filled"
+              : props.style === "Pill"
+              ? " nav-pills"
+              : props.style === "Select Tabs"
+              ? " select-tabs"
+              : props.style === "Vertical -Alt Right Line"
+              ? " vertical-alt-right-line"
+              : props.style === "Vertical -Alt Left Line"
+              ? " vertical-alt-left-line"
+              : props.style === "Vertical -Left Line"
+              ? " vertical-left-line"
+              : props.style === "Vertical -Right Line"
+              ? " vertical-right-line"
+              : props.style === "Vertical -Left Filled"
+              ? " vertical-left-filled"
+              : props.style === "Vertical -Pointer"
+              ? " vertical-pointer"
+              : props.style === "Vertical -Flap"
+              ? " vertical-flap"
+              : props.type === "tabs"
+              ? " border-bottom border-primary border-3 text-primary"
       : props.style === "pills"
       ? " nav-pills"
-      : props.type === "tabs"
+      : props.style === "tabs"
       ? " flex-lg-row flex-md-row flex-xl-row flex-xxl-row justify-content-start nav-tabs pb-0 pb-lg-0 pb-md-0 pb-xl-0 pb-xxl-0"
       : " nav-tabs") +
     (props.fill ? " nav-fill" : "") +
@@ -61,7 +91,7 @@ const RdsNavtabs = (props: RdsNavtabsProps) => {
 >
   {props.navtabsItems.map((navtabsItem) => (
     <li
-      className="nav-item pt-xxl-1 pt-xl-1 py-0 cursor-pointer"
+      className="nav-item py-0 cursor-pointer"
       key={navtabsItem.id}
     >
       <a
@@ -74,11 +104,11 @@ const RdsNavtabs = (props: RdsNavtabsProps) => {
             : "") +
           (navtabsItem.id === activeNavTabId
             ? props.style === "Top Select"
-              ? " top-select"
+              ? "selected"
               : props.style === "Bottom Select"
-              ? " bottom-select"
+              ? "selected"
               : props.style === "Bottom Select Alt"
-              ? " bottom-select-alt"
+              ? "selected"
               : props.style === "Top Select Alt"
               ? " top-select-alt"
               : props.style === "Background Filled"
