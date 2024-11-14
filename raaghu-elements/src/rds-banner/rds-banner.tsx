@@ -34,6 +34,10 @@ export interface RdsBannerProps {
   showSecondButton?: boolean;
   firstButtonIcon?: string;
   secondButtonIcon?: string;
+  showHyperlink?: boolean;
+  hyperlink?: string;
+  hyperlinkText?: string;
+  hyperlinkIcon?: string;
 }
 
 const RdsBanner = (props: RdsBannerProps) => {
@@ -106,6 +110,24 @@ const RdsBanner = (props: RdsBannerProps) => {
                         isBanerButton={true}
                         onClick={(e) => onButtonClick(e)}
                     ></RdsButton>)}
+                     {props.showHyperlink &&( 
+                      <div className="links">
+                         
+                        <a className="btn btn-light" href={props.hyperlink} target="_blank" rel="noopener noreferrer">
+                        <span className="me-2">
+                        <RdsIcon
+                          colorVariant="primary"
+                          name={props.hyperlinkIcon}
+                          width= "16px"
+                          height="16px"
+                          fill={ false}
+                          stroke={true}
+                        ></RdsIcon>
+                        </span>
+                         {props.hyperlinkText}
+                        </a>
+                        
+                      </div>)}
           </div>
         </div>
       </div>)}

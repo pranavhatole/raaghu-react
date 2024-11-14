@@ -58,9 +58,13 @@ export const Raaghu: Story = {
         secondButtonIcon: "phone",
         showFirstButton: true,
         showSecondButton: true,
-        raaghuBanner: true
+        raaghuBanner: true,
+        showHyperlink: true,
+        hyperlink: "https://www.raaghu.com",
+        hyperlinkText: "Learn More",
+        hyperlinkIcon: "learn_more"
      
     }
 } satisfies Story;
-Raaghu.parameters = { controls: { include: ['headingText', 'titleText', 'subTitleText', 'imageUrl','showFirstButton','showSecondButton','firstButtonText','secondButtonText','firstButtonIcon','secondButtonIcon'] } };
+Raaghu.parameters = { controls: { include: ['headingText', 'titleText', 'subTitleText', 'imageUrl','showFirstButton','showSecondButton','firstButtonText','secondButtonText','firstButtonIcon','secondButtonIcon','showHyperlink','hyperlink','hyperlinkText','hyperlinkIcon'] } };
 

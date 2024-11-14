@@ -141,3 +141,9 @@
       margin-top: 15px;
     }
   }
+
+  .links a{
+    color: #7e2eef !important;
+    border: 2px solid #7e2eef !important;
+    font-weight: 500 !important;    
+  }
