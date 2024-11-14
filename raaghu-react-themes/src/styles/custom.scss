@@ -3303,3 +3303,7 @@ $btn-border-radius: $border-radius-xs !default;
     background: #292b30 !important;
     color: #dee2e6 !important;
 }
+
+.btn.btn-md {
+    padding: $spacing-xs $spacing-s;
+}

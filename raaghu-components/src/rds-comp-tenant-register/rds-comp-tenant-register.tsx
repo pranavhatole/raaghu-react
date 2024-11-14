@@ -177,7 +177,7 @@ const RdsCompTenantRegister = (props: RdsCompTenantRegisterProps) => {
                             </div>
                         </div>
 
-                        <div className="pb-4 mt-2">
+                        <div className="pb-4 mt-2 pt-2">
                             <RdsCheckbox
                                 id="id1"
                                 label="I Accept Terms Of Service"
