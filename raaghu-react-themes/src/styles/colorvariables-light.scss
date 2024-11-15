@@ -3679,3 +3679,87 @@ hr {
         border-top: 2px solid #c0c0ff;
     }
 }
+.nav-tabs.bottom-select-alt {
+    border-bottom:0px;
+    li{
+        border-bottom: 1px solid $line-neutral-light-defaut !important;
+        color:$txt-neutral-medium-default;
+    }
+    .selected{
+        border-bottom: 2px solid $primary !important;
+    }
+}
+.nav-tabs.top-select-alt {
+    border-bottom:0px;
+    border-top:0px;
+    li{
+        border-top: 1px solid $line-neutral-light-defaut !important;
+        color:$txt-neutral-medium-default;
+    }
+    .selected{
+        border-top: 2px solid $primary !important;
+        border-radius: 0px;
+    }
+    .nav-link:after {
+        content: "";
+        display: block;
+        margin: auto;
+        height: 3px;
+        width: 0px;
+        background: transparent;
+        position: relative;
+        top: -1.95rem;
+        left: 0px;
+        transition: width 0.5s ease, border-color 0.5s ease;
+    }
+    .nav-link:hover:after {
+        width: 100%;
+        border-top: 2px solid #c0c0ff;
+    }
+}
+.nav-tabs.background-filled {
+    border-bottom:0px;
+    background-color:transparent;
+    color:$txt-neutral-medium-default;
+    li{
+        background-color:transparent;
+        color:$txt-neutral-medium-default;
+
+    }
+    .selected{
+        background-color: $primary;
+        color:$btn-primary-text-invert;
+    }
+}
+.nav-tabs.nav-pills {
+    border-bottom:0px;
+    border-radius: $border-radius-xxl;
+    background-color:$bg-primary-lighter-default;
+    color:$txt-neutral-medium-default;
+
+    li{
+        background-color:transparent;
+        color:$txt-neutral-medium-default;
+
+    }
+    .selected{
+        border-radius: $border-radius-xxl;
+        background-color: $primary;
+        color:$btn-primary-text-invert;
+    }
+}
+.nav-tabs.select-tabs {
+    border-bottom:0px;
+    border-radius: $border-radius-xxl;
+    color:$txt-neutral-medium-default;
+    width:fit-content;
+
+    li{
+        background-color:$bg-primary-lighter-default;
+        color:$txt-neutral-medium-default;
+    }
+    .selected{
+        background-color: $btn-primary-transparent-selected;
+        color:$primary;
+    }
+}
