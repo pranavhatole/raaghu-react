@@ -244,7 +244,7 @@ const RdsAiPromptBox = (props: RdsAiPromptBoxProps) => {
  </html>`;
 
   return (
-    <div className="container">
+    <div className="container-fluid p-0">
       {/* Chat History Section */}
       <div className="chat-history form-controls">
         {chatHistory.map((entry, index) => (
@@ -395,10 +395,11 @@ const RdsAiPromptBox = (props: RdsAiPromptBoxProps) => {
           </div>
         ))}
       </div>
-      <div className={`prefilled-prompts`}>
+      <div className={`prefilled-prompts d-flex justify-content-between`}>
         {props.prefilledprompt.map(
           (prompt: { question: string }, index: number) => (
-            <button
+              
+                <button
               key={index}
               className={`form-controls prompt-button text-primary border-primary`}
               onClick={(e) =>
@@ -407,13 +408,14 @@ const RdsAiPromptBox = (props: RdsAiPromptBoxProps) => {
               value={prompt.question}
             >
               {prompt.question}
-            </button>
+                    </button>
+               
           )
         )}
       </div>
 
-      <div className="main-content">
-        <div className="button-column mt-1">
+          <div className="main-content d-lg-flex d-md-flex">
+              <div className="d-flex w-100">   <div className="button-column">
          { props.showVariations &&( <div className="button-row">
             <button
               className={`form-controls sidebar-button me-2 text-primary border-primary`}
@@ -498,7 +500,8 @@ const RdsAiPromptBox = (props: RdsAiPromptBoxProps) => {
               ref={fileInputRef}
             />
           </div>
-        </div>
+              </div>
+              </div>
         <div className="action-column mt-1">
           <button
             disabled={inputText.trim() === "" && selectedImages.length === 0}

@@ -13,18 +13,15 @@
 /* Prefilled prompts row styling */
 .prefilled-prompts {
   font-size: 13px !important;
-  display: flex;
+
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 5px;
   width: 100%;
 }
 
 .prompt-button {
   flex: 1 1 auto;
-  margin: 4px;
-  min-width: 180px; /* Adjust this value as needed */
-  max-width: 267px; /* Adjust this value as needed */
+  margin: 4px; /* Adjust this value as needed */
   text-align: center;
   white-space: nowrap;
   overflow: hidden;
@@ -35,7 +32,6 @@
 
 /* Main content area */
 .main-content {
-  display: flex;
   width: 100%;
 }
 
@@ -64,7 +60,7 @@
   background-color: #ffffff;
   color: #333333;
   height: 97px;
-  width: 52rem;
+  width: inherit;
   padding-right: 40px; /* Adjust padding to make space for the icon */
   box-sizing: border-box; /* Ensure padding is included in the height */
   display: flex;
@@ -88,8 +84,9 @@
 
 /* Dropdown styling */
 .input-column {
-  margin-left: -10px;
-  padding: 5px;
+  margin-left: 0px;
+  padding: 0px;
+  margin-top:4px;
 }
 
 .dropdown-container {
@@ -124,6 +121,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width:inherit;
+  margin-right:8px;
 }
 
 .input-wrapper {
@@ -171,6 +170,8 @@
 .button-column {
   display: flex;
   flex-direction: column;
+  margin:4px;
+  margin-right:0px;
   /* width: 100%; */
 }
 
