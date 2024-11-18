@@ -161,7 +161,7 @@ const RdsInput = React.forwardRef<HTMLInputElement, RdsInputProps>(
     return (
       <>
         {/* test  */}
-        <div className={`${labelClass()} mt-2`}>
+        <div className={`${labelClass()}`}>
            <label
             htmlFor={props.id}
             className={`text-capitalize mt-2 form-label ${fontWeight}`}
