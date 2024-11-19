@@ -108,6 +108,8 @@ const RdsCompPaymentCard = (props: RdsCompPaymentCardProps) => {
         </div>
         
         <div className="button-footer">
+
+  
           <RdsButton
             block
             colorVariant="primary"
