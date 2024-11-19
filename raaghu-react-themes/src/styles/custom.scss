@@ -3303,3 +3303,55 @@ $btn-border-radius: $border-radius-xs !default;
     background: #292b30 !important;
     color: #dee2e6 !important;
 }
+
+.nav-tabs.vertical-alt-right-line{
+    display: block;
+    width:fit-content;
+    li{
+        width:auto;
+    }
+}
+.nav-tabs.vertical-alt-left-line{
+    display: block;
+    width:fit-content;
+    li{
+        width:auto;
+    }
+}
+.nav-tabs.vertical-right-line{
+    display: block;
+    width:fit-content;
+    li{
+        width:auto;
+    }
+}
+.nav-tabs.vertical-left-line{
+    display: block;
+    width:fit-content;
+    li{
+        width:auto;
+    }
+}
+.nav-tabs.vertical-leftFilled{
+    display: block;
+    width:fit-content;
+    li{
+        width:auto;
+    }
+}
+.nav-tabs.vertical-pointer{
+    display: block;
+    width:fit-content;
+    overflow: visible;
+    li{
+        width:auto;
+    }
+}
+.nav-tabs.vertical-flap{
+    display: block;
+    width:fit-content;
+    overflow: visible;
+    li{
+        width:auto;
+    }
+}

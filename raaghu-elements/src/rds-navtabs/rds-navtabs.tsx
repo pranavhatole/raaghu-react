@@ -83,7 +83,7 @@ const RdsNavtabs = (props: RdsNavtabsProps) => {
                 : props.style === "Vertical -Right Line"
                 ? " vertical-right-line"
                 : props.style === "Vertical -Left Filled"
-                ? " vertical-left-filled"
+                ? " vertical-leftFilled"
                 : props.style === "Vertical -Pointer"
                 ? " vertical-pointer"
                 : props.style === "Vertical -Flap"
