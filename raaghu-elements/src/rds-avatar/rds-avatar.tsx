@@ -284,7 +284,7 @@ const RdsAvatar = (props: RdsAvatarProps) => {
               <img
                 src={withPP}
                 className={
-                  `avatar-sm rounded-circle ` + classes() + getBorderClasses(props.border)
+                  `avatar rounded-circle ` + classes() + getBorderClasses(props.border)
                 }
                 alt="profile"
               />
@@ -576,7 +576,18 @@ const RdsAvatar = (props: RdsAvatarProps) => {
             </div>)}
           </>
         )}
+         {stackingAvatar && (
+                        <>
+                        <div
+                        className="card text-center border-0 stacking-avatar"
+                            >
+                                {props.stackingAvatar && props.avatars && renderAvatars(props.avatars, props.maxVisibleAvatars || 3)}
+                        </div>
+
+                        </>
+                    )}
       </div>
+      
     </Fragment>
   );
 };
