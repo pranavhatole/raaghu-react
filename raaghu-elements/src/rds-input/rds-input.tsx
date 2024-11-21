@@ -14,7 +14,7 @@ export interface RdsInputProps {
   inputType?: string;
   state?: string;
   style?: string;
-  showTitle: boolean;
+  showTitle?: boolean;
   validatonPattern?: RegExp;
   validationMsg?: string;
   placeholder?: string;
@@ -419,5 +419,7 @@ const RdsInput = React.forwardRef<HTMLInputElement, RdsInputProps>(
     );
   }
 );
-
+RdsInput.defaultProps = {
+  showTitle: true,
+};
 export default RdsInput;
