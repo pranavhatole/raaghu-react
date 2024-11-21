@@ -3342,7 +3342,7 @@ $btn-border-radius: $border-radius-xs !default;
 .nav-tabs.vertical-pointer{
     display: block;
     width:fit-content;
-    overflow: visible;
+    overflow: hidden;
     li{
         width:auto;
     }
@@ -3350,7 +3350,7 @@ $btn-border-radius: $border-radius-xs !default;
 .nav-tabs.vertical-flap{
     display: block;
     width:fit-content;
-    overflow: visible;
+    overflow: hidden;
     li{
         width:auto;
     }

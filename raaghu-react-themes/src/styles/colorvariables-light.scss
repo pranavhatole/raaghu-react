@@ -3810,6 +3810,7 @@ $theme-colors: (
                             .selected {
                                 color: $primary;
                                 border-right:2px solid $primary;
+                                border-radius: 0px;
                             }
                             .nav-link:after{
                                 border-bottom: 0px;
@@ -3836,6 +3837,7 @@ $theme-colors: (
                             .selected {
                                 color: $primary;
                                 border-left:2px solid $primary;
+                                border-radius: 0px;
                             }
                             .nav-link:after{
                                 border-bottom: 0px;
@@ -3863,6 +3865,7 @@ $theme-colors: (
                                 background-color: $btn-primary-transparent-selected;
                                 color: $primary;
                                 border-right:2px solid $primary;
+                                border-radius: 0px;
                             }
                             .nav-link:after{
                                 border-bottom: 0px;
@@ -3882,11 +3885,13 @@ $theme-colors: (
                             border-bottom: 0px;
                             overflow-x:hidden;
                             li {
+
                                 background-color: $bg-primary-lighter-default;
                                 color: $txt-neutral-medium-default;
                             }
 
                             .selected {
+                                border-radius: 0px;
                                 background-color: $btn-primary-transparent-selected;
                                 color: $primary;
                                 border-left:2px solid $primary;
@@ -3916,6 +3921,7 @@ $theme-colors: (
                             .selected {
                                 background-color: $primary;
                                 color: $white;
+                                border-radius: 0px;
                             }
                             .nav-link:after{
                                 border-bottom: 0px;
@@ -3927,7 +3933,7 @@ $theme-colors: (
                             }
                             .nav-link:hover:after{
                                 height: 100%;
-                                border-left:2px solid $primary;
+                                border-left:none;
                             }
                         }
                         .nav-tabs.vertical-pointer {
@@ -3937,6 +3943,7 @@ $theme-colors: (
                             .selected {
                                 background-color: $primary;
                                 color: $white;
+                                border-radius: 0px;
                             }
                             
                             .selected::before {
@@ -3948,7 +3955,7 @@ $theme-colors: (
                                 top: 50%;
                                 border: 0.5rem solid transparent;
                                 border-right: 0;
-                                border-left: 15px solid $primary;
+                                border-left: none;
                                 transform: translate(calc(100% + 5px), -50%);
                             }
                            
@@ -3966,7 +3973,7 @@ $theme-colors: (
                             }
                             .nav-link:hover:after{
                                 height: 100%;
-                                border-left:2px solid $primary;
+                                border-left:none;
                             }
                         }
                         .nav-tabs.vertical-flap {
@@ -3988,7 +3995,7 @@ $theme-colors: (
                                 top: 50%;
                                 border: 1rem solid transparent;
                                 border-right: 0;
-                                border-left: 15px solid $primary;
+                                border-left: none;
                                 transform: translate(calc(100% + 5px), -50%);
                             }
                            
@@ -4006,6 +4013,6 @@ $theme-colors: (
                             }
                             .nav-link:hover:after{
                                 height: 100%;
-                                border-left:2px solid $primary;
+                                border-left:none;
                             }
                         }
