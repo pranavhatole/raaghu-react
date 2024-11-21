@@ -128,7 +128,7 @@ const RdsAlert = (props: RdsAlertProps) => {
                                         size="small"
                                     />
                                 )}
-                                <div className="d-flex align-items-top justify-content-end gap-2 mt-1 alert-close">
+                                <div className={`d-flex align-items-center justify-content-end gap-2 mt-1 alert-close alert-${props.size}`}>
                                     {props.dismisable === true && (
                                         <RdsIcon
                                             colorVariant="primary"
@@ -188,7 +188,7 @@ const RdsAlert = (props: RdsAlertProps) => {
                                     />
                                 )}
                             </div>
-                            <div className="d-flex align-items-flex-end mt-4 gap-2 alertBtns">
+                            <div className="d-flex align-items-flex-end mt-5 gap-2 alertBtns">
                                 {props.cancelbutton === true && (
                                     <button className="text-primary border-0 bg-transparent"> Cancel </button>
                                 )}
