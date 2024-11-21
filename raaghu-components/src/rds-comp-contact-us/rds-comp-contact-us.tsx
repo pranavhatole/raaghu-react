@@ -138,7 +138,7 @@ function emitSaveData(event: any) {
                         />
                     </div>
 
-                    <div className="button-footer p-4">
+                    <div className="button-footer p-3">
                     <RdsButton
                         label="Send Message"
                         colorVariant='primary'
