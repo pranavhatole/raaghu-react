@@ -36,3 +36,12 @@
 .custom-alert-message{
   margin-top: 7px;
 }
+
+ .alert-large {
+  margin-top: 7px !important;
+}
+
+.alert-medium {
+  margin-top: 5px !important;
+}
+
