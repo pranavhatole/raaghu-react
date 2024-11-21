@@ -680,8 +680,6 @@ const RdsCompAdminDashboard = (props: RdsCompAdminDashboardProps) => {
                                 <RdsDoughnutChart
                                     id="doughnutchart"
                                     labels={['Total Sales - 85%', 'Revenue - 25%', 'Expenses - 15%']}
-
-
                                     options={{
                                         animationEnabled: true,
                                         title: {
