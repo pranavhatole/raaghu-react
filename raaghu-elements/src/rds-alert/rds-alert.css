@@ -30,6 +30,18 @@
 }
 
 .alert-left-border {
-  border-left: 5px solid; 
-  
+  border-left: 5px solid;   
 }
+
+.custom-alert-message{
+  margin-top: 7px;
+}
+
+ .alert-large {
+  margin-top: 7px !important;
+}
+
+.alert-medium {
+  margin-top: 5px !important;
+}
+

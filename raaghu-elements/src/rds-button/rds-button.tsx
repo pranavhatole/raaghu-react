@@ -53,10 +53,10 @@ const RdsButton = (props: RdsButtonProps) => {
             defaultClass = iconLabelClass;
         }
         if (props.isRoundedButton) {
-            defaultClass = defaultClass + "rounded-pill";
+            defaultClass = defaultClass + " rounded-pill ";
         }
-        if (props.class === "btn-link") {
-            defaultClass = defaultClass + "btn-link";
+        if (props.class === " btn-link ") {
+            defaultClass = defaultClass + " btn-link ";
         }
         console.log("defaultClass: ", defaultClass);
         return defaultClass;
@@ -66,12 +66,12 @@ const RdsButton = (props: RdsButtonProps) => {
     const iconClasses = () => {
         let iconSpan: string = "";
         if (props.icon) {
-            const iconClass = "d-inline-block position-relative alignClass";
+            const iconClass = " d-inline-block position-relative alignClass ";
             iconSpan = iconClass;
         }
 
         return iconSpan;
-    }
+    };
 
     return (<Fragment>
         {props.tooltip ? (

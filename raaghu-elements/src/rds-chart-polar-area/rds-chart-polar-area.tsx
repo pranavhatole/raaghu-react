@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Chart from "chart.js/auto";
 
 export interface RdsPolarAreaChartProps {
@@ -12,31 +12,34 @@ export interface RdsPolarAreaChartProps {
 }
 
 const RdsPolarAreaChart = (props: RdsPolarAreaChartProps) => {
+    const canvasRef = useRef<HTMLCanvasElement | null>(null);
+    const chartInstanceRef = useRef<Chart<"polarArea", number[], unknown> | null>(null);
     const CanvasId = props.id;
-    let ctx;
-
-
     useEffect(() => {
-        const canvasElm = document.getElementById(
-            CanvasId
-        ) as HTMLCanvasElement | null;
-        ctx = canvasElm?.getContext("2d") as CanvasRenderingContext2D;
+        const canvasElm = canvasRef.current;
+        const ctx = canvasElm?.getContext("2d");
 
-        const PolarCanvas = new Chart(ctx, {
-            type: "polarArea",
-            data: {
-                labels: props.labels,
-                datasets: props.dataSets
-            },
-            options: props.options,
-        });
-        PolarCanvas.canvas.style.height = props.height + "px";
-        PolarCanvas.canvas.style.width = props.width + "px";
-    });
+        if (ctx) {
+            const ploarCanvas = new Chart(ctx, {
+                type: "polarArea",
+                data: {
+                    labels: props.labels,
+                    datasets: props.dataSets,
+                },
+                options: props.options,
+            });
+            ploarCanvas.canvas.style.height = props.height + "px";
+            ploarCanvas.canvas.style.width = props.width + "px";
+
+            return () => {
+                ploarCanvas.destroy();
+            };
+        }
+    }, [props.height, props.width]);
 
     return (
         <div>
-            <canvas id={CanvasId} ref={ctx} />
+            <canvas id={CanvasId} ref={canvasRef} />
         </div>
     );
 };
