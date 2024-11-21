@@ -24,6 +24,7 @@ export interface RdsNavtabsProps {
     layout?:string;
     style?:string;
     iconOnly?: boolean;
+    id?: string;
 }
 
 const RdsNavtabs = (props: RdsNavtabsProps) => {
@@ -58,6 +59,7 @@ const RdsNavtabs = (props: RdsNavtabsProps) => {
     (props.justified ? " nav-justified" : "")+
     (props.iconOnly ? " nav-icon-only" : "")
   }
+  id={props.id == "features" ? "features" :""}
 >
   {props.navtabsItems.map((navtabsItem) => (
     <li
