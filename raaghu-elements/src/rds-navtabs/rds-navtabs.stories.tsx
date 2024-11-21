@@ -37,6 +37,7 @@ const meta: Meta = {
             ],
             control: { type: "select" },
         },
+
     },
 } satisfies Meta<typeof RdsNavtabs>;
 
@@ -58,7 +59,7 @@ export const Default: Story = {
         layout: "Horizontal"
     }
 } satisfies Story;
-Default.parameters = { controls: { include: ['navtabsItems', 'justified', 'layout', 'style'] } };
+Default.parameters = { controls: { include: ['navtabsItems', 'justified', 'style'] } };
 
 
 //export const Pills: Story = {
@@ -146,7 +147,7 @@ export const WithIcon: Story = {
         layout:"Horizontal"
     }
 } satisfies Story;
-WithIcon.parameters = { controls: { include: ['navtabsItems', 'justified','layout','style'] } };
+WithIcon.parameters = { controls: { include: ['navtabsItems', 'justified','style'] } };
 
 export const IconOnly: Story = {
     args: {
@@ -161,7 +162,7 @@ export const IconOnly: Story = {
         iconOnly: true
     }
 } satisfies Story;
-IconOnly.parameters = { controls: { include: ['navtabsItems', 'justified','layout','style'] } };
+IconOnly.parameters = { controls: { include: ['navtabsItems', 'justified', 'style'] } };
 
 
 

@@ -28,12 +28,24 @@ export interface RdsNavtabsProps {
 
 const RdsNavtabs = (props: RdsNavtabsProps) => {
     const [activeNavTabId, setActiveNavTabId] = useState(props.activeNavTabId);
+    const [navStyle, setNavStyle] = useState<string | undefined>(props.style);
+
+
     // const [activeTabKey, setActiveTabKey] = useState(
     //   props.navtabsItems?.[0]?.id || null
     // );
     useEffect(() => {
+        if (props.layout === 'Vertical') {
+            setNavStyle('Vertical -Alt Right Line');
+        } else if (props.layout === 'Horizontal') {
+            setNavStyle('Bottom Select');
+        }
+    }, [props.layout]);
+
+    useEffect(() => {
         props.activeNavtabOrder && props.activeNavtabOrder(activeNavTabId);
     }, [activeNavTabId]);
+
 
     useEffect(() => {
         setActiveNavTabId(props.activeNavTabId);
