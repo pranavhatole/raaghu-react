@@ -2,7 +2,7 @@
 .btn {
   text-transform: capitalize;
   min-width: 4.35rem;
-  padding: $btn-padding-x $btn-padding-y;
+  align-items: center !important;
 }
 
 
@@ -46,7 +46,7 @@
 .btn-sm,
 .btn-group-sm>.btn {
   height: 1.5rem;
-  line-height: 0rem;
+  line-height: 1rem;
   position: relative;
 }
 
