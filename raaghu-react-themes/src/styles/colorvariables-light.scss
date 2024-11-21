@@ -3769,9 +3769,10 @@ $theme-colors: (
                             li {
                                 background-color: transparent;
                                 color: $txt-neutral-medium-default;
-
                             }
-
+                            .nav-link:hover{
+                                border-radius: $border-radius-xxl;
+                            }
                             .selected {
                                 border-radius: $border-radius-xxl;
                                 background-color: $primary;
