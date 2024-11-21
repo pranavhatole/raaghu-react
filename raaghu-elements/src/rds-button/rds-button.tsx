@@ -58,7 +58,6 @@ const RdsButton = (props: RdsButtonProps) => {
         if (props.class === " btn-link ") {
             defaultClass = defaultClass + " btn-link ";
         }
-        console.log("defaultClass: ", defaultClass);
         return defaultClass;
     };
 
