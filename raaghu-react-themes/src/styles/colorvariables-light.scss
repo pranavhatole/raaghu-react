@@ -3653,7 +3653,7 @@ $theme-colors: (
 
                         .nav-tabs.bottom-select {
                             border-bottom: 0px;
-
+                            overflow-x:hidden;
                             li {
                                 border-bottom: 1px solid $line-neutral-light-defaut !important;
                             }
@@ -3666,7 +3666,7 @@ $theme-colors: (
                         .nav-tabs.top-select {
                             border-bottom: 0px;
                             border-top: 0px;
-
+                            overflow-x:hidden;
                             li {
                                 border-top: 1px solid $line-neutral-light-defaut !important;
                             }
@@ -3697,7 +3697,7 @@ $theme-colors: (
 
                         .nav-tabs.bottom-select-alt {
                             border-bottom: 0px;
-
+                            overflow-x:hidden;
                             li {
                                 border-bottom: 1px solid $line-neutral-light-defaut !important;
                                 color: $txt-neutral-medium-default;
@@ -3711,7 +3711,7 @@ $theme-colors: (
                         .nav-tabs.top-select-alt {
                             border-bottom: 0px;
                             border-top: 0px;
-
+                            overflow-x:hidden;
                             li {
                                 border-top: 1px solid $line-neutral-light-defaut !important;
                                 color: $txt-neutral-medium-default;
@@ -3745,6 +3745,7 @@ $theme-colors: (
                             border-bottom: 0px;
                             background-color: transparent;
                             color: $txt-neutral-medium-default;
+                            overflow-x:hidden;
 
                             li {
                                 background-color: transparent;
@@ -3763,6 +3764,7 @@ $theme-colors: (
                             border-radius: $border-radius-xxl;
                             background-color: $bg-primary-lighter-default;
                             color: $txt-neutral-medium-default;
+                            overflow-x:hidden;
 
                             li {
                                 background-color: transparent;
@@ -3782,6 +3784,7 @@ $theme-colors: (
                             border-radius: $border-radius-xxl;
                             color: $txt-neutral-medium-default;
                             width: fit-content;
+                            overflow-x:hidden;
 
                             li {
                                 background-color: $bg-primary-lighter-default;
@@ -3796,6 +3799,8 @@ $theme-colors: (
 
                         .nav-tabs.vertical-alt-right-line {
                             border-bottom: 0px;
+                            overflow-x:hidden;
+
                             li {
                                 background-color: $bg-primary-lighter-default;
                                 color: $txt-neutral-medium-default;
@@ -3822,6 +3827,7 @@ $theme-colors: (
 
                         .nav-tabs.vertical-alt-left-line {
                             border-bottom: 0px;
+                            overflow-x:hidden;
                             li {
                                 background-color: $bg-primary-lighter-default;
                                 color: $txt-neutral-medium-default;
@@ -3846,6 +3852,7 @@ $theme-colors: (
                         }
                         .nav-tabs.vertical-right-line {
                             border-bottom: 0px;
+                            overflow-x:hidden;
                             li {
                                 background-color: $bg-primary-lighter-default;
                                 color: $txt-neutral-medium-default;
@@ -3873,6 +3880,7 @@ $theme-colors: (
 
                         .nav-tabs.vertical-left-line {
                             border-bottom: 0px;
+                            overflow-x:hidden;
                             li {
                                 background-color: $bg-primary-lighter-default;
                                 color: $txt-neutral-medium-default;
@@ -3898,6 +3906,8 @@ $theme-colors: (
                         }
                         .nav-tabs.vertical-leftFilled {
                             border-bottom: 0px;
+                            overflow-x:hidden;
+
                             li {
                                 background-color: $btn-primary-transparent-selected;
                                 color: $txt-neutral-medium-default;
@@ -3922,7 +3932,7 @@ $theme-colors: (
                         }
                         .nav-tabs.vertical-pointer {
                             border-bottom: 0px;
-                            
+                            overflow-x:hidden;
 
                             .selected {
                                 background-color: $primary;
@@ -3961,7 +3971,7 @@ $theme-colors: (
                         }
                         .nav-tabs.vertical-flap {
                             border-bottom: 0px;
-                            
+                            overflow-x:hidden;
 
                             .selected {
                                 background-color: $primary;
