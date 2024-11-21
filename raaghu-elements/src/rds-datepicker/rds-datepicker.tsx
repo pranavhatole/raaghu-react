@@ -1,5 +1,4 @@
-
-import React, { forwardRef, useEffect, useState } from "react";
+import React, { forwardRef, useEffect, useRef, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import RdsIcon from "../rds-icon";
@@ -24,6 +23,8 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(null);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    const datePickerRef = useRef<DatePicker | null>(null);
 
     const onRangeChange = (dates: [any, any]) => {
         if (props.customDate && typeof props.customDate === 'function') {
@@ -153,8 +154,8 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
             {props.type === "default" && (
                 <>
                     {props.DatePickerLabel && <label className="form-label">{props.DatePickerLabel}</label>}
-                    <div className="input-group input-group-datePicker mb-3 mt-1">
-                        {/* <div className="input-group-append datepicker__icon-box">
+                    <div className={`input-group input-group-datePicker mb-3 mt-1 ${props.isDisabled? "isdisabled":""}`}>
+                         {/* <div className="input-group-append datepicker__icon-box">
                             <span className="input-group-text cursor-pointer" id="basic-addon2">
                                 <RdsIcon
                                     name="calendar"
@@ -172,13 +173,13 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
                             className={`form-control rounded-end-0 ${props.isDisabled ? 'date-picker-disable' : ''}`}
                             wrapperClassName="datepicker__wrapper"
                             disabled={props.isDisabled} 
+                            ref={datePickerRef}
                         />
-                        <span className="input-group-text cursor-pointer" id="basic-addon2">
+                        <span className="input-group-text cursor-pointer" id="basic-addon2" onClick={() => datePickerRef.current && datePickerRef.current.setFocus()}>
                             <RdsIcon
                                 name="calendar"
                                 width="20px"
                                 height="20px"
-
                                 stroke={true}
                             ></RdsIcon>
                         </span>
@@ -188,7 +189,7 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
             {props.type === "advanced" && (
                 <>
                     {props.DatePickerLabel && <label className="form-label">{props.DatePickerLabel}</label>}
-                    <div className="dropdown border rounded justify-content-between text-start d-block datepicker mt-1">
+                    <div className={`dropdown border rounded justify-content-between text-start d-block datepicker mt-1 ${props.isDisabled? "isdisabled":""}`} aria-disabled={props.isDisabled}>
                         <button
                             className="bg-transparent border-0 d-flex py-18 ps-2 w-100 justify-content-between"
                             type="button"
@@ -205,7 +206,6 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
                                     colorVariant="secondary"
                                     stroke={true}
                                 ></RdsIcon>
-                                {/* (StartDate:any,EndDate:any)=>props.DatePicker */}
                                 <span className="ps-2 mt-1 datePicker-text">{dropdownDisplayValue}</span>
                             </span>
 
@@ -271,7 +271,7 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
                     {props.DatePickerLabel && (
                         <label className="form-label">{props.DatePickerLabel}</label>
                     )}
-                    <div className="input-group input-group-datePicker mb-3 mt-1">
+                    <div className={`input-group input-group-datePicker mb-3 mt-1 ${props.isDisabled? "isdisabled":""}`}>
                         <DatePicker
                             selected={startDate}
                             onChange={handlerDateTimeChange}
@@ -280,14 +280,14 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
                             timeInputLabel="Time:"
                             dateFormat="MM/dd/yyyy h:mm aa"
                             showTimeInput
-                             disabled={props.isDisabled}
+                            disabled={props.isDisabled}
+                            ref={datePickerRef}
                         />
-                        <span className="input-group-text cursor-pointer" id="basic-addon2">
+                        <span className="input-group-text cursor-pointer" id="basic-addon2" onClick={() => datePickerRef.current && datePickerRef.current.setFocus()}>
                             <RdsIcon
                                 name="calendar"
                                 width="20px"
                                 height="20px"
-
                                 stroke={true}
                             ></RdsIcon>
                         </span>
@@ -298,5 +298,3 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
     );
 };
 export default RdsDatepicker;
-
-
