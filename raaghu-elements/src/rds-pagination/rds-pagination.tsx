@@ -380,7 +380,7 @@ const RdsPagination = (props: RdsPaginationProps) => {
             )}
           </nav>
         )}
-        {(props.style == "Style5" || props.style==="Style6" || props.style =="Style8" || props.style=="Style9" || props.style=="Style10" || props.style=="Style11") && (
+        {paginType === "advanced" && (props.style == "Style5" || props.style==="Style6" || props.style =="Style8" || props.style=="Style9" || props.style=="Style10" || props.style=="Style11") && (
           <nav aria-label="page navigation" className={"d-flex align-items-center" + `${align} ` }>
           <ul className={"pagination rounded align-items-center mb-0" + `${size}` + `${align} `}>
             {/* Previous Page Button */}
