@@ -114,4 +114,5 @@ export { default as RdsCompRegisterMember } from "./rds-comp-register-member";
 export { default as RdsCompContribution } from "./rds-comp-contribution";
 
 export { default as RdsCompUserComments } from "./rds-comp-chat";
+export { default as RdsCompSkeleton } from "./rds-comp-skeleton";
 export { default as RdsCompDialog } from "./rds-comp-dialog";
