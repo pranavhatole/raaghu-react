@@ -419,5 +419,7 @@ const RdsInput = React.forwardRef<HTMLInputElement, RdsInputProps>(
     );
   }
 );
-
+RdsInput.defaultProps = {
+  showTitle: true,
+};
 export default RdsInput;
