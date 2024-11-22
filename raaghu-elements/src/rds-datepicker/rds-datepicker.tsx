@@ -19,6 +19,7 @@ export interface RdsDatepickerProps {
     isDisabled?: boolean;
     isMandatory?: boolean;
     placeholderText?: string;
+    DatePickerLabel?: string;
 }
 const RdsDatepicker = (props: RdsDatepickerProps) => {
     const today = new Date();
