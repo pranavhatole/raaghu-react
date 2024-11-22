@@ -1,5 +1,4 @@
-
-import React, { forwardRef, useEffect, useState } from "react";
+import React, { forwardRef, useEffect, useRef, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import RdsIcon from "../rds-icon";
@@ -200,12 +199,11 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
                             showYearDropdown={props.datepickerStyle === "Dropdown"}
                             dropdownMode="select"
                         />
-                        <span className="input-group-text cursor-pointer" id="basic-addon2">
+                        <span className="input-group-text cursor-pointer" id="basic-addon2" onClick={() => datePickerRef.current && datePickerRef.current.setFocus()}>
                             <RdsIcon
                                 name="calendar"
                                 width="20px"
                                 height="20px"
-
                                 stroke={true}
                             ></RdsIcon>
                         </span>
@@ -320,12 +318,11 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
                             monthsShown={props.layout === "MultiMonth" ? 3 : 1}
                             todayButton={<CustomButtons />}
                         />
-                        <span className="input-group-text cursor-pointer" id="basic-addon2">
+                        <span className="input-group-text cursor-pointer" id="basic-addon2" onClick={() => datePickerRef.current && datePickerRef.current.setFocus()}>
                             <RdsIcon
                                 name="calendar"
                                 width="20px"
                                 height="20px"
-
                                 stroke={true}
                             ></RdsIcon>
                         </span>
@@ -335,5 +332,3 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
     );
 };
 export default RdsDatepicker;
-
-
