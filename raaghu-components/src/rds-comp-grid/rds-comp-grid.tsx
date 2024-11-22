@@ -127,10 +127,10 @@ const DraggableColumnHeader: React.FC<{
         className={`text-nowrap ${isDragging ? 'dragging' : 'not-dragging'}`}
         ref={refheader}
       >
-        <div className="d-flex justify-content-between align-items-center full-width">
+        <div className="d-flex justify-content-start align-items-center full-width">
           <span>{column.displayName}</span>
           {column.sortable && (
-            <div className="cursor-pointer" onClick={handleSortIconClick}>
+            <div className="cursor-pointer sorting-alignment" onClick={handleSortIconClick}>
               {sortConfig && sortConfig.key === column.key
                 ? sortConfig.direction === "asc"
                   ? "▲"
