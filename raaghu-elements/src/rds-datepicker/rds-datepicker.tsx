@@ -199,7 +199,7 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
                             showYearDropdown={props.datepickerStyle === "Dropdown"}
                             dropdownMode="select"
                         />
-                        <span className="input-group-text cursor-pointer" id="basic-addon2" onClick={() => datePickerRef.current && datePickerRef.current.setFocus()}>
+                        <span className="input-group-text cursor-pointer" id="basic-addon2">
                             <RdsIcon
                                 name="calendar"
                                 width="20px"
@@ -318,7 +318,7 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
                             monthsShown={props.layout === "MultiMonth" ? 3 : 1}
                             todayButton={<CustomButtons />}
                         />
-                        <span className="input-group-text cursor-pointer" id="basic-addon2" onClick={() => datePickerRef.current && datePickerRef.current.setFocus()}>
+                        <span className="input-group-text cursor-pointer" id="basic-addon2" >
                             <RdsIcon
                                 name="calendar"
                                 width="20px"
