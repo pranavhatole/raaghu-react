@@ -140,7 +140,7 @@ const DraggableColumnHeader: React.FC<{
           )}
 
           {(column.filter || allFilter) && (
-            <div>
+            <div className="cursor-pointer">
               <RdsIcon
                 colorVariant="dark"
                 height="10px"
@@ -452,25 +452,25 @@ const Popup: React.FC<{
   return (
     <div className="popup" style={{ top: position.top, left: position.left }}>
       <div className="popup-content">
-        <div className="d-flex justify-content-end">
-          <RdsIcon
+        <div className="d-flex justify-content-end ">
+         <span className="cursor-pointer"> <RdsIcon
             colorVariant="dark"
             height="10px"
             name="cancel"
             stroke
             width="10px"
             onClick={onClose}
-          />
+          /></span>
         </div>
         {data.map((item, index) => (
-          <div key={index}>
+          <div key={index} className="cursor-pointer d-flex align-items-center ps-2">
             <input
               type="checkbox"
               id={`checkbox-${index}`}
               checked={selectedValues.has(item)}
               onChange={(e) => onFilterChange(item, e.target.checked)}
             />
-            <label htmlFor={`checkbox-${index}`}>{item}</label>
+            <label className="ms-2" htmlFor={`checkbox-${index}`}>{item}</label>
           </div>
         ))}
       </div>
