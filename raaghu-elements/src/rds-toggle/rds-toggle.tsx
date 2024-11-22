@@ -5,10 +5,10 @@ import "./rds-toggle.css";
 export interface RdsToggleProps {
     onClick?: React.MouseEventHandler<HTMLInputElement>;
     checked: boolean;
-    style: "Style 1" | "Style 2" | "Style 3" | "Style 4" | "Style 5" | "Style 6" ;
-    layout: "Switch + label" | "label + Switch" | "Top label + Switch" | "Bottom label + Switch"; 
-    isChecked : boolean;
-    isDisabled: boolean;
+    style?: "Style 1" | "Style 2" | "Style 3" | "Style 4" | "Style 5" | "Style 6" ;
+    layout?: "Switch + label" | "label + Switch" | "Top label + Switch" | "Bottom label + Switch"; 
+    isChecked? : boolean;
+    isDisabled?: boolean;
 }
 
 const RdsToggle = (props: RdsToggleProps) => {
@@ -39,7 +39,7 @@ const RdsToggle = (props: RdsToggleProps) => {
     };
     const rootClasses = () => {
         let classList = "position-ralative form-check form-switch";
-        classList += ` ${styleClass.toLowerCase().replace(/\s+/g, "-")}`;
+        classList += ` ${styleClass?.toLowerCase().replace(/\s+/g, "-")}`;
         if (props.isDisabled) {
             classList += " disabled";
         }
