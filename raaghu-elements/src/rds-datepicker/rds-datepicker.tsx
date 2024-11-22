@@ -27,11 +27,11 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
         today.toDateString().slice(4)
     );
     const [activeList, setActiveList] = useState("custom");
-    const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState(null);
+    const [startDate, setStartDate] = useState<Date | null>(null);
+    const [endDate, setEndDate] = useState<Date | null>(null);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-    const onRangeChange = (dates: [any, any]) => {
+    const onRangeChange = (dates: [Date | null, Date | null]) => {
         if (props.customDate && typeof props.customDate === 'function') {
             props.customDate(dates);
         }
@@ -39,8 +39,8 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
         setStartDate(start);
         setEndDate(end);
         setDropdownDisplayValue(
-            start.toDateString().slice(4) +
-            (end != null ? " - " + end.toDateString().slice(4) : "")
+            start ? start.toDateString().slice(4) +
+            (end ? " - " + end.toDateString().slice(4) : "") : ""
         );
         setIsDropdownOpen(false);
         if (typeof props.onDatePicker === 'function') {
@@ -48,9 +48,8 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
         }
     };
 
-    const handlerDateChange = (date: any) => {
-        if (date != null) { setStartDate(date); }
-        else { setStartDate(new Date()); }
+    const handlerDateChange = (date: Date | null) => {
+        setStartDate(date);
         props.selectedDate && props.selectedDate(date);
         props.onDatePicker && props.onDatePicker(startDate);
     };
@@ -184,7 +183,7 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
                         </div> */}
 
                         <DatePicker
-                            selected={startDate}
+                            selected={startDate || null}
                             onChange={handlerDateChange}
                             className={`form-control rounded-end-0 ${props.isDisabled ? 'date-picker-disable' : ''}`}
                             wrapperClassName="datepicker__wrapper"
@@ -277,7 +276,7 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
                                 Last 14 days
                             </li>
                             <DatePicker
-                                selected={startDate}
+                                selected={startDate || null}
                                 onChange={onRangeChange}
                                 startDate={startDate}
                                 endDate={endDate}
@@ -302,7 +301,7 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
       {props.type === "withTime" && (
                     <div className="input-group input-group-datePicker mb-3 mt-1">
                         <DatePicker
-                            selected={startDate}
+                            selected={startDate || null}
                             onChange={handlerDateTimeChange}
                             className="form-control rounded-end-0"
                             wrapperClassName="datepicker__wrapper"
