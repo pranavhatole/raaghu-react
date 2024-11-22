@@ -47,58 +47,59 @@ const RdsFileUploader = (props: RdsFileUploaderProps) => {
       ? "form-control-lg"
       : "";
 
-  const onchangehandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const files = Array.from(event.target.files || []);
-    setSelectedFiles(files);
-    const allowedExtensions = props.extensions.split(", ");
-    const newFiles: File[] = [];
-    const newValidation: { isError: boolean; hint: string }[] = [];
-
-    files.forEach((file) => {
-      const fileExtension = file.name.split(".").pop()?.toLowerCase();
-      if (!allowedExtensions.includes(fileExtension || "")) {
-        newFiles.push(file);
-        newValidation.push({
-          isError: true,
-          hint: `File with extension '${fileExtension}' is not allowed`,
+      const onchangehandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const files = Array.from(event.target.files || []);
+        const allowedExtensions = props.extensions.split(", ");
+        const newFiles: File[] = [];
+        const newValidation: { isError: boolean; hint: string }[] = [];
+      
+        files.forEach((file) => {
+          const fileExtension = file.name.split(".").pop()?.toLowerCase();
+          if (!allowedExtensions.includes(fileExtension || "")) {
+            newValidation.push({
+              isError: true,
+              hint: `File with extension '${fileExtension}' is not allowed`,
+            });
+            return;
+          }
+      
+          const fileSizeInMB = file.size / (1024 * 1024); // Convert size to MB
+          if (props.fileSizeLimitInMb != null && fileSizeInMB > props.fileSizeLimitInMb) {
+            newValidation.push({
+              isError: true,
+              hint: "File size exceeds the limit",
+            });
+            return;
+          }
+      
+          newFiles.push(file);
         });
-        return;
-      }
-
-      const fileSizeInMB = file.size / (1024 * 1024); // Convert size to MB
-      if (props.fileSizeLimitInMb != null) {
-        if (fileSizeInMB > props.fileSizeLimitInMb) {
-          newValidation.push({
-            isError: true,
-            hint: "File size exceeds the limit",
-          });
-          return;
+      
+        if (props.multiple) {
+          setSelectedFiles((prevFiles) => [...prevFiles, ...newFiles]);
+        } else {
+          setSelectedFiles(newFiles.slice(-1)); // only keep the last selected file
         }
-      }
-
-      newFiles.push(file);
-    });
-
-    setSelectedFiles((prevFiles) => [...prevFiles, ...newFiles]);
-    setValidation(newValidation);
-
-    props.getFileUploaderInfo &&
-      props.getFileUploaderInfo({
-        files: newFiles,
-      });
-
-    if (props.Drop_Area_Top_Icon) {
-      event.target.value = "";
-    }
-    if (newFiles.length > 0) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        
-        setAvatarImage(e.target?.result as string);
-      };
-      reader.readAsDataURL(newFiles[0]);
-    }
-  };
+      
+        setValidation(newValidation);
+      
+        props.getFileUploaderInfo &&
+          props.getFileUploaderInfo({
+            files: newFiles,
+          });
+      
+        if (props.Drop_Area_Top_Icon) {
+          event.target.value = "";
+        }
+      
+        if (newFiles.length > 0) {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            setAvatarImage(e.target?.result as string);
+          };
+          reader.readAsDataURL(newFiles[0]);
+        }
+      };      
 
   const onDelete = (index: number) => {
     const newFiles = selectedFiles.filter((_, i) => i !== index);
