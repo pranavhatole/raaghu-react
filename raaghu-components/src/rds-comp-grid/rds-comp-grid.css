@@ -136,3 +136,7 @@
   opacity: 1;
   cursor: move;
 }
+
+.sorting-alignment{
+  padding-left: 10px !important;
+}
