@@ -47,7 +47,6 @@ const fileTypeIcons = {
   YML: "ymlicon",
 };
 const getFileIcon = (fileType: keyof typeof fileTypeIcons) => {
-  debugger
   const fileTypes = fileTypeIcons[fileType] || fileTypeIcons.Default;
   return fileTypeIcons[fileType] || fileTypeIcons.Default;
 };
@@ -74,6 +73,22 @@ const TreeNode = ({
 }) => {
   const isExpanded = expandedNodeIds.includes(node.id);
   const isHovered = hoveredNodeId === node.id;
+  const [hoveredIcon, setHoveredIcon] = useState<string | null>(null);
+
+  const handleIconMouseEnter = (iconName: string) => {
+    setHoveredIcon(iconName);
+  };
+
+  const handleIconMouseLeave = () => {
+    setHoveredIcon(null);
+  };
+
+  const getIconClass = (iconName: string) => {
+    if (hoveredIcon === iconName) {
+      return "light"; // Define this class in your CSS
+    }
+    return "";
+  };
 
   const handleClick = () => {
     onNodeClick(node.id);
@@ -181,56 +196,72 @@ const TreeNode = ({
             /></span>}
           <span style={{ marginLeft: 5 }}>{node.name}</span>
           {(isHovered && props.showActions) && (
-            <div className="ms-auto d-flex btngroup" onClick={(e)=> e.stopPropagation()}>
-              <small className=" customborder p-2">
-                <RdsIcon
-                  height="16px"
-                  width="16px"
-                  name="plus"
-                  fill={false}
-                  stroke={true}
-                  colorVariant="primary"
-                   classes={"p-1"}
-                  onClick={(e) => handlerButtonGroupClick(e, 'plus', {data: node})}
-                />
-              </small>
-              <small className="customborder p-2">
-                <RdsIcon
-                  height="16px"
-                  width="16px"
-                  name="pencil"
-                  fill={false}
-                  stroke={true}
-                  colorVariant="primary"
-                  classes={"p-1"}
-                  onClick={(e) => handlerButtonGroupClick(e, 'edit', {data: node})}
-                />
-              </small>
-              <small className="customborder p-2">
-                <RdsIcon
-                  height="16px"
-                  width="16px"
-                  name="move"
-                  fill={false}
-                  stroke={true}
-                  colorVariant="primary"
-                  classes={"p-1"}
-                  onClick={(e) => handlerButtonGroupClick(e, 'move', {data: node})}
-                />
-              </small>
-              <small className=" customborder p-2">
-                <RdsIcon
-                  height="16px"
-                  width="16px"
-                  name="delete"
-                  fill={false}
-                  stroke={true}
-                  colorVariant="primary"
-                  classes={"p-1"}
-                  onClick={(e) => handlerButtonGroupClick(e, 'delete', {data: node})}
-                />
-              </small>
-            </div>
+           <div className="ms-auto d-flex btngroup" onClick={(e) => e.stopPropagation()}>
+           <small
+             className="customborder p-2"
+             onMouseEnter={() => handleIconMouseEnter("plus")}
+             onMouseLeave={handleIconMouseLeave}
+           >
+             <RdsIcon
+               height="16px"
+               width="16px"
+               name="plus"
+               fill={false}
+               stroke={true}
+               colorVariant={getIconClass("plus") === "light" ? "light" : "primary"} // Apply the color conditionally
+               classes={`p-1`} // Apply the class conditionally
+               onClick={(e) => handlerButtonGroupClick(e, "plus", { data: node })}
+             />
+           </small>
+           <small
+             className="customborder p-2"
+             onMouseEnter={() => handleIconMouseEnter("pencil")}
+             onMouseLeave={handleIconMouseLeave}
+           >
+             <RdsIcon
+               height="16px"
+               width="16px"
+               name="pencil"
+               fill={false}
+               stroke={true}
+               colorVariant={getIconClass("pencil") === "light" ? "light" : "primary"} // Apply the color conditionally
+               classes={`p-1`} // Apply the class conditionally
+               onClick={(e) => handlerButtonGroupClick(e, "edit", { data: node })}
+             />
+           </small>
+           <small
+             className="customborder p-2"
+             onMouseEnter={() => handleIconMouseEnter("move")}
+             onMouseLeave={handleIconMouseLeave}
+           >
+             <RdsIcon
+               height="16px"
+               width="16px"
+               name="move"
+               fill={false}
+               stroke={true}
+               colorVariant={getIconClass("move") === "light" ? "light" : "primary"} // Apply the color conditionally
+               classes={`p-1`} // Apply the class conditionally
+               onClick={(e) => handlerButtonGroupClick(e, "move", { data: node })}
+             />
+           </small>
+           <small
+             className="customborder p-2"
+             onMouseEnter={() => handleIconMouseEnter("delete")}
+             onMouseLeave={handleIconMouseLeave}
+           >
+             <RdsIcon
+               height="16px"
+               width="16px"
+               name="delete"
+               fill={false}
+               stroke={true}
+               colorVariant={getIconClass("delete") === "light" ? "light" : "primary"} // Apply the color conditionally
+               classes={`p-1`} // Apply the class conditionally
+               onClick={(e) => handlerButtonGroupClick(e, "delete", { data: node })}
+             />
+           </small>
+         </div>
           )}
         </div>
       </div>

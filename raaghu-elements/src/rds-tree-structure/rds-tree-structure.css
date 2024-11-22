@@ -53,3 +53,11 @@
 .filename{
   max-height: 22px;
 }
+.customborder {
+  transition: background-color 0.3s ease;
+}
+
+.customborder:hover {
+  background-color: #7e2eef; /* Change this to your desired hover background color */
+  color: #EBDCFF !important;
+}
