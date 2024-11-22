@@ -3217,25 +3217,7 @@ $toast-padding-y: $spacing-s;
   background-color: #1c1d20 !important;
   border-color: #343a40;
 }
-// collapsible container css start
 
-.container-collapse {
-    width: 190px !important;
-    //overflow: hidden !important;
-    transition: width 0.5s ease !important;
-    //top: 0 !important;
-    //background-color: #ffffff !important;
-    //display: flex !important;
-    //flex-direction: column !important;
-    //box-shadow: 5px solid #ede1e1 !important;
-    //visibility: visible !important;
-    //border-radius: 5px !important;
-    border: 0px solid #ccc !important;
-    //box-shadow: var(--bs-box-shadow) !important;
-    .right {
-        right: 0 !important;
-        border: 1px solid #ccc !important;
-    }
     // collapsible container css start
 
     .container-collapse {
@@ -3367,11 +3349,6 @@ $toast-padding-y: $spacing-s;
         color: #adb5bd !important;
     }
 
-    .theme-dark .card {
-        background-color: #1c1d20 !important;
-        border-color: #343a40;
-    }
-    // collapsible container css start
 
     .container-collapse {
         width: 190px !important;
