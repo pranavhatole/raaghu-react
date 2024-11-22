@@ -49,6 +49,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding: 0.5rem;
 }
 
 .popup-content button {
@@ -139,4 +140,8 @@
 
 .sorting-alignment{
   padding-left: 10px !important;
+}
+input[type="search"]::-webkit-search-decoration:hover,
+input[type="search"]::-webkit-search-cancel-button:hover { 
+    cursor:pointer; 
 }
