@@ -14,7 +14,7 @@ export interface RdsInputProps {
   inputType?: string;
   state?: string;
   style?: string;
-  showTitle: boolean;
+  showTitle?: boolean;
   validatonPattern?: RegExp;
   validationMsg?: string;
   placeholder?: string;
@@ -199,7 +199,7 @@ const RdsInput = React.forwardRef<HTMLInputElement, RdsInputProps>(
     return (
       <>
         {/* test  */}
-        <div className={`${labelClass()} mt-2`}>
+        <div className={`${labelClass()}`}>
           {props.showTitle && (
            <label
             htmlFor={props.id}
@@ -419,5 +419,7 @@ const RdsInput = React.forwardRef<HTMLInputElement, RdsInputProps>(
     );
   }
 );
-
+RdsInput.defaultProps = {
+  showTitle: true,
+};
 export default RdsInput;
