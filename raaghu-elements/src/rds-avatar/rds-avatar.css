@@ -205,7 +205,6 @@
 
 .avatar {
   position: relative;
-  margin-right: -12px;
 }
 
 .plus-indicator {
@@ -286,3 +285,30 @@
   font-weight: bold;
   z-index: 1;
 }
+.avatar-solid {
+  border: 2px solid;
+}
+
+.avatar-dotted {
+  border: 2px dotted;
+}
+
+.avatar-dashed{
+  border: 2px dashed;
+}
+.stacking-avatar .avatar-lg {
+border-radius: 50% !important;
+}
+.stacking-avatar .avatar-sm {
+  border-radius: 50% !important;
+  }
+  .stacking-avatar .avatar-md {
+    border-radius: 50% !important;
+  }
+  .stacking-avatar .avatar-largest {
+    border-radius: 50% !important;
+  }
+  .stacking-avatar .avatar-smallest {
+    border-radius: 50% !important;
+  }
+  

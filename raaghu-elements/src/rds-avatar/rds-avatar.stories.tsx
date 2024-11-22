@@ -9,8 +9,8 @@ const colorVariantArgTypes = {
 const textAlignArgTypes = {
     titleAlign: {
         options: ["horizontal", "vertical"],
-        control: { type: "select" },
-    },
+        control: { type: "select"},
+    }as const,
 };
 
 const meta: Meta = {
@@ -42,6 +42,10 @@ const meta: Meta = {
             options: ["image", "initials","icon"],
             control: { type: "select" },
         },
+        border: {
+            options:["NoBorder","solid","dashed","dotted"],
+            control: { type: "select" }
+        }
     },
 } satisfies Meta<typeof RdsAvatar>;
 
@@ -52,9 +56,10 @@ type Story = StoryObj<typeof RdsAvatar>;
 export const Default: Story = {
     args: {
         size: "medium",
+        border:"noBorder"
     }
 } satisfies Story;
-Default.parameters = { controls: { include: ['size'] } };
+Default.parameters = { controls: { include: ['size','border'] } };
 
 
 export const withInitials: Story = {
@@ -65,15 +70,32 @@ export const withInitials: Story = {
         avtarWithName: false,
         nameOnBottom: false,
         stackingAvatar: false,
-
+        border:"noBorder",
         lastName: "Technologies",
         size: "medium",
     }
 } satisfies Story;
-withInitials.parameters = { controls: { include: ['size', 'firstName', 'lastName'] } };
+withInitials.parameters = { controls: { include: ['size', 'firstName', 'lastName', 'border'] } };
 
 
 withInitials.argTypes = colorVariantArgTypes;
+
+
+export const withIcon: Story = {
+    args: {
+        size: "small",
+        avtarOnly: false,
+        avtarWithName: false,
+        nameOnBottom: false,
+        stackingAvatar: false,
+        //colorVariant: "primary",
+        border:"noBorder",
+        iconName:"Home",
+
+    }
+} satisfies Story;
+withIcon.parameters = { controls: { include: ['size', 'iconName', 'border'] } };
+
 
 export const withLabel: Story = {
     args: {
@@ -88,9 +110,10 @@ export const withLabel: Story = {
         isTitle: true,
         titleAlign: "horizontal",
         role: "Developer",
+        border:"noBorder"
     }
 } satisfies Story;
-withLabel.parameters = { controls: { include: ['size', 'firstName', 'lastName', 'isTitle', 'titleAlign', 'role'] } };
+withLabel.parameters = { controls: { include: ['size', 'firstName', 'lastName', 'isTitle', 'titleAlign', 'role', 'border'] } };
 
 
 withLabel.argTypes = colorVariantArgTypes;
@@ -109,11 +132,12 @@ export const withProfile: Story = {
         titleAlign: "horizontal",
         role: "Developer",
         //colorVariant: "primary",
+        border:"noBorder",
         profilePic:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU",
     }
 } satisfies Story;
-withProfile.parameters = { controls: { include: ['size', 'firstName', 'lastName', 'withProfilePic', 'titleAlign', 'role', 'profilePic'] } };
+withProfile.parameters = { controls: { include: ['size', 'firstName', 'lastName', 'withProfilePic', 'titleAlign', 'role','border', 'profilePic'] } };
 
 
 withProfile.argTypes = textAlignArgTypes;
@@ -134,7 +158,7 @@ export const Avatar_Only: Story = {
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU",
     }
 } satisfies Story;
-Avatar_Only.parameters = { controls: { include: ['size', 'titleAlign', 'profilePic','colorVariant','activeDotTop','activeDotBottom','activityChain'] } };
+Avatar_Only.parameters = { controls: { include: ['size', 'titleAlign', 'profilePic','colorVariant', 'activeDotTop','activeDotBottom','activityChain'] } };
 
 export const Avatar_With_Name: Story = {
     args: {
@@ -190,4 +214,5 @@ export const Stacking_Avatar_Only: Story = {
         avatars: avatars,
     }
 } satisfies Story;
-Stacking_Avatar_Only.parameters = { controls: { include: ['size', 'titleAlign','maxVisibleAvatars'] } };
+Stacking_Avatar_Only.parameters = { controls: { include: ['size', 'titleAlign', 'maxVisibleAvatars'] } };
+
