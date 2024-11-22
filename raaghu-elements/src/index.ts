@@ -102,3 +102,4 @@ export { default as RdsButtonGrid } from "./rds-button-grid";
 export { default as RdsHeader } from "./rds-header";
 export { default as RdsTreeStructure } from "./rds-tree-structure";
 export { default as RdsSkeleton } from "./rds-skeleton";
+export { default as RdsAiPromptBox } from "./rds-ai-prompt-box";
