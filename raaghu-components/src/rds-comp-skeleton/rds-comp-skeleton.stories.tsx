@@ -9,7 +9,7 @@ const meta: Meta = {
   argTypes: {
     type: {
       control: { type: "select" },
-      options: ["pagination", "dropdown", "dataTable", "avatar", "card"],
+      options: ["pagination", "dropdown", "card"],
     },
     isAnimated: {
       control: { type: "boolean" },

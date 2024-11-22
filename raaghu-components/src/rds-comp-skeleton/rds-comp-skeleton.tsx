@@ -3,7 +3,7 @@ import "./rds-comp-skeleton.css";
 import RdsSkeleton from "../../../raaghu-elements/src/rds-skeleton/rds-skeleton";
 
 interface RdsCompSkeletonProps {
-  type: "pagination" | "dropdown" | "dataTable" | "avatar" | "card";
+  type: "pagination" | "dropdown" | "card";
   isAnimated: boolean;
   count?: number;
   rows?: number;
