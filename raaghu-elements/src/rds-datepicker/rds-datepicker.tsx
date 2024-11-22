@@ -79,16 +79,6 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
             <RdsButton label="Apply" size="small" colorVariant="primary" />
         </div>
     ));
-    // peekNextMonth={true}
-    // showMonthDropdown={props.datepickerStyle === "Dropdown"}
-    // showYearDropdown={props.datepickerStyle === "Dropdown"}
-
-    // const CustomDropdown = forwardRef(({ value, onClick }: any, ref: any) => (
-    //     <div className="d-flex text-align-center justify-content-end gap-2 me-2">
-    //         <RdsDropdownList label="Cancel" size="small" colorVariant="outline-primary" />
-    //         <RdsDropdownList label="Apply" size="small" colorVariant="primary" />
-    //     </div>
-    // ));
 
     const ExampleCustomInput = forwardRef(({ value, onClick }: any, ref: any) => (
         <li
