@@ -15,7 +15,7 @@ const meta: Meta = {
             control: { type: "select" },
         },
         layout: {
-            options: ["default", "showMonthYearPicker", "showYearPicker", "showTwoColumnMonthYearPicker"],
+            options: ["default", "MonthPicker", "YearPicker", "MultiMonth"],
             control: { type: "select" },
         }, 
     },

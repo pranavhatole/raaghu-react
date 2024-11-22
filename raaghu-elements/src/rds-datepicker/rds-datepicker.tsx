@@ -5,7 +5,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import RdsIcon from "../rds-icon";
 import "./rds-datepicker.css";
 import RdsButton from "../rds-button";
-import RdsDropdownList from "../rds-dropdown-list";
 
 export interface RdsDatepickerProps {
     selectedDate?: any;
@@ -15,7 +14,7 @@ export interface RdsDatepickerProps {
     onDatePicker?: any;
     datepickerStyle?: "Dropdown" | "Selector" ;
     type?: "default" | "advanced" | "withTime";
-    layout?: "default" | "showMonthYearPicker" | "showYearPicker" | "showTwoColumnMonthYearPicker";
+    layout?: "default" | "MonthPicker" | "YearPicker" | "MultiMonth";
     customDate?: any;
     isDropdownOpen: boolean;
     isDisabled?: boolean;
@@ -201,9 +200,10 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
                             wrapperClassName="datepicker__wrapper"
                             disabled={props.isDisabled} 
                             placeholderText={props.placeholderText || "Select date"}
-                            showMonthYearPicker={props.layout === "showMonthYearPicker"}
-                            showYearPicker={props.layout === "showYearPicker"}
-                            showTwoColumnMonthYearPicker={props.layout === "showTwoColumnMonthYearPicker"}
+                            showMonthYearPicker={props.layout === "MonthPicker"}
+                            showYearPicker={props.layout === "YearPicker"}
+                            showPreviousMonths
+                            monthsShown={props.layout === "MultiMonth" ? 3 : 1}
                             scrollableMonthYearDropdown={props.datepickerStyle === "Dropdown"}
                             todayButton={<CustomButtons />}
                             peekNextMonth={true}
@@ -296,12 +296,15 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
                                 customInput={<ExampleCustomInput />}
                                 disabled={props.isDisabled}
                                 placeholderText={props.placeholderText || "Select date"}
-                                showMonthYearPicker={props.layout === "showMonthYearPicker"}
-                                showYearPicker={props.layout === "showYearPicker"}
-                                showTwoColumnMonthYearPicker={props.layout === "showTwoColumnMonthYearPicker"}
+                                showMonthYearPicker={props.layout === "MonthPicker"}
+                                showYearPicker={props.layout === "YearPicker"}
                                 todayButton={<CustomButtons />}
+                                peekNextMonth={true}
+                                showMonthDropdown={props.datepickerStyle === "Dropdown"}
+                                showYearDropdown={props.datepickerStyle === "Dropdown"}
+                                dropdownMode="select"
                                 showPreviousMonths
-                                monthsShown={2}
+                                monthsShown={props.layout === "MultiMonth" ? 3 : 1}
                             />
                         </ul>
                     </div>
@@ -318,10 +321,15 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
                             showTimeInput
                             disabled={props.isDisabled}
                             placeholderText={props.placeholderText || "Select date"}
-                            showMonthYearPicker={props.layout === "showMonthYearPicker"}
-                            showYearPicker={props.layout === "showYearPicker"}
+                            showMonthYearPicker={props.layout === "MonthPicker"}
+                            showYearPicker={props.layout === "YearPicker"}
+                            peekNextMonth={true}
+                            showMonthDropdown={props.datepickerStyle === "Dropdown"}
+                            showYearDropdown={props.datepickerStyle === "Dropdown"}
+                            dropdownMode="select"
+                            showPreviousMonths
+                            monthsShown={props.layout === "MultiMonth" ? 3 : 1}
                             todayButton={<CustomButtons />}
-                            showTwoColumnMonthYearPicker={props.layout === "showTwoColumnMonthYearPicker"}
                         />
                         <span className="input-group-text cursor-pointer" id="basic-addon2">
                             <RdsIcon
