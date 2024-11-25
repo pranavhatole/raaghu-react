@@ -39,7 +39,7 @@ const meta: Meta<typeof RdsAlert> = {
             ],
             control: { type: "select" },
         },
-        style: {
+        displayType: {
             options: ["singleline", "multiline"],
             control: { type: "select" },
         },        
