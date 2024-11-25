@@ -164,7 +164,7 @@ const RdsCompTenantRegister = (props: RdsCompTenantRegisterProps) => {
                                     onClick={(e: any, val: any) => handleRegisterDataChanges(val, "countryCode")}
                                 />
                             </div>
-                            <div className="col-md-6">
+                            <div className="col-md-6 mt-2">
                                 <RdsInput
                                     required={true}
                                     label="Zip Code"
