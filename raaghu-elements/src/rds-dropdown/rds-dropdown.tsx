@@ -13,9 +13,9 @@ export interface RdsDropdownProps {
     iconFill?: boolean;
     iconStroke?: boolean;
     disable?: boolean;
-    layout: 'Textonly' | 'IconBefore' | 'onlyIcon';
+    layout?: 'Textonly' | 'IconBefore' | 'onlyIcon';
     isSelected?: boolean;
-    selectIcon: string;
+    selectIcon?: string;
     profileImage?: string;
 }
 
