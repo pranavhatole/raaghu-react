@@ -31,7 +31,7 @@ const RdsCompAlertPopup = (props: RdsCompAlertPopupProps) => {
 
     return (
         <div>
-           {(type=="default" || type =="confirm") &&( <RdsModal
+           {(type=="default" || type =="confirm" || type== "transfer_ownership") &&( <RdsModal
                 modalId={props.alertID}
                 modalBackdrop={true} 
                 preventEscapeKey={false}
@@ -45,8 +45,8 @@ const RdsCompAlertPopup = (props: RdsCompAlertPopupProps) => {
                 <div className="text-center py-3 px-4">
                     <p className="align-items-center d-flex justify-content-center">
                         <RdsIcon
-                            height={`${props.type == "confirm" ? "65px":"28px"}`}
-                            width={`${props.type == "confirm" ? "65px":"28px"}`}
+                            height={`${props.type == "confirm" || props.type == "transfer_ownership"  ? "65px":"28px"}`}
+                            width={`${props.type == "confirm" || props.type == "transfer_ownership" ? "65px":"28px"}`}
                             name={iconUrl}
                             fill={false}
                             stroke={true}
@@ -88,6 +88,31 @@ const RdsCompAlertPopup = (props: RdsCompAlertPopupProps) => {
                     </div>)}
                     {type=="confirm" &&(  <div className="mt-4 pt-2 d-flex gap-3 justify-content-center">
                         <RdsButton
+                            type="button"
+                            class="px-2 text-white"
+                            label={props.buttonlabel}
+                            size="small"
+                            tooltipTitle=""
+                            colorVariant={props.colorVariant}
+                            databsdismiss="modal"
+                            aria-label="close"
+                            onClick={props.onSuccess}
+                        />
+                    </div>)}
+                    {type=="transfer_ownership" &&(  <div className="mt-4 pt-2 d-flex gap-3 justify-content-center">
+                        <RdsButton
+                            onClick={props.onCancel}
+                            class="px-2"
+                            databsdismiss="modal"
+                            aria-label="close"
+                            label={CancelButtonLabel}
+                            size="small"
+                            type="button"
+                            tooltipTitle=""
+                            colorVariant={props.colorVariant}
+                            isOutline={true}
+                        />
+                       <RdsButton
                             type="button"
                             class="px-2 text-white"
                             label={props.buttonlabel}

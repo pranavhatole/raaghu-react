@@ -109,3 +109,32 @@ Confirm.parameters = {
         include: ['alertID', 'iconUrl', 'colorVariant', 'alertConfirmation', 'messageAlert', 'buttonlabel','type']
     }
 };
+export const Transfer_Ownership: Story = (args: any) => (
+    <>
+        <button
+            type="button"
+            className="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target={`#${args.alertID}`}
+        >
+           TRANSFER POPUP
+        </button>
+        <RdsCompAlertPopup {...args} />
+    </>
+);
+
+Transfer_Ownership.args = {
+    alertID: "alert_popup",
+    iconUrl: "exchange",
+    colorVariant: "primary",
+    alertConfirmation: "Are you Sure?",
+    messageAlert: "This will transfer the ownership and assign them full control based on their new role. You can modify it later if needed.",
+    buttonlabel: "Ok",
+    type: "transfer_ownership"
+};
+
+Transfer_Ownership.parameters = {
+    controls: {
+        include: ['alertID', 'iconUrl', 'colorVariant', 'alertConfirmation', 'messageAlert', 'buttonlabel','type']
+    }
+};
