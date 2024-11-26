@@ -102,14 +102,14 @@ const RdsCompAlertPopup = (props: RdsCompAlertPopupProps) => {
                     {type=="transfer_ownership" &&(  <div className="mt-4 pt-2 d-flex gap-3 justify-content-center">
                         <RdsButton
                             onClick={props.onCancel}
-                            class="px-2"
+                            class="px-2 "
                             databsdismiss="modal"
                             aria-label="close"
                             label={CancelButtonLabel}
                             size="small"
                             type="button"
                             tooltipTitle=""
-                            colorVariant={props.colorVariant}
+                            colorVariant="primary"
                             isOutline={true}
                         />
                        <RdsButton
@@ -118,7 +118,7 @@ const RdsCompAlertPopup = (props: RdsCompAlertPopupProps) => {
                             label={props.buttonlabel}
                             size="small"
                             tooltipTitle=""
-                            colorVariant={props.colorVariant}
+                            colorVariant="primary"
                             databsdismiss="modal"
                             aria-label="close"
                             onClick={props.onSuccess}

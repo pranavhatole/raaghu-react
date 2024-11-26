@@ -129,12 +129,13 @@ Transfer_Ownership.args = {
     colorVariant: "primary",
     alertConfirmation: "Are you Sure?",
     messageAlert: "This will transfer the ownership and assign them full control based on their new role. You can modify it later if needed.",
-    buttonlabel: "Ok",
+    buttonlabel: "Confirm",
+    cancelBtnLabel: "Cancel",
     type: "transfer_ownership"
 };
 
 Transfer_Ownership.parameters = {
     controls: {
-        include: ['alertID', 'iconUrl', 'colorVariant', 'alertConfirmation', 'messageAlert', 'buttonlabel','type']
+        include: ['alertID', 'iconUrl', 'colorVariant', 'alertConfirmation', 'messageAlert', 'buttonlabel','cancelBtnLabel','type']
     }
 };
