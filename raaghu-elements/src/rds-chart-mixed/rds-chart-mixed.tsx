@@ -5,8 +5,6 @@ export interface RdsMixedChartProps {
     labels: any[];
     options: any;
     dataSets: any[];
-    width?: number;
-    height?: number;
     chartStyle: string;
     id: string;
 }
@@ -32,13 +30,13 @@ const canvasRef = useRef<HTMLCanvasElement | null>(null);
                 mixedCanvas.destroy();
             };
         }
-    }, [props.height, props.width]);
+    }, []);
 
     return (
         <div>
             <canvas data-testid={props.id} id={props.id} ref={canvasRef} />
         </div>
     );
-    };
+};
 
 export default RdsMixedChart;
