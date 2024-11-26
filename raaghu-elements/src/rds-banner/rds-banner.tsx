@@ -115,7 +115,7 @@ const RdsBanner = (props: RdsBannerProps) => {
                      {props.showHyperlink &&( 
                       <div className="links">
                          
-                        <a className="btn btn-light" href={props.hyperlink} target="_blank" rel="noopener noreferrer">
+                        <a className="btn text-primary bg-light" href={props.hyperlink} target="_blank" rel="noopener noreferrer">
                         <span className="me-2">
                         <RdsIcon
                           colorVariant="primary"
