@@ -11,6 +11,9 @@ export interface RdsCompAlertPopupProps {
     deleteBtnLabel?: string;
     cancelButtonColor?: string;
     deleteButtonColor?: string;
+    children?: React.ReactNode;
+    type?: string;
+    labelText?: string;
 
     onSuccess?: (Event: React.MouseEvent<HTMLButtonElement>) => void;
     onCancel?: (Event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -23,10 +26,11 @@ const RdsCompAlertPopup = (props: RdsCompAlertPopupProps) => {
     const messageAlert = props.messageAlert || "This record will be deleted permanently.";
     const CancelButtonLabel = props.cancelBtnLabel || "Cancel";
     const DeleteButtonLabel = props.deleteBtnLabel || "Delete";
+    const type = props.type || "default";
 
     return (
         <div>
-            <RdsModal
+           {type=="default" &&( <RdsModal
                 modalId={props.alertID}
                 modalBackdrop={true} 
                 preventEscapeKey={false}
@@ -55,6 +59,7 @@ const RdsCompAlertPopup = (props: RdsCompAlertPopupProps) => {
                     <span>
                         <RdsLabel label={messageAlert} />
                     </span>
+                    {props.children}
                     <div className="mt-4 pt-2 d-flex gap-3 justify-content-center">
                         <RdsButton
                             onClick={props.onCancel}
@@ -62,7 +67,7 @@ const RdsCompAlertPopup = (props: RdsCompAlertPopupProps) => {
                             databsdismiss="modal"
                             aria-label="close"
                             label={CancelButtonLabel}
-                            size="small" // Corrected from "'small'" to "small"
+                            size="small"
                             type="button"
                             tooltipTitle=""
                             colorVariant="danger"
@@ -72,7 +77,7 @@ const RdsCompAlertPopup = (props: RdsCompAlertPopupProps) => {
                             type="button"
                             class="px-2 text-white"
                             label={DeleteButtonLabel}
-                            size="small" // Corrected from "'small'" to "small"
+                            size="small"
                             tooltipTitle=""
                             colorVariant="danger"
                             databsdismiss="modal"
@@ -81,9 +86,27 @@ const RdsCompAlertPopup = (props: RdsCompAlertPopupProps) => {
                         />
                     </div>
                 </div>
-            </RdsModal>
+            </RdsModal>)}
+            {type=="otpvalidation" &&( <RdsModal
+                modalId={props.alertID}
+                modalBackdrop={true} 
+                preventEscapeKey={false}
+                modalAnimation="modal fade"
+                showModalFooter={false}
+                showModalHeader={false}
+                scrollable={false}
+                size='default'
+                verticallyCentered={true}
+            >
+                <div className="text-center py-4 px-4 mb-5 ">
+                    
+                 
+                    {props.children}
+                </div>
+            </RdsModal>)}
         </div>
     );
 };
+
 
 export default RdsCompAlertPopup;

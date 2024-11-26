@@ -183,7 +183,7 @@ const RdsInput = React.forwardRef<HTMLInputElement, RdsInputProps>(
         case 'card number':
           return 'Add Card Number';
           case 'otp':
-          return 'Enter OTP';
+          return '';
         case 'number':
           return 'Enter Number';
         case 'password':
