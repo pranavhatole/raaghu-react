@@ -14,6 +14,7 @@ export interface RdsCompAlertPopupProps {
     children?: React.ReactNode;
     type?: string;
     labelText?: string;
+    buttonlabel?:string;
 
     onSuccess?: (Event: React.MouseEvent<HTMLButtonElement>) => void;
     onCancel?: (Event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -30,7 +31,7 @@ const RdsCompAlertPopup = (props: RdsCompAlertPopupProps) => {
 
     return (
         <div>
-           {type=="default" &&( <RdsModal
+           {(type=="default" || type =="confirm") &&( <RdsModal
                 modalId={props.alertID}
                 modalBackdrop={true} 
                 preventEscapeKey={false}
@@ -44,23 +45,23 @@ const RdsCompAlertPopup = (props: RdsCompAlertPopupProps) => {
                 <div className="text-center py-3 px-4">
                     <p className="align-items-center d-flex justify-content-center">
                         <RdsIcon
-                            height="28px"
-                            width="28px"
+                            height={`${props.type == "confirm" ? "65px":"28px"}`}
+                            width={`${props.type == "confirm" ? "65px":"28px"}`}
                             name={iconUrl}
                             fill={false}
                             stroke={true}
                             colorVariant={colorVariant}
-                            classes="border-danger px-3 py-3 border rounded-5"
+                            classes={`border-${props.type == "default" ?"danger" :"none"} px-3 py-3  rounded-5`}
                         />
                     </p>
                     <h4>
                         <RdsLabel label={alertConfirmation} />
                     </h4>
                     <span>
-                        <RdsLabel label={messageAlert} />
+                        <RdsLabel class="text-muted" label={messageAlert} />
                     </span>
                     {props.children}
-                    <div className="mt-4 pt-2 d-flex gap-3 justify-content-center">
+                  {type=="default" &&(  <div className="mt-4 pt-2 d-flex gap-3 justify-content-center">
                         <RdsButton
                             onClick={props.onCancel}
                             class="px-2"
@@ -84,7 +85,20 @@ const RdsCompAlertPopup = (props: RdsCompAlertPopupProps) => {
                             aria-label="close"
                             onClick={props.onSuccess}
                         />
-                    </div>
+                    </div>)}
+                    {type=="confirm" &&(  <div className="mt-4 pt-2 d-flex gap-3 justify-content-center">
+                        <RdsButton
+                            type="button"
+                            class="px-2 text-white"
+                            label={props.buttonlabel}
+                            size="small"
+                            tooltipTitle=""
+                            colorVariant={props.colorVariant}
+                            databsdismiss="modal"
+                            aria-label="close"
+                            onClick={props.onSuccess}
+                        />
+                    </div>)}
                 </div>
             </RdsModal>)}
             {type=="otpvalidation" &&( <RdsModal

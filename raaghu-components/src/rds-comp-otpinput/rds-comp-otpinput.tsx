@@ -102,7 +102,7 @@ const RdsCompOtpInput = (props: RdsOtpInputProps) => {
             />
           </div>
           <h2 id="otpverification">OTP Verification</h2>
-          <p className="otpdescription">One-Time OTP sent to your registered email address</p>
+          <p className="otpdescription text-muted">One-Time OTP sent to your registered email address</p>
           <div className="otp-inputs">
             {otp.map((value, index) => (
               <RdsInput

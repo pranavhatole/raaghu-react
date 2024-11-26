@@ -11,6 +11,10 @@ const meta: Meta = {
     },
     tags: ['autodocs'],
     argTypes: {
+            colorVariant: {
+                options: ["primary", "success", "danger", "warning", "light", "info", "secondary", "dark"],
+                control: { type: "select" },
+            }
     },
 } satisfies Meta<typeof RdsCompAlertPopup>;
 
@@ -73,5 +77,35 @@ OtpValidation.args = {
 OtpValidation.parameters = {
     controls: {
         include: [ 'iconUrl']
+    }
+};
+
+export const Confirm: Story = (args: any) => (
+    <>
+        <button
+            type="button"
+            className="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target={`#${args.alertID}`}
+        >
+            CONFIRM POPUP
+        </button>
+        <RdsCompAlertPopup {...args} />
+    </>
+);
+
+Confirm.args = {
+    alertID: "alert_popup",
+    iconUrl: "tick_circle",
+    colorVariant: "primary",
+    alertConfirmation: "Ownership transfer is complete !",
+    messageAlert: "Full control has been granted.Thank you for your patience",
+    buttonlabel: "Ok",
+    type: "confirm"
+};
+
+Confirm.parameters = {
+    controls: {
+        include: ['alertID', 'iconUrl', 'colorVariant', 'alertConfirmation', 'messageAlert', 'buttonlabel','type']
     }
 };
