@@ -1500,7 +1500,7 @@ $toast-padding-y: $spacing-s;
         top: -26px;
         width: 0.1875rem;
         height: 163%;
-        border-right: 1px dashed lightgray;
+        border-right: 1.5px dashed lightgray;
         z-index: 0;
     }
 
@@ -3536,6 +3536,12 @@ border-bottom: solid 1px #7D7D7D !important;
     background: #292b30 !important;
     color: #dee2e6 !important;
 }
+
+label.form-check-label.ms-2.undefined{
+    margin-top: -23px;
+    padding: 0px 15px;
+}
+
 
 .nav-tabs.vertical-alt-right-line{
     display: block;
