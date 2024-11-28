@@ -71,9 +71,9 @@ const RdsDropdown = (props: RdsDropdownProps) => {
     const getSizeClass = () => {
         switch (props.size) {
             case 'small':
-                return 'btn-sm dropdown-toggle-small';
+                return ' ';
             case 'medium':
-                return 'btn-md';
+                return 'btn-md px-4';
             case 'large':
                 return 'btn-lg';
             default:
