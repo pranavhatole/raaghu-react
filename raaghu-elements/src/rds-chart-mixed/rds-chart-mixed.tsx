@@ -26,6 +26,11 @@ const canvasRef = useRef<HTMLCanvasElement | null>(null);
                 options: props.options,
             });
 
+            if(mixedCanvas !== null) {
+                mixedCanvas.canvas.style.height = "50vh";
+                mixedCanvas.canvas.style.width = "100vh";
+            }
+
             return () => {
                 mixedCanvas.destroy();
             };
