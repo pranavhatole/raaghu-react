@@ -5,14 +5,12 @@ export interface RdsScatterChartProps {
     labels: any[],
     options: ChartConfiguration['options'],
     dataSets: ChartConfiguration['data']['datasets'],
-    width: number,
-    height?: number,
     chartStyle?: string,
     id: string
 }
 
 const RdsScatterChart = (props: RdsScatterChartProps) => {
-    const { id, labels, options, dataSets, width, height } = props;
+    const { id, labels, options, dataSets } = props;
     const chartRef = useRef<Chart | null>(null);
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -23,24 +21,19 @@ const RdsScatterChart = (props: RdsScatterChartProps) => {
 
         const ctx = canvasRef.current?.getContext("2d");
         if (ctx) {
-            // Modify the dataSets to include the pointStyle
-            const modifiedDataSets = dataSets.map(dataset => ({
-                ...dataset,
-                pointStyle: 'triangle' // This sets the point style to triangle
-            }));
-
             chartRef.current = new Chart(ctx, {
-                type: "scatter", // Make sure the type is scatter for this example
+                type: "bar",
                 data: {
                     labels: labels,
-                    datasets: modifiedDataSets
+                    datasets: dataSets
                 },
                 options: options,
             });
-            if (height) {
-                chartRef.current.canvas.style.height = height + "px";
+
+            if(chartRef.current !== null) {
+                chartRef.current.canvas.style.height = "50vh";
+                chartRef.current.canvas.style.width = "100vh";
             }
-            chartRef.current.canvas.style.width = width + "px";
         }
 
         return () => {
@@ -48,7 +41,7 @@ const RdsScatterChart = (props: RdsScatterChartProps) => {
                 chartRef.current.destroy();
             }
         };
-    }, [id, labels, options, dataSets, width, height]);
+    }, [id, labels, options, dataSets]);
 
     return (
         <div>
